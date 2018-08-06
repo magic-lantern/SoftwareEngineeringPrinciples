@@ -1,3 +1,25 @@
+---
+title: "R Package Survey"
+author: "Seth Russell"
+date: "6/19/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(stringi)
+library(magrittr)
+library(stringr)
+library(rvest)
+```
+
+## Going directly to CRAN
+
+Some text here...
+
+```{r cran}
+
+
 # TO DO
 # ?? maybe use map instead of lapply ??
 # probably want vector of logicals, but need to remove nested lists
@@ -8,12 +30,6 @@
 # next - look at optimization
 #   percent of packages using C, Rcpp, C++, Fortran/Cobol?
 
-rm(list=ls())
-gc()
-
-library(stringi)
-library(magrittr)
-library(stringr)
 
 read_from_cran <- TRUE
 setwd("/Users/seth/onedrive/Documents/Software Engineering Paper/survey/downloads")
@@ -32,8 +48,6 @@ test_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittes
 
 
 if (read_from_cran) {
-  library(rvest)
-
   # canonical source CRAN URL
   # url_base <- "https://cran.r-project.org/src/contrib/"
   # CRAN mirror
@@ -245,5 +259,6 @@ files_and_dirs
 c( "unitTests/", "tests/", "gsubfn", "likeLTD", "logging") %>% str_detect("^tests/.+")
 
 
+```
 
-
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
