@@ -5,21 +5,43 @@ date: "6/19/2018"
 output: html_document
 ---
 
+This notebook performs an analysis of use of testing methodologies for all R packages avaialble on CRAN.
+
+Two methods are used and results are compared.
+
+*Method 1:* Grep for non-empty testing directories. The commonly used R testing packages all recommend placing tests in a directory by themselves, which we look for.
+
+*Method 2:* Check for stated dependencies on testing packages. It is considered best practice to list dependencies on a testing framework even though standard usage of a package may not require it.
+
+
+I've Picked 2008 (10 years) as the last updated cutoff year based on manual inspection. While there are still packages in CRAN that were last updated in 2007 and prior, there are not very many, so ignore them in the visualizations.
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(stringi)
 library(magrittr)
 library(stringr)
 library(rvest)
+library(ggplot2)
+
+# Testing packages
+test_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittest")
+# testit is a minimal tool for testing packages, but it can be used for unit testing - e.g. tinytex
+# Packages considered but excluded:
+#   webmockr - Could be used for a testing library - or perhaps a roll your own test suite, but isn't as far as I could tell
+#   vdiffr - Is a extension for testthat, so requires testthat to work
+#
+# Users could use core R functionality for unit tests such as stopifnot() instead of packages
+# we don't attempt to quantify the scope of software that does unit testing without relying on
+# a package
 ```
 
-## Going directly to CRAN
+## Method 1 of testing analysis
 
-Some text here...
+This method downloads packages from CRAN and evaluates the files and folders for the presence of a non-empty test directory.
 
-```{r cran}
-
-
+```{r download_files}
 # TO DO
 # ?? maybe use map instead of lapply ??
 # probably want vector of logicals, but need to remove nested lists
@@ -32,20 +54,17 @@ Some text here...
 
 
 read_from_cran <- TRUE
-setwd("/Users/seth/onedrive/Documents/Software Engineering Paper/survey/downloads")
-sample_size <- 1000 # may want to do percent of all packages, or alternatively 100% sample
+download_dir <- '../downloads'
+if(! file.exists(download_dir)) {
+  dir.create(download_dir)
+}
+setwd(download_dir)
 
-# Testing packages
-test_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittest")
-# testit is a minimal tool for testing packages, but it can be used for unit testing - e.g. tinytex
-# Packages considered but excluded:
-#   webmockr - Could be used for a testing library - or perhaps a roll your own test suite, but isn't as far as I could tell
-#   vdiffr - Is a extension for testthat, so requires testthat to work
-#
-# Users could use core R functionality for unit tests such as stopifnot() instead of packages
-# we don't attempt to quantify the scope of software that does unit testing without relying on
-# a package
-
+# if value 100%, then read all packages, otherwise, randomly select number of packages provided
+sample_size <- '100%'
+sample_size <- '5'
+# dont need to untar, but is useful for manual analysis
+untar_files <- TRUE
 
 if (read_from_cran) {
   # canonical source CRAN URL
@@ -73,9 +92,14 @@ if (read_from_cran) {
   package_df <- package_df[grep(".tar.gz", package_df$filename),]
 
   # this line for 100% sample
-  files_and_dirs <- lapply(sample(package_df$filename, nrow(package_df)), function(s) {
-  #files_and_dirs <- lapply(sample(package_df$filename, sample_size), function(s) {
-    # line 61 need to check and see if already downloaded
+  if(sample_size == '100%') {
+    s_size <- nrow(package_df)
+  }
+  else {
+    s_size <- sample_size
+  }
+    
+  files_and_dirs <- lapply(sample(package_df$filename, s_size), function(s) {
     if(file.exists(s)) {
       print(paste0('File ', s, 'already downloaded'))
     } else {
@@ -83,15 +107,18 @@ if (read_from_cran) {
       tryCatch(download.file(paste0(url_base, s), s),
                error=function(e) NULL)
     }
-    untar(s)
+    if(untar_files) {
+      untar(s)
+    }
     untar(s, list=TRUE)
   })
 } else {
   packages <- list.files(getwd(), pattern=".tar.gz")
   files_and_dirs <- lapply(sample(packages, sample_size), function(s) {
     print(s)
-    # dont need to untar, but is useful for manual analysis
-    untar(s)
+    if (untar_files) {
+      untar(s)
+    }
     #paths_with_test <- lapply(untar(s, list=TRUE), grepl, pattern="[Tt]est[^/]*/.+", value=TRUE)
     v <- any(grepl(pattern="[Tt]est[^/]*/.+", untar(s, list=TRUE)))
     names(v) <- s
@@ -121,7 +148,13 @@ packages_with_tests <- unique(unlist(lapply(paths_with_test, stri_extract_all_re
 package_df$uses_tf <- FALSE
 package_df[package_df$package %in% packages_with_tests, ]$uses_tf <- TRUE
 
+```
 
+### Visualizations for method 1
+
+Histogram by year with testing packages shown
+
+```{r grep_based_graphics}
 # histogram packages that are tested by most current year package released
 grep_freqs <- aggregate(strftime(package_df$date, "%Y"),
                    by=list(strftime(package_df$date, "%Y"), package_df$uses_tf),
@@ -129,7 +162,8 @@ grep_freqs <- aggregate(strftime(package_df$date, "%Y"),
 names(grep_freqs) <- c('Year', 'Uses_TF', 'Count')
 grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Uses_TF)) +
   geom_bar(stat="identity")
-ggsave(filename = "../file_analysis_stacked_bar.png", grep_plot,
+grep_plot
+ggsave(filename = "../sourcecode/file_analysis_stacked_bar.png", grep_plot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
 # plot (table?) showing tested as pct of all packages
@@ -146,30 +180,24 @@ grep_pct_plot <- ggplot(data=grep_totals[grep_totals$Year > 2007, ], aes(x=Year,
   ylab("Percent with Testing Code") +
   xlab("Year Package Last Updated") +
   scale_y_continuous(limits = c(0,100))
-
-ggsave(filename = "../pct_w_testing_code.png", grep_pct_plot,
+grep_pct_plot
+ggsave(filename = "../sourcecode/pct_w_testing_code.png", grep_pct_plot,
        width = 7.2, height = 4, dpi = 600, units = "in", device='png')
 
+```
 
-#
-# Now calculate based on stated dependencies
-#
-#
-#
-r <- readRDS(url('https://cran.r-project.org/web/packages/packages.rds'))
-r[match(c('pccc', 'Rcpp'), r[, 'Package']), 'Published']
-length(r[, 'Package'])
+## Method 2 of testing analysis
 
-r[r[,'Package'] == 'pccc', 'Published']
-dplyr::filter(r, Package == 'pccc')
-
-
-
+```{r dependencies}
 # Calculate which testing packages are most popular
 # reverse dependencies don't give the whole story - e.g. Wats depends on testit, but as shown
 # in the directory structure, uses testthat for unit testing
 #
 # since package source not provided, using cran.r-project.org by default
+local({r <- getOption("repos")
+       r["CRAN"] <- "https://cran.rstudio.com/" 
+       options(repos=r)
+})
 test_package_dependencies <- tools:::package_dependencies(packages = test_packages,
                                                           recursive=FALSE,
                                                           reverse=TRUE,
@@ -192,15 +220,21 @@ result <- Map(function(tpd) {
 package_df[rowSums(package_df[test_packages]) > 1, ]
 nrow(package_df[rowSums(package_df[test_packages]) > 1, ])
 
-# now create histogram by year with testing packages shown
+```
+
+### Visualizations for method 2
+
+Histogram by year with testing packages shown
+
+```{r dependency_based_graphics}
 dep_freqs <- aggregate(strftime(package_df$date, "%Y"),
                    by=list(strftime(package_df$date, "%Y"), package_df$framework),
                    FUN=length)
 names(dep_freqs) <- c('Year', 'Framework', 'Count')
 fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Framework)) +
   geom_bar(stat="identity")
-
-ggsave(filename = "../framework_stacked_bar.png", fplot,
+fplot
+ggsave(filename = "../sourcecode/framework_stacked_bar.png", fplot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
 dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
@@ -221,12 +255,24 @@ dep_pct_plot <- ggplot(data=dep_totals[dep_totals$Year > 2007, ], aes(x=Year, y=
   ylab("Percent depending on testthat") +
   xlab("Year Package Last Updated") +
   scale_y_continuous(limits = c(0,100))
-ggsave(filename = "../pct_w_testthat_dep.png", dep_pct_plot,
+dep_pct_plot
+ggsave(filename = "../sourcecode/pct_w_testthat_dep.png", dep_pct_plot,
        width = 7.2, height = 4, dpi = 600, units = "in", device='png')
 
 
+```
 
-# show counts from different metrics
+### Method comparison
+
+As the results from method 1 do not match the results from method 2, explore some of the differences.
+
+Some points discovered:
+* It is possible for an R package to use a non-standard testing directory, even if they also use a standardized testing framework
+* It is possible to list a testing framework as a dependency and not acutally use the framework.
+* Speculation - Testing can be performed in-line with other code through use of stop() or stopifnot().
+* Speculation - Developers may have their own test cases they run while developing their software, but do not commit to a repository or share with others.
+
+```{r comparison}
 nrow(package_df[package_df$uses_tf == TRUE, ]) # 851 more appear to have testing code...
 nrow(package_df[package_df$framework != 'none', ])
 
@@ -240,25 +286,6 @@ nrow(only_grep)
 only_dep <- package_df[package_df$uses_tf == FALSE & package_df$framework != 'none', ]
 nrow(only_dep)
 
-
-
-stri_replace_last('ECOSolveR_0.4.tar.gz', '', regex = '_[0-9.-]+\\.tar\\.gz')
-
-for (i in files_and_dirs) {
-  v <- grep("test[^/]*/.+", i, value = TRUE)
-  matches <- stri_extract_all_regex(grep("test[^/]*/.+", i, value = TRUE), "^\\w+[^/]")
-}
-unique(matches)
-
-test <- c("utilsIPEA/tests/", "utilsIPEA/tests/testthat.R", "utilsIPEA/tests/testthat/", "utilsIPEA/tests/testthat/test_nome_de_solteira.R", "utilsIPEA/tests/testthat/test_abrevia_nome_meio.R", "utilsIPEA/tests/testthat/test_text_functions.R", "utilsIPEA/tests/testthat/test_ident_erros_munic_galileo.R")
-lapply(test, stri_extract_all_regex(, "^\\w+[^/]"))
-
-unique(stri_extract_all_regex(test, "^\\w+[^/]"))
-files_and_dirs
-
-c( "unitTests/", "tests/", "gsubfn", "likeLTD", "logging") %>% str_detect("^tests/.+")
-
-
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
