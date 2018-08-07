@@ -41,7 +41,9 @@ test_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittes
 
 This method downloads packages from CRAN and evaluates the files and folders for the presence of a non-empty test directory.
 
-```{r download_files}
+Output hidden as when running against entire CRAN it will be very large.
+
+```{r download_files,results="hide"}
 # TO DO
 # ?? maybe use map instead of lapply ??
 # probably want vector of logicals, but need to remove nested lists
@@ -62,9 +64,8 @@ setwd(download_dir)
 
 # if value 100%, then read all packages, otherwise, randomly select number of packages provided
 sample_size <- '100%'
-sample_size <- '5'
 # dont need to untar, but is useful for manual analysis
-untar_files <- TRUE
+untar_files <- FALSE
 
 if (read_from_cran) {
   # canonical source CRAN URL
@@ -271,6 +272,8 @@ Some points discovered:
 * It is possible to list a testing framework as a dependency and not acutally use the framework.
 * Speculation - Testing can be performed in-line with other code through use of stop() or stopifnot().
 * Speculation - Developers may have their own test cases they run while developing their software, but do not commit to a repository or share with others.
+
+As new packages are being released and updated all the time, these numbers will change.
 
 ```{r comparison}
 nrow(package_df[package_df$uses_tf == TRUE, ]) # 851 more appear to have testing code...
