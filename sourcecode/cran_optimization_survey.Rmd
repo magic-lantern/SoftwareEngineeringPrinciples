@@ -200,7 +200,7 @@ package_df[is.na(package_df$package_deps), ]['package_deps'] <- 'none'
 
 # are there any that have more than one dependency listed?
 # these are all counted multiple times in histogram
-package_df[rowSums(package_df[look_for_packages]) > 1, ]
+# package_df[rowSums(package_df[look_for_packages]) > 1, ]
 nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ])
 ```
 
@@ -232,15 +232,6 @@ Map(function(p) {
 }, look_for_packages)
 dep_totals[is.na(dep_totals)] <- 0
 names(dep_totals)[2] <- 'Count'
-dep_totals
-
-dep_totals[dep_totals[, grep("_Pct$", colnames(dep_totals))] >= 0.01, ]
-
-dep_totals[dep_totals$Year > 2012, ]
-dep_totals[dep_totals[grep("_Pct$", colnames(dep_totals))] > 0.05, ]
-apply(dep_totals, MARGIN = 2, function(x) {
-  any(x >= 0.05)
-})
 
 # chart to show dependency count and percent of totals
 dep_totals[sapply(dep_totals, function(x) any(x >= 0.01))][dep_totals$Year > 2012, ]
