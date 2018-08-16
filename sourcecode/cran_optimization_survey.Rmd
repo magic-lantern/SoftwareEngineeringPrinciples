@@ -3,6 +3,8 @@ title: "R Optimization Survey"
 author: "Seth Russell"
 date: "8/7/2018"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -260,11 +262,11 @@ length(unique(t$package))
 
 # 1697 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
 only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
-nrow(only_grep)
+print(paste("Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code:", nrow(only_grep)))
 
 # 849 packages that list a dependency to one of the specified packages but don't have compiled code
 only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
-nrow(only_dep)
+print(paste("Number of packages that list a dependency to one of the specified packages but don't have compiled code:", nrow(only_dep)))
 
 ```
 
