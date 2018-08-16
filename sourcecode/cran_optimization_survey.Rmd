@@ -1,0 +1,124 @@
+---
+title: "R Optimization Survey"
+author: "Seth Russell"
+date: "8/7/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(rvest)
+library(stringi)
+library(ggplot2)
+
+look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'SparkR', 'DistributedR', 'ddR', 'sparklyr', 'batchtools', 'RcppParallel', 'threadpool', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
+
+```
+
+Potential problems/limitations:
+Use of one of these specified packages doensn't mean user is trying to optimize.
+Package dependencies can be misleading - I've seen CRAN packages list packages as dependencies and by inspection of their source code, they never use it
+The best evidence of optimization would be in history of commits and unit test runs. While all packages have source code available, not all have development history available nor unit tests available
+
+
+
+```{r establishVars}
+# canonical source CRAN URL
+# url_base <- "https://cran.r-project.org/src/contrib/"
+# CRAN mirror
+url_base <- "https://cloud.r-project.org/src/contrib/"
+html_source <- read_html("https://cran.r-project.org/src/contrib/")
+
+td <- html_source %>% html_nodes("td") %>% html_text(trim = TRUE)
+
+n <- length(td)
+package_df <- data.frame(
+  #name
+  td[seq(2, n, 5)],
+  #package
+  stri_replace_last(td[seq(2, n, 5)], '' , regex = '_[0-9.-]+\\.tar\\.gz'),
+  # date
+  td[seq(3, n, 5)],
+  # size
+  td[seq(4, n, 5)]
+  , stringsAsFactors=FALSE)
+names(package_df) <- c('filename', 'package', 'date', 'size')
+
+#only want to keep R packages, not other stuff available
+package_df <- package_df[grep(".tar.gz", package_df$filename),]
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r dependencies}
+
+local({r <- getOption("repos")
+       r["CRAN"] <- "https://cran.rstudio.com/" 
+       options(repos=r)
+})
+package_deps <- tools:::package_dependencies(packages = look_for_packages,
+                                                          recursive=FALSE,
+                                                          reverse=TRUE,
+                                                          which = c("Depends","Imports","LinkingTo", "Suggests"))
+#   - count how many use each
+#   - count total number of packages using a testing package
+package_df$package_deps <- ''
+print(sort(unlist(Map(length, package_deps)), decreasing = TRUE))
+result <- Map(function(pd) {
+  package_df[pd] <<- FALSE
+  Map(function(p) {
+    package_df[package_df$package == p, ][pd] <<- TRUE
+    package_df[package_df$package == p, ]$package_deps <<- pd
+  }, package_deps[[pd]])
+}, names(package_deps))
+
+# are there any that have more than one dependency listed?
+# these are all counted multiple times in histogram
+package_df[rowSums(package_df[look_for_packages]) > 1, ]
+nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ])
+```
+
+
+```{r dependency_based_graphics}
+dep_freqs <- aggregate(strftime(package_df$date, "%Y"),
+                   by=list(strftime(package_df$date, "%Y"), package_df$package_deps),
+                   FUN=length)
+names(dep_freqs) <- c('Year', 'Dependency', 'Count')
+fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Dependency)) +
+  geom_bar(stat="identity")
+fplot
+ggsave(filename = "../sourcecode/dependency_stacked_bar.png", fplot,
+       width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
+
+dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
+names(dep_totals)[1] <- 'Year'
+Map(function(t) {
+  dep_totals <<- merge(dep_totals, dep_freqs[dep_freqs$Dependency == t, ][c('Year', 'Count')], by="Year", all=TRUE)
+  names(dep_totals)[length(names(dep_totals))] <<- t
+  print(dep_totals)
+  dep_totals[paste0(t, '_Pct')] <<- dep_totals$t / dep_totals$x
+}, look_for_packages)
+dep_totals[is.na(dep_totals)] <- 0
+names(dep_totals)[2] <- 'Count'
+dep_totals
+
+# testthat is the only one that has percentages above 1, so only plot that
+dep_pct_plot <- ggplot(data=dep_totals[dep_totals$Year > 2007, ], aes(x=Year, y=testthat_Pct * 100)) +
+  geom_bar(stat="identity") +
+  ylab("Percent depending on testthat") +
+  xlab("Year Package Last Updated") +
+  scale_y_continuous(limits = c(0,100))
+dep_pct_plot
+ggsave(filename = "../sourcecode/pct_w_testthat_dep.png", dep_pct_plot,
+       width = 7.2, height = 4, dpi = 600, units = "in", device='png')
+
+
+```
+

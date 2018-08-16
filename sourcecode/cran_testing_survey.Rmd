@@ -1,5 +1,5 @@
 ---
-title: "R Package Survey"
+title: "R Testing Package Survey"
 author: "Seth Russell"
 date: "6/19/2018"
 output: html_document
@@ -244,7 +244,8 @@ Map(function(t) {
   dep_totals <<- merge(dep_totals, dep_freqs[dep_freqs$Framework == t, ][c('Year', 'Count')], by="Year", all=TRUE)
   names(dep_totals)[length(names(dep_totals))] <<- t
   print(dep_totals)
-  dep_totals[paste0(t, '_Pct')] <<- dep_totals$t / dep_totals$x
+  # not sure why, but dep_totals$t doesn't work except for with one row, but dep_totals[t] works for all rows
+  dep_totals[paste0(t, '_Pct')] <<- dep_totals[t] / dep_totals[x]
 }, test_packages)
 dep_totals[is.na(dep_totals)] <- 0
 names(dep_totals)[2] <- 'Count'
