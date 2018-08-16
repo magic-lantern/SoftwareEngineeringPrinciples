@@ -245,7 +245,7 @@ Map(function(t) {
   names(dep_totals)[length(names(dep_totals))] <<- t
   print(dep_totals)
   # not sure why, but dep_totals$t doesn't work except for with one row, but dep_totals[t] works for all rows
-  dep_totals[paste0(t, '_Pct')] <<- dep_totals[t] / dep_totals[x]
+  dep_totals[paste0(t, '_Pct')] <<- dep_totals[t] / dep_totals$x
 }, test_packages)
 dep_totals[is.na(dep_totals)] <- 0
 names(dep_totals)[2] <- 'Count'

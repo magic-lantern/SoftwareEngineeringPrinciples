@@ -104,13 +104,23 @@ apply(dep_totals, MARGIN = 2, function(x) {
   any(x >= 0.05)
 })
 
-
-
 # chart to show dependency count and percent of totals
 dep_totals[sapply(dep_totals, function(x) any(x >= 0.01))][dep_totals$Year > 2012, ]
 
 
-# now look at files present and source code
+### liquidSVM is a good example of an optimized and tested package - see https://arxiv.org/pdf/1702.06899.pdf
+###    has no optimization related dependencies
+###    core of package implemented in C++
+### Iso package has Fortran code that pre-dates 2013/
+###    is Fortran code for performance reasons, ease of implementation, legacy reasons, or ???
+###
+### from manual review, it seems that all C++ and Fortran code is in src directory
+### external/third party libraries are included in other directories
+### One potential problem is use of Java - while it seems that due to how rJava allows Java code to be called
+### from R, a memory perfomance hit may occur - but some specific packages do mention that using Java threading
+### improves performance - see package 'rmcfs' as an example
+###
+### look for non empty src directory...
 untar_files <- TRUE
 orig_wd <- getwd()
 download_dir <- '/Users/seth/OneDrive - The University of Colorado Denver/Documents/Software Engineering Paper/survey/downloads'
@@ -119,7 +129,7 @@ if(! file.exists(download_dir)) {
 }
 setwd(download_dir)
 
-files_and_dirs <- lapply(sample(package_df$filename, 50), function(s) {
+files_and_dirs <- lapply(sample(package_df$filename, 25), function(s) {
   if(file.exists(s)) {
     print(paste0('File ', s, 'already downloaded'))
   } else {
@@ -133,9 +143,15 @@ files_and_dirs <- lapply(sample(package_df$filename, 50), function(s) {
   untar(s, list=TRUE)
 })
 
-###
-### need to determine what to look for. src directory? .c/.cpp files? both? FORTRAN files?
-### test this on the Linux box which has all files already downloaded...
-###
+files_and_dirs <- unlist(files_and_dirs)
+
+paths_found <- unlist(lapply(files_and_dirs, grep, pattern="src[^/]*/.+", value=TRUE))
+# get name of package from base of path
+paths_found <- unique(unlist(lapply(paths_found, stri_extract_all_regex, pattern="^\\w+[^/]+")))
+
+package_df$found <- FALSE
+package_df[package_df$package %in% paths_found, ]$found <- TRUE
+
+package_df[package_df$found == TRUE, ]
 
 
