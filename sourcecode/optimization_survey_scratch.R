@@ -58,11 +58,18 @@ result <- Map(function(pd) {
   }, package_deps[[pd]])
 }, names(package_deps))
 
+# can't figure out a better way to preserve all values into one column
 t <- tidyr::gather(package_df, key = "package_deps", value = "deps_value", look_for_packages,
        na.rm = FALSE,
        convert = FALSE,
        factor_key = FALSE)
 t <- t[t$deps_value == TRUE, ]
+
+package_df$package_deps <- merge(package_df, t %>% group_by(package) %>% arrange(package_deps) %>%
+        summarise(package_deps_combined = paste(package_deps, collapse =","))
+      , by="package", all=TRUE)$package_deps_combined
+package_df[is.na(package_df$package_deps), ]['package_deps'] <- 'none'
+
 
 # are there any that have more than one dependency listed?
 # these are all counted multiple times in histogram
@@ -80,8 +87,8 @@ fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 9, ], aes(x=Year, y=Count, fill
   xlab("Year Package Last Updated") +
   labs(fill = "Dependency n > 9")
 fplot
-ggsave(filename = "../sourcecode/dependency_stacked_bar.png", fplot,
-       width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
+#ggsave(filename = "../sourcecode/dependency_stacked_bar.png", fplot,
+#       width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
 
 dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
@@ -121,17 +128,28 @@ dep_totals[sapply(dep_totals, function(x) any(x >= 0.01))][dep_totals$Year > 201
 ### improves performance - see package 'rmcfs' as an example
 ###
 ### look for non empty src directory...
-untar_files <- TRUE
+# if value 100%, then read all packages, otherwise, randomly select number of packages provided
+sample_size <- '100%'
+# dont need to untar, but is useful for manual analysis
+untar_files <- FALSE
+
 orig_wd <- getwd()
-download_dir <- '/Users/seth/OneDrive - The University of Colorado Denver/Documents/Software Engineering Paper/survey/downloads'
+download_dir <- '../downloads'
 if(! file.exists(download_dir)) {
   dir.create(download_dir)
 }
 setwd(download_dir)
 
-files_and_dirs <- lapply(sample(package_df$filename, 25), function(s) {
+# this line for 100% sample
+if(sample_size == '100%') {
+  s_size <- nrow(package_df)
+} else {
+  s_size <- sample_size
+}
+
+files_and_dirs <- lapply(sample(package_df$filename, s_size), function(s) {
   if(file.exists(s)) {
-    print(paste0('File ', s, 'already downloaded'))
+    #print(paste0('File ', s, 'already downloaded'))
   } else {
     print(paste0('Attempting to download: ', s))
     tryCatch(download.file(paste0(url_base, s), s),
@@ -142,7 +160,7 @@ files_and_dirs <- lapply(sample(package_df$filename, 25), function(s) {
   }
   untar(s, list=TRUE)
 })
-
+setwd(orig_wd)
 files_and_dirs <- unlist(files_and_dirs)
 
 paths_found <- unlist(lapply(files_and_dirs, grep, pattern="src[^/]*/.+", value=TRUE))
@@ -152,6 +170,35 @@ paths_found <- unique(unlist(lapply(paths_found, stri_extract_all_regex, pattern
 package_df$found <- FALSE
 package_df[package_df$package %in% paths_found, ]$found <- TRUE
 
-package_df[package_df$found == TRUE, ]
 
+# histogram packages that are tested by most current year package released
+grep_freqs <- aggregate(strftime(package_df$date, "%Y"),
+                        by=list(strftime(package_df$date, "%Y"), package_df$found),
+                        FUN=length)
+names(grep_freqs) <- c('Year', 'Found', 'Count')
+grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Found)) +
+  geom_bar(stat="identity") +
+  xlab("Year Package Last Updated") +
+  labs(fill = "Compiled Code")
+grep_plot
+##ggsave(filename = "../sourcecode/file_analysis_stacked_bar.png", grep_plot,
+##       width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
+
+# plot (table?) showing tested as pct of all packages
+grep_totals <- aggregate(x=grep_freqs$Count, by = list(grep_freqs$Year), FUN = sum)
+names(grep_totals) <- c('Year', 'Count')
+grep_totals <- merge(grep_totals, grep_freqs[grep_freqs$Found == TRUE, ][c('Year', 'Count')], by="Year")
+names(grep_totals) <- c('Year', 'Total', 'Grep')
+grep_totals$Pct <- grep_totals$Grep / grep_totals$Total
+
+grep_totals
+
+grep_pct_plot <- ggplot(data=grep_totals[grep_totals$Year > 2007, ], aes(x=Year, y=Pct * 100)) +
+  geom_bar(stat="identity") +
+  ylab("Percent with Compiled Code") +
+  xlab("Year Package Last Updated") +
+  scale_y_continuous(limits = c(0,100))
+grep_pct_plot
+##ggsave(filename = "../sourcecode/pct_w_testing_code.png", grep_pct_plot,
+##       width = 7.2, height = 4, dpi = 600, units = "in", device='png')
 
