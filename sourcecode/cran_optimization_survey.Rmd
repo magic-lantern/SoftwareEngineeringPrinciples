@@ -137,14 +137,14 @@ dep_freqs <- aggregate(strftime(transformed_df$date, "%Y"),
                        FUN=length)
 
 names(dep_freqs) <- c('Year', 'Dependency', 'Count')
-# is this the right criteria for this plot? Should I change this to year? Or year and count?
-fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 9, ], aes(x=Year, y=Count, fill=Dependency)) +
+
+fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 10, ], aes(x=Year, y=Count, fill=Dependency)) +
   geom_bar(stat="identity") +
-  scale_fill_brewer(type='div', palette = 'Set1') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
+  scale_fill_brewer(type='div', palette = 'Set1', na.value='#e41a1c') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
   xlab("Year Package Last Updated") +
-  labs(fill = "Dependency n > 9")
+  labs(fill = "Dependency n > 10")
 fplot
-ggsave(filename = paste0(path_base, "sourcecode/optimization_dependency_stacked_bar.png"), fplot,
+ggsave(filename = paste0(image_base, "optimization_dependency_stacked_bar.png"), fplot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
 dep_totals <- dependency_table(dep_freqs)
@@ -163,18 +163,15 @@ Some points discovered:
 As new packages are being released and updated all the time, these numbers will change.
 
 ```{r comparison}
+# 846 more appear to use compiled code
 print("Difference between packages that have src directory vs dependency on optimization framework:")
 nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
 
-## get rid of these two rows???
-nrow(package_df[package_df$found == TRUE, ]) # 848 more appear to use compiled code
-length(unique(transformed_df$package))
-
-# 1697 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
+# 1701 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
 only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
 print(paste("Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code:", nrow(only_grep)))
 
-# 849 packages that list a dependency to one of the specified packages but don't have compiled code
+# 855 packages that list a dependency to one of the specified packages but don't have compiled code
 only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
 print(paste("Number of packages that list a dependency to one of the specified packages but don't have compiled code:", nrow(only_dep)))
 
