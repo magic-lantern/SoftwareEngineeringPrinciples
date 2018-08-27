@@ -28,7 +28,7 @@ initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE
   
   # new packages may have old version still in list, want to only consider newest versions
   package_df <- package_df[ order(package_df$date, decreasing = TRUE), ]
-  package_df <- distinct(package_df, package, .keep_all = TRUE)
+  package_df <- dplyr::distinct(package_df, package, .keep_all = TRUE)
   package_df <- package_df[ order(package_df$package), ]
   
   # this line for 100% sample
@@ -120,6 +120,7 @@ transform_df <- function(package_df) {
                      convert = FALSE,
                      factor_key = FALSE)
   t <- t[t$deps_value == TRUE, ]
+  t <- t[ , !(names(t) %in% 'deps_value')]
   return(t)
 }
 
@@ -132,7 +133,7 @@ grep_viz <- function(package_df, image_prefix, label) {
   grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Found)) +
     geom_bar(stat="identity") +
     xlab("Year Package Last Updated") +
-    labs(fill = "Compiled Code")
+    labs(fill = paste(label, "Code"))
   grep_plot
   ggsave(filename = paste0(path_base, 'sourcecode/', image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
          width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
@@ -142,13 +143,14 @@ grep_viz <- function(package_df, image_prefix, label) {
   names(grep_totals) <- c('Year', 'Count')
   grep_totals <- merge(grep_totals, grep_freqs[grep_freqs$Found == TRUE, ][c('Year', 'Count')], by="Year", all=TRUE)
   names(grep_totals) <- c('Year', 'Total', 'Grep')
-  grep_totals$Pct <- grep_totals$Grep / grep_totals$Total
   
+  grep_totals$Pct <- grep_totals$Grep / grep_totals$Total
   grep_totals$Pct <- round(grep_totals$Pct * 100)
+  
   print('Summary Table for Grep Results')
   print(t(grep_totals))
   
-  grep_pct_plot <- ggplot(data=grep_totals[grep_totals$Year > 2007, ], aes(x=Year, y=Pct * 100)) +
+  grep_pct_plot <- ggplot(data=grep_totals[grep_totals$Year > 2007, ], aes(x=Year, y=Pct)) +
     geom_bar(stat="identity") +
     ylab(paste("Percent with", label, "Code")) +
     xlab("Year Package Last Updated") +
@@ -158,4 +160,21 @@ grep_viz <- function(package_df, image_prefix, label) {
          width = 7.2, height = 4, dpi = 600, units = "in", device='png')
   
   return(grep_totals)
+}
+
+dependency_table <- function(dep_freqs) {
+  dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
+  names(dep_totals)[1] <- 'Year'
+  invisible(Map(function(p) {
+    dep_totals <<- merge(dep_totals, dep_freqs[dep_freqs$Dependency == p, ][c('Year', 'Count')], by="Year", all=TRUE)
+    names(dep_totals)[length(names(dep_totals))] <<- p
+    # not sure why, but dep_totals$p doesn't work except for with a few rows, but dep_totals[p] works for all rows
+    dep_totals[paste0(p, '_Pct')] <<- round((dep_totals[p] / dep_totals$x) * 100)
+  }, look_for_packages))
+  dep_totals[is.na(dep_totals)] <- 0
+  names(dep_totals)[2] <- 'Count'
+  
+  # chart to show dependency count and percent of totals, suppress low nubers
+  out <- dep_totals[sapply(dep_totals, function(x) any(x >= 1))]
+  return(t(out))
 }

@@ -16,6 +16,39 @@ library(ggplot2)
 
 # these packages are used for a range of items related to optimization - compiled code, multi-processing, etc.
 look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'SparkR', 'DistributedR', 'ddR', 'sparklyr', 'batchtools', 'RcppParallel', 'threadpool', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
+# Notes about package selection
+#Timing tools
+#  system.time() - time how long something takes
+#  Sys.time() - get current time
+#  tictoc - package
+#  rbenchmark - package
+#  microbenchmark - Package
+#  Rprof - function
+#  profr - Package
+#  profvis - Package
+#
+#Parallelization packages
+#  snow
+#  doSNOW
+#  parallel - R started with release 2.14.0 which includes a new package parallel incorporating (slightly revised) copies of packages multicore and snow.
+#  doParallel
+#  Rmpi - Rmpi provides an interface (wrapper) to MPI APIs. It also provides interactive R slave environment.
+#  foreach - Executing the loop in parallel.
+#  future - A minimal, efficient, cross-platform unified Future API for parallel and distributed processing in R; designed for beginners as well as advanced developers.
+#  SparkR - R frontend for Spark.
+#  DistributedR - A scalable high-performance platform from HP Vertica Analytics Team.
+#  ddR - Provides distributed data structures and simplifies distributed computing in R.
+#  sparklyr - R interface for Apache Spark from RStudio.
+#  batchtools - High performance computing with LSF, TORQUE, Slurm, OpenLava, SGE and Docker Swarm.
+#  RcppParallel
+#  threadpool
+#  parallelDist
+#  parallelMap
+#  doMC
+#  doMPI
+#  Rmpi
+#  partools
+#  DSL - has MapReduce function
 
 ```
 
@@ -85,22 +118,26 @@ grep_totals <- grep_viz(package_df = package_df, image_prefix = 'optimization', 
 ```{r dependencies}
 # function from shared_fn.R - sets package_df$package_deps
 package_df <- calc_dependencies(package_df)
-transformed_df <- transform_df(package_df)
 
 # are there any that have more than one dependency listed?
 # these are all counted multiple times in histogram
 # package_df[rowSums(package_df[look_for_packages]) > 1, ]
-nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ])
+print(paste('There are', nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ]), 'packages with multiple dependencies. They will be double counted in histogram'))
 ```
 
 ### Visualizations and Tables for Dependency results
 
 ```{r dependency_based_visualizations}
+# need to merge transformed_df with package_df to keep those with no dependency and create better histogram
+transformed_df <- transform_df(package_df)
+transformed_df <- merge(transformed_df, package_df[package_df$package_deps == 'none', ][colnames(transformed_df)], all=TRUE)
+
 dep_freqs <- aggregate(strftime(transformed_df$date, "%Y"),
                        by=list(strftime(transformed_df$date, "%Y"), transformed_df$package_deps),
                        FUN=length)
 
 names(dep_freqs) <- c('Year', 'Dependency', 'Count')
+# is this the right criteria for this plot? Should I change this to year? Or year and count?
 fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 9, ], aes(x=Year, y=Count, fill=Dependency)) +
   geom_bar(stat="identity") +
   scale_fill_brewer(type='div', palette = 'Set1') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
@@ -110,21 +147,9 @@ fplot
 ggsave(filename = paste0(path_base, "sourcecode/optimization_dependency_stacked_bar.png"), fplot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
-
-dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
-names(dep_totals)[1] <- 'Year'
-invisible(Map(function(p) {
-  dep_totals <<- merge(dep_totals, dep_freqs[dep_freqs$Dependency == p, ][c('Year', 'Count')], by="Year", all=TRUE)
-  names(dep_totals)[length(names(dep_totals))] <<- p
-  # not sure why, but dep_totals$p doesn't work except for with one row (profr), but dep_totals[p] works for all rows
-  dep_totals[paste0(p, '_Pct')] <<- round((dep_totals[p] / dep_totals$x) * 100)
-}, look_for_packages))
-dep_totals[is.na(dep_totals)] <- 0
-names(dep_totals)[2] <- 'Count'
-
-# chart to show dependency count and percent of totals, suppress low nubers
-out <- dep_totals[sapply(dep_totals, function(x) any(x >= 2))][dep_totals$Year > 2012, ]
-t(out)
+dep_totals <- dependency_table(dep_freqs)
+print('Dependency Table:')
+dep_totals
 ```
 
 ## Method comparison
@@ -138,6 +163,10 @@ Some points discovered:
 As new packages are being released and updated all the time, these numbers will change.
 
 ```{r comparison}
+print("Difference between packages that have src directory vs dependency on optimization framework:")
+nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
+
+## get rid of these two rows???
 nrow(package_df[package_df$found == TRUE, ]) # 848 more appear to use compiled code
 length(unique(transformed_df$package))
 

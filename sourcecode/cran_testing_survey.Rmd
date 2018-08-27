@@ -3,6 +3,8 @@ title: "R Testing Package Survey"
 author: "Seth Russell"
 date: "6/19/2018"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 This notebook performs an analysis of use of testing methodologies for all R packages avaialble on CRAN.
@@ -19,14 +21,13 @@ I've Picked 2008 (10 years) as the last updated cutoff year based on manual insp
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
 library(stringi)
-library(magrittr)
-library(stringr)
 library(rvest)
 library(ggplot2)
 
 # Testing packages
-test_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittest")
+look_for_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittest")
 # testit is a minimal tool for testing packages, but it can be used for unit testing - e.g. tinytex
 # Packages considered but excluded:
 #   webmockr - Could be used for a testing library - or perhaps a roll your own test suite, but isn't as far as I could tell
@@ -37,106 +38,40 @@ test_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittes
 # a package
 ```
 
+
+```{r importsharedfn, echo=FALSE, cache=FALSE}
+source("~/SoftwareEngineeringPrinciples/sourcecode/shared_fn.R")
+```
+
 ## Method 1 of testing analysis
 
 This method downloads packages from CRAN and evaluates the files and folders for the presence of a non-empty test directory.
 
 Output hidden as when running against entire CRAN it will be very large.
 
-```{r download_files,results="hide"}
-read_from_cran <- TRUE
-download_dir <- '../downloads'
-if(! file.exists(download_dir)) {
-  dir.create(download_dir)
-}
-setwd(download_dir)
-
+```{r grep_packages,results="hide"}
 # if value 100%, then read all packages, otherwise, randomly select number of packages provided
 sample_size <- '100%'
 # dont need to untar, but is useful for manual analysis
 untar_files <- FALSE
 
-if (read_from_cran) {
-  # canonical source CRAN URL
-  # url_base <- "https://cran.r-project.org/src/contrib/"
-  # CRAN mirror
-  url_base <- "https://cloud.r-project.org/src/contrib/"
-  html_source <- read_html("https://cran.r-project.org/src/contrib/")
-
-  td <- html_source %>% html_nodes("td") %>% html_text(trim = TRUE)
-
-  n <- length(td)
-  package_df <- data.frame(
-    #name
-    td[seq(2, n, 5)],
-    #package
-    stri_replace_last(td[seq(2, n, 5)], '' , regex = '_[0-9.-]+\\.tar\\.gz'),
-    # date
-    td[seq(3, n, 5)],
-    # size
-    td[seq(4, n, 5)]
-  , stringsAsFactors=FALSE)
-  names(package_df) <- c('filename', 'package', 'date', 'size')
-
-  #only want to keep R packages, not other stuff available
-  package_df <- package_df[grep(".tar.gz", package_df$filename),]
-
-  # this line for 100% sample
-  if(sample_size == '100%') {
-    s_size <- nrow(package_df)
-  } else {
-    s_size <- sample_size
-  }
-    
-  files_and_dirs <- lapply(sample(package_df$filename, s_size), function(s) {
-    if(file.exists(s)) {
-      print(paste0('File ', s, 'already downloaded'))
-    } else {
-      print(paste0('Attempting to download: ', s))
-      tryCatch(download.file(paste0(url_base, s), s),
-               error=function(e) NULL)
-    }
-    if(untar_files) {
-      untar(s)
-    }
-    untar(s, list=TRUE)
-  })
-} else {
-  packages <- list.files(getwd(), pattern=".tar.gz")
-  files_and_dirs <- lapply(sample(packages, sample_size), function(s) {
-    print(s)
-    if (untar_files) {
-      untar(s)
-    }
-    #paths_with_test <- lapply(untar(s, list=TRUE), grepl, pattern="[Tt]est[^/]*/.+", value=TRUE)
-    v <- any(grepl(pattern="[Tt]est[^/]*/.+", untar(s, list=TRUE)))
-    names(v) <- s
-    v
-  })
-}
-files_and_dirs <- unlist(files_and_dirs)
-
-# example of grep stmts to make sure it is working as expected
-any(grepl("[Tt]est[^/]*/.+", c('blah', 'blah2')))
-any(grepl("[Tt]est[^/]*/.+", c('unitest/myfile.R', 'something')))
-any(grepl("[Tt]est[^/]*/.+", c('unitest/f.R', 'tests/b.R')))
-
-# now, for each dirs, see if there is a directory or file named test
-# find paths that have test in them
 # Although most unit testing packages use test/ or tests/ as the common base directory, some
 # such as svUnit recommend the directory /inst/unitTests
 #
 # code at https://github.com/rorynolan/exampletestr/blob/master/analysis/CRAN_test_analysis.Rmd misses some
-# test library usage since it checks for "^tests/.+". As an example, R packages using svUnit (such as gsubfn)
+# test directories since it checks for "^tests/.+". As an example, R packages using svUnit (such as gsubfn)
 # often call the test directory unitTests
 #
-paths_with_test <- unlist(lapply(files_and_dirs, grep, pattern="[Tt]est[^/]*/.+", value=TRUE))
-# get name of package from base of path
-packages_with_tests <- unique(unlist(lapply(paths_with_test, stri_extract_all_regex, pattern="^\\w+[^/]+")))
 
-package_df$uses_tf <- FALSE
-package_df[package_df$package %in% packages_with_tests, ]$uses_tf <- TRUE
+# call code from shared_fn.R to download files and extract them if desired
+package_df <- initialize(search_pattern="[Tt]est[^/]*/.+", sample_size=sample_size, untar_files=untar_files)
 
+if (nrow(package_df[package_df$download_error == TRUE, ]) > 0) {
+  print('Unable to download these packages - they will not be considered in analysis')
+  print(package_df[package_df$download_error == TRUE, ])
+}
+
+print(paste('As of ', date(), ' there are', nrow(package_df), 'packages available on CRAN'))
 ```
 
 ### Visualizations for method 1
@@ -144,112 +79,48 @@ package_df[package_df$package %in% packages_with_tests, ]$uses_tf <- TRUE
 Histogram by year with testing packages shown
 
 ```{r grep_based_graphics}
-# histogram packages that are tested by most current year package released
-grep_freqs <- aggregate(strftime(package_df$date, "%Y"),
-                   by=list(strftime(package_df$date, "%Y"), package_df$uses_tf),
-                   FUN=length)
-names(grep_freqs) <- c('Year', 'Uses_TF', 'Count')
-grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Uses_TF)) +
-  geom_bar(stat="identity")
-grep_plot
-ggsave(filename = "../sourcecode/file_analysis_stacked_bar.png", grep_plot,
-       width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
-# plot (table?) showing tested as pct of all packages
-grep_totals <- aggregate(x=grep_freqs$Count, by = list(grep_freqs$Year), FUN = sum)
-names(grep_totals) <- c('Year', 'Count')
-grep_totals <- merge(grep_totals, grep_freqs[grep_freqs$Uses_TF == TRUE, ][c('Year', 'Count')], by="Year")
-names(grep_totals) <- c('Year', 'Total', 'Grep')
-grep_totals$Pct <- grep_totals$Grep / grep_totals$Total
-
-grep_totals
-
-grep_pct_plot <- ggplot(data=grep_totals[grep_totals$Year > 2007, ], aes(x=Year, y=Pct * 100)) +
-  geom_bar(stat="identity") +
-  ylab("Percent with Testing Code") +
-  xlab("Year Package Last Updated") +
-  scale_y_continuous(limits = c(0,100))
-grep_pct_plot
-ggsave(filename = "../sourcecode/pct_w_testing_code.png", grep_pct_plot,
-       width = 7.2, height = 4, dpi = 600, units = "in", device='png')
+grep_totals <- grep_viz(package_df = package_df, image_prefix = 'testing', label = 'Testing')
 
 ```
 
 ## Method 2 of testing analysis
 
 ```{r dependencies}
-# Calculate which testing packages are most popular
-# reverse dependencies don't give the whole story - e.g. Wats depends on testit, but as shown
-# in the directory structure, uses testthat for unit testing
-#
-# since package source not provided, using cran.r-project.org by default
-local({r <- getOption("repos")
-       r["CRAN"] <- "https://cran.rstudio.com/" 
-       options(repos=r)
-})
-test_package_dependencies <- tools:::package_dependencies(packages = test_packages,
-                                                          recursive=FALSE,
-                                                          reverse=TRUE,
-                                                          which = c("Depends","Imports","LinkingTo", "Suggests"))
-# Need check for use of various testing frameworks
-#   - count how many use each
-#   - count total number of packages using a testing package
-package_df$framework <- 'none'
-print(sort(unlist(Map(length, test_package_dependencies)), decreasing = TRUE))
-result <- Map(function(tpd) {
-  package_df[tpd] <<- FALSE
-  Map(function(p) {
-    package_df[package_df$package == p, ][tpd] <<- TRUE
-    package_df[package_df$package == p, ]$framework <<- tpd
-  }, test_package_dependencies[[tpd]])
-}, names(test_package_dependencies))
+# function from shared_fn.R - sets package_df$package_deps
+package_df <- calc_dependencies(package_df)
 
-# are there any that have more than one testing framework listed?
+# are there any that have more than one dependency listed?
 # these are all counted multiple times in histogram
-package_df[rowSums(package_df[test_packages]) > 1, ]
-nrow(package_df[rowSums(package_df[test_packages]) > 1, ])
-
+print(paste('There are', nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ]), 'packages with multiple dependencies. They will be double counted in histogram'))
 ```
 
 ### Visualizations for method 2
 
 Histogram by year with testing packages shown
 
-```{r dependency_based_graphics}
-dep_freqs <- aggregate(strftime(package_df$date, "%Y"),
-                   by=list(strftime(package_df$date, "%Y"), package_df$framework),
-                   FUN=length)
-names(dep_freqs) <- c('Year', 'Framework', 'Count')
-fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Framework)) +
-  geom_bar(stat="identity")
+```{r dependency_based_visualizations}
+# need to merge transformed_df with package_df to keep those with no dependency and create better histogram
+transformed_df <- transform_df(package_df)
+transformed_df <- merge(transformed_df, package_df[package_df$package_deps == 'none', ][colnames(transformed_df)], all=TRUE)
+
+dep_freqs <- aggregate(strftime(transformed_df$date, "%Y"),
+                       by=list(strftime(transformed_df$date, "%Y"), transformed_df$package_deps),
+                       FUN=length)
+
+names(dep_freqs) <- c('Year', 'Dependency', 'Count')
+fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Dependency)) +
+  geom_bar(stat="identity") +
+  scale_fill_brewer(type='div', palette = 'Set1') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
+  xlab("Year Package Last Updated") +
+  labs(fill = "Framework")
 fplot
-ggsave(filename = "../sourcecode/framework_stacked_bar.png", fplot,
+ggsave(filename = paste0(path_base, "sourcecode/testing_dependency_stacked_bar.png"), fplot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
-dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
-names(dep_totals)[1] <- 'Year'
-Map(function(t) {
-  dep_totals <<- merge(dep_totals, dep_freqs[dep_freqs$Framework == t, ][c('Year', 'Count')], by="Year", all=TRUE)
-  names(dep_totals)[length(names(dep_totals))] <<- t
-  print(dep_totals)
-  # not sure why, but dep_totals$t doesn't work except for with one row, but dep_totals[t] works for all rows
-  dep_totals[paste0(t, '_Pct')] <<- dep_totals[t] / dep_totals$x
-}, test_packages)
-dep_totals[is.na(dep_totals)] <- 0
-names(dep_totals)[2] <- 'Count'
+dep_totals <- dependency_table(dep_freqs)
+print('Dependency Table:')
 dep_totals
-
-# testthat is the only one that has percentages above 1, so only plot that
-dep_pct_plot <- ggplot(data=dep_totals[dep_totals$Year > 2007, ], aes(x=Year, y=testthat_Pct * 100)) +
-  geom_bar(stat="identity") +
-  ylab("Percent depending on testthat") +
-  xlab("Year Package Last Updated") +
-  scale_y_continuous(limits = c(0,100))
-dep_pct_plot
-ggsave(filename = "../sourcecode/pct_w_testthat_dep.png", dep_pct_plot,
-       width = 7.2, height = 4, dpi = 600, units = "in", device='png')
-
-
 ```
 
 ### Method comparison
@@ -258,25 +129,26 @@ As the results from method 1 do not match the results from method 2, explore som
 
 Some points discovered:
 * It is possible for an R package to use a non-standard testing directory, even if they also use a standardized testing framework
-* It is possible to list a testing framework as a dependency and not acutally use the framework.
+* It is possible to list a testing framework as a dependency and not actually use the framework.
 * Speculation - Testing can be performed in-line with other code through use of stop() or stopifnot().
 * Speculation - Developers may have their own test cases they run while developing their software, but do not commit to a repository or share with others.
 
 As new packages are being released and updated all the time, these numbers will change.
 
 ```{r comparison}
-nrow(package_df[package_df$uses_tf == TRUE, ]) # 851 more appear to have testing code...
-nrow(package_df[package_df$framework != 'none', ])
+# 859 more appear to have testing code...
+print("Difference between packages that have testing code vs dependency on testing framework:")
+nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
 
-# 1062 packages that don't list a dependency to a testing framework, but have a testing directory
+# 1070 packages that don't list a dependency to a testing framework, but have a testing directory
 # Randomly looked at several: some don't use a framework (e.g. xlsx)
 # others use a framework but don't list it as a dependency (e.g. redcapAPI)
-only_grep <- package_df[package_df$uses_tf == TRUE & package_df$framework == 'none', ]
-nrow(only_grep)
+only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
+print(paste("Packages that don't list a dependency to a testing framework, but have a testing directory:", nrow(only_grep)))
 
 # 211 packages that list a dependency to a testing framework, but don't use one
-only_dep <- package_df[package_df$uses_tf == FALSE & package_df$framework != 'none', ]
-nrow(only_dep)
+only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
+print(paste("Packages that list a dependency to a testing framework, but don't use one:", nrow(only_dep)))
 
 ```
 
