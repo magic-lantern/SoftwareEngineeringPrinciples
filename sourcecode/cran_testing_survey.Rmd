@@ -115,7 +115,7 @@ fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fi
   xlab("Year Package Last Updated") +
   labs(fill = "Framework")
 fplot
-ggsave(filename = paste0(path_base, "sourcecode/testing_dependency_stacked_bar.png"), fplot,
+ggsave(filename = paste0(image_base, "testing_dependency_stacked_bar.png"), fplot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
 
 dep_totals <- dependency_table(dep_freqs)

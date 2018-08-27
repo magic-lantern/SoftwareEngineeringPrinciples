@@ -4,6 +4,7 @@
 url_base <- "https://cloud.r-project.org/src/contrib/"
 html_source <- read_html("https://cran.r-project.org/src/contrib/")
 path_base <- "~/SoftwareEngineeringPrinciples/"
+image_base <- paste0(path_base, 'output/')
 
 initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE) {
   td <- html_source %>% html_nodes("td") %>% html_text(trim = TRUE)
@@ -135,7 +136,7 @@ grep_viz <- function(package_df, image_prefix, label) {
     xlab("Year Package Last Updated") +
     labs(fill = paste(label, "Code"))
   grep_plot
-  ggsave(filename = paste0(path_base, 'sourcecode/', image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
+  ggsave(filename = paste0(image_base, image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
          width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
   
   # plot (table?) showing tested as pct of all packages
@@ -156,7 +157,7 @@ grep_viz <- function(package_df, image_prefix, label) {
     xlab("Year Package Last Updated") +
     scale_y_continuous(limits = c(0,100))
   grep_pct_plot
-  ggsave(filename = paste0(path_base, 'sourcecode/', image_prefix, "_pct_w_matching_code.png"), grep_pct_plot,
+  ggsave(filename = paste0(image_base, image_prefix, "_pct_w_matching_code.png"), grep_pct_plot,
          width = 7.2, height = 4, dpi = 600, units = "in", device='png')
   
   return(grep_totals)
