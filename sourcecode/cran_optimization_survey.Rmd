@@ -125,6 +125,25 @@ package_df <- calc_dependencies(package_df)
 print(paste('There are', nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ]), 'packages with multiple dependencies. They will be double counted in histogram'))
 ```
 
+```{r}
+#c <- package_df
+c['num_deps'] <- rowSums(package_df[look_for_packages])
+d1 <- package_df[rowSums(package_df[look_for_packages]) > 1, ]
+d2 <- package_df[rowSums(package_df[look_for_packages]) > 2, ]
+d3 <- package_df[rowSums(package_df[look_for_packages]) > 3, ]
+d4 <- package_df[rowSums(package_df[look_for_packages]) > 4, ]
+d5 <- package_df[rowSums(package_df[look_for_packages]) > 5, ]
+d6 <- package_df[rowSums(package_df[look_for_packages]) > 6, ]
+d7 <- package_df[rowSums(package_df[look_for_packages]) > 7, ]
+d['filename']
+d['package']
+
+# histogram just showing unique number of dependencies to show how duplicate problem affects output?
+# batchtools has dependency upon 6 of the listed pacakges.
+# histogram showing number of dependencies?
+```
+
+
 ### Visualizations and Tables for Dependency results
 
 ```{r dependency_based_visualizations}
