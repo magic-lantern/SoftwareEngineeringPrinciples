@@ -38,8 +38,8 @@ look_for_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "uni
 # a package
 ```
 
-
 ```{r importsharedfn, echo=FALSE, cache=FALSE}
+# update this path based on where you have checked out the git repository
 source("~/SoftwareEngineeringPrinciples/sourcecode/shared_fn.R")
 ```
 

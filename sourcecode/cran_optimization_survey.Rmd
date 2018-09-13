@@ -54,6 +54,7 @@ look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr'
 
 
 ```{r importsharedfn, echo=FALSE, cache=FALSE}
+# update this path based on where you have checked out the git repository
 source("~/SoftwareEngineeringPrinciples/sourcecode/shared_fn.R")
 ```
 

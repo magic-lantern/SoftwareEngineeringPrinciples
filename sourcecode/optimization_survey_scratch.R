@@ -1,3 +1,10 @@
+#
+# This is my work in progress version of the optimization survey. If you actually want to reproduce the survey,
+# run the cran_optimization_survey.Rmd file
+#
+# this version has some paths that are specific to my machine - you may need to modify it for your use
+#
+
 rm(list=ls())
 gc()
 

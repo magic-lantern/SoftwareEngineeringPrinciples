@@ -1,8 +1,10 @@
+library(rvest)
 # canonical source CRAN URL
 # url_base <- "https://cran.r-project.org/src/contrib/"
 # CRAN mirror
 url_base <- "https://cloud.r-project.org/src/contrib/"
 html_source <- read_html("https://cran.r-project.org/src/contrib/")
+# Make sure to update this based on where you have checked out the git repository to
 path_base <- "~/SoftwareEngineeringPrinciples/"
 image_base <- paste0(path_base, 'output/')
 

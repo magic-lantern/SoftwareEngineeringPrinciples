@@ -1,3 +1,10 @@
+#
+# This is my work in progress version of the testing survey. If you actually want to reproduce the survey,
+# run the cran_testing_survey.Rmd file
+#
+# this version has some paths that are specific to my machine - you may need to modify it for your use
+#
+
 # TO DO
 # ?? maybe use map instead of lapply ??
 # probably want vector of logicals, but need to remove nested lists
@@ -16,7 +23,7 @@ library(magrittr)
 library(stringr)
 
 read_from_cran <- TRUE
-setwd("/Users/seth/onedrive/Documents/Software Engineering Paper/survey/downloads")
+setwd("~/SoftwareEngineeringPrinciples/survey/downloads")
 sample_size <- 1000 # may want to do percent of all packages, or alternatively 100% sample
 
 # Testing packages
