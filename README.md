@@ -6,7 +6,7 @@ Analysis code is contained in 2 R Markdown files, with shared functions stored i
 
 R Markdown documents and sourcecode/shared_fn.R do have some hard coded paths that assume you check out this Github repository to your home directory. If you've checked it out somewhere else, update the paths before running. See:
 
-* [sourcecode/cran_optimization_survey.Rmd] line 58
+* [sourcecode/cran_optimization_survey.Rmd](cran_optimization_survey.Rmd) line 58
 * [sourcecode/cran_testing_survey.Rmd] line line 43
 * [sourcecode/shared_fn.R] line 10
 
