@@ -8,6 +8,6 @@ R Markdown documents and sourcecode/shared_fn.R do have some hard coded paths th
 
 * [cran_optimization_survey.Rmd](sourcecode/cran_optimization_survey.Rmd) line 58
 * [cran_testing_survey.Rmd](sourcecode/cran_testing_survey.Rmd) line line 43
-* [shared_fn.R](sourcecode/shared_fn.R) line 10
+* [shared_fn.R](sourcecode/shared_fn.R) line 8
 
 Once all files are downloaded, analysis process runs in about 10 - 15 minutes on my test machine. YMMV as performance is highly disk dependent.
