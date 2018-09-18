@@ -7,8 +7,7 @@ offline <- FALSE
 parallel <- TRUE
 
 # Make sure to update this based on where you have checked out the git repository to
-#path_base <- "~/SoftwareEngineeringPrinciples/"
-path_base <- "/Users/seth/onedrive/Documents/Software Engineering Paper/SoftwareEngineeringPrinciples/"
+path_base <- "~/SoftwareEngineeringPrinciples/"
 image_base <- paste0(path_base, 'output/')
 
 # Setup directory to save downloaded files to
