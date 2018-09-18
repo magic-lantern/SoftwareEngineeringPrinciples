@@ -23,7 +23,6 @@ I've Picked 2008 (10 years) as the last updated cutoff year based on manual insp
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(stringi)
-library(rvest)
 library(ggplot2)
 
 # Testing packages

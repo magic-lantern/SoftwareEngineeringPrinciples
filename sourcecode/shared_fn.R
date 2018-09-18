@@ -1,12 +1,40 @@
 library(rvest)
+library(future.apply)
+
+# set offline to TRUE if offline processing desired - essentially re-evaluate already downloaded packages
+offline <- FALSE
+# set parallel to TRUE if parallelization desired
+parallel <- TRUE
+
+# Make sure to update this based on where you have checked out the git repository to
+#path_base <- "~/SoftwareEngineeringPrinciples/"
+path_base <- "/Users/seth/onedrive/Documents/Software Engineering Paper/SoftwareEngineeringPrinciples/"
+image_base <- paste0(path_base, 'output/')
+
+# Setup directory to save downloaded files to
+download_dir <- paste0(path_base, 'downloads/')
+if(! file.exists(download_dir)) {
+  dir.create(download_dir)
+}
+
 # canonical source CRAN URL
 # url_base <- "https://cran.r-project.org/src/contrib/"
 # CRAN mirror
 url_base <- "https://cloud.r-project.org/src/contrib/"
-html_source <- read_html("https://cran.r-project.org/src/contrib/")
-# Make sure to update this based on where you have checked out the git repository to
-path_base <- "~/SoftwareEngineeringPrinciples/"
-image_base <- paste0(path_base, 'output/')
+package_list_url <- "https://cran.r-project.org/src/contrib/"
+package_list_file <- paste0(download_dir, 'package_list.html')
+
+# set offline to TRUE if offline processing desired
+if (! offline) {
+  download.file(package_list_url, package_list_file)
+}
+html_source <- read_html(package_list_file)
+
+# set parallel to TRUE if parallelization desired
+# default plan for future.apply/future is sequential (no parallelization)
+if (parallel) {
+  plan(multisession)
+}
 
 initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE) {
   td <- html_source %>% html_nodes("td") %>% html_text(trim = TRUE)
@@ -41,17 +69,13 @@ initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE
     s_size <- sample_size
   }
   
-  download_dir <- paste0(path_base, 'downloads/')
-  if(! file.exists(download_dir)) {
-    dir.create(download_dir)
-  }
   
   # test to make sure tryCatch works - occasionally there are packages that can't be downloaded
   #package_df[1, ]$filename <- 'test_for_non_existant_file.tar.gz'
   #s_size <- 10
   #search_pattern <- "src[^/]*/.+"
   
-  files_and_dirs <- lapply(sample(package_df$filename, s_size), function(s) {
+  files_and_dirs <- future_lapply(sample(package_df$filename, s_size), function(s) {
     pathed_s <- paste0(download_dir, s)
     if(file.exists(pathed_s)) {
       #print(paste0('File ', s, ' already downloaded'))
