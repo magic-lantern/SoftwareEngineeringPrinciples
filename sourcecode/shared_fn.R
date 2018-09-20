@@ -1,10 +1,11 @@
 library(rvest)
 library(future.apply)
+library(stringi)
 
 # set offline to TRUE if offline processing desired - essentially re-evaluate already downloaded packages
 offline <- FALSE
-# set parallel to TRUE if parallelization desired
-parallel <- TRUE
+# set parallel_processing to TRUE if parallelization desired
+parallel_processing <- TRUE
 
 # Make sure to update this based on where you have checked out the git repository to
 path_base <- "~/SoftwareEngineeringPrinciples/"
@@ -27,13 +28,20 @@ package_list_file <- paste0(download_dir, 'package_list.html')
 if (! offline) {
   download.file(package_list_url, package_list_file)
 }
+# should probably check to see if file exists
 html_source <- read_html(package_list_file)
 
-# set parallel to TRUE if parallelization desired
 # default plan for future.apply/future is sequential (no parallelization)
-if (parallel) {
-  plan(multisession)
+# plan(multiprocess) should pick recommended option based on OS
+if (parallel_processing) {
+  plan(multiprocess)
+} else {
+  # set back to defalt in case flag changed
+  plan(sequential)
 }
+# on some machines download.file() default method doesn't work with parallelization
+# download method may need to be modified based on OS and installed libraries/packages
+download_method = 'curl'
 
 initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE) {
   td <- html_source %>% html_nodes("td") %>% html_text(trim = TRUE)
@@ -69,25 +77,25 @@ initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE
   }
   
   
-  # test to make sure tryCatch works - occasionally there are packages that can't be downloaded
+  # example test to make sure tryCatch works - occasionally there are packages that can't be downloaded
   #package_df[1, ]$filename <- 'test_for_non_existant_file.tar.gz'
   #s_size <- 10
   #search_pattern <- "src[^/]*/.+"
   
   files_and_dirs <- future_lapply(sample(package_df$filename, s_size), function(s) {
+    ret <- c(s) # initalize return value so every item has at least the name of the file
     pathed_s <- paste0(download_dir, s)
     if(file.exists(pathed_s)) {
       #print(paste0('File ', s, ' already downloaded'))
     } else {
       print(paste0('Attempting to download: ', s))
       tryCatch({
-          download.file(paste0(url_base, s), pathed_s)
-        },
-        error=function(e) {
-          print(paste(e))
-          package_df[package_df$filename == s, ]['download_error'] <<- TRUE
-          NULL
-        }
+        download.file(paste0(url_base, s), pathed_s, method = download_method, quiet = TRUE)
+      },
+      error=function(e) {
+        print(paste(e))
+        NULL
+      }
       )
     }
     # prevent error if file didn't download
@@ -95,9 +103,20 @@ initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE
       if(untar_files) {
         untar(pathed_s)
       }
-      untar(pathed_s, list=TRUE)
+      c(ret, untar(pathed_s, list=TRUE))
+    }
+    else {
+      ret
     }
   })
+  
+  # update gloabl to flag those with download errors
+  error_list <- Filter(Negate(is.null), lapply(files_and_dirs, function(x) if (length(x) < 2) x ))
+  if (length(error_list)) {
+    package_df[package_df$filename %in% error_list, ]['download_error'] <- TRUE
+  }
+  
+  # filter based on search_pattern
   files_and_dirs <- unlist(files_and_dirs)
   paths_found <- unlist(lapply(files_and_dirs, grep, pattern=search_pattern, value=TRUE))
   

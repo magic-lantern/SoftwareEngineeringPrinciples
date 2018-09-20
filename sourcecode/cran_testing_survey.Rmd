@@ -70,7 +70,7 @@ if (nrow(package_df[package_df$download_error == TRUE, ]) > 0) {
   print(package_df[package_df$download_error == TRUE, ])
 }
 
-print(paste('As of ', date(), ' there are', nrow(package_df), 'packages available on CRAN'))
+print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
 ```
 
 ### Visualizations for method 1

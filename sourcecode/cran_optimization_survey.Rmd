@@ -10,12 +10,11 @@ editor_options:
 
 ```{r setup, include=FALSE, echo=TRUE}
 library(dplyr)
-library(rvest)
 library(stringi)
 library(ggplot2)
 
 # these packages are used for a range of items related to optimization - compiled code, multi-processing, etc.
-look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'SparkR', 'DistributedR', 'ddR', 'sparklyr', 'batchtools', 'RcppParallel', 'threadpool', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
+look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'DistributedR', 'ddR', 'sparklyr', 'batchtools', 'RcppParallel', 'threadpool', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
 # Notes about package selection
 #Timing tools
 #  system.time() - time how long something takes
@@ -103,7 +102,7 @@ if (nrow(package_df[package_df$download_error == TRUE, ]) > 0) {
   print(package_df[package_df$download_error == TRUE, ])
 }
 
-print(paste('As of ', date(), ' there are', nrow(package_df), 'packages available on CRAN'))
+print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
 ```
 
 ### Visualizations and Tables for Grep results
