@@ -2,8 +2,10 @@
 title: "R Testing Package Survey"
 author: "Seth Russell"
 date: "6/19/2018"
-output: html_document
-editor_options: 
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
   chunk_output_type: console
 ---
 
@@ -66,8 +68,10 @@ untar_files <- FALSE
 package_df <- initialize(search_pattern="[Tt]est[^/]*/.+", sample_size=sample_size, untar_files=untar_files)
 
 if (nrow(package_df[package_df$download_error == TRUE, ]) > 0) {
-  print('Unable to download these packages - they will not be considered in analysis')
+  print('Unable to download or untar these packages - they will not be considered in analysis')
   print(package_df[package_df$download_error == TRUE, ])
+} else {
+  print('It appears that all files downloaded and untared successfully.')
 }
 
 print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
@@ -91,7 +95,7 @@ package_df <- calc_dependencies(package_df)
 
 # are there any that have more than one dependency listed?
 # these are all counted multiple times in histogram
-print(paste('There are', nrow(package_df[rowSums(package_df[look_for_packages]) > 1, ]), 'packages with multiple dependencies. They will be double counted in histogram'))
+show_multiple_dependencies(package_df, look_for_packages)
 ```
 
 ### Visualizations for method 2

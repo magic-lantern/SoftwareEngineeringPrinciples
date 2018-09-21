@@ -2,7 +2,7 @@ library(rvest)
 library(future.apply)
 library(stringi)
 
-# set offline to TRUE if offline processing desired - essentially re-evaluate already downloaded packages
+# set offline to TRUE if offline processing desired - essentially re-evaluate already downloaded package list
 offline <- FALSE
 # set parallel_processing to TRUE if parallelization desired
 parallel_processing <- TRUE
@@ -222,4 +222,17 @@ dependency_table <- function(dep_freqs) {
   # chart to show dependency count and percent of totals, suppress low nubers
   out <- dep_totals[sapply(dep_totals, function(x) any(x >= 1))]
   return(t(out))
+}
+
+show_multiple_dependencies <- function(package_df, look_for_packages) {
+  for (n in 0:(length(look_for_packages) + 1)) {
+    cat(paste('Packages with', n, 'dependencies:', nrow(package_df[rowSums(package_df[look_for_packages]) == n, ]), '\n'))
+    if (n > 1) {
+      if(length(package_df[rowSums(package_df[look_for_packages]) == n, 'package_deps']) > 0) {
+        cat(paste0('Multiple Dependency Table (', n, '):'))
+        # only way I can figure to not print variable name is to have full expression in-line
+        print(table(package_df[rowSums(package_df[look_for_packages]) == n, 'package_deps']))
+      }
+    }
+  }
 }
