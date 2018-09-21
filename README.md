@@ -10,6 +10,6 @@ R Markdown documents and sourcecode/shared_fn.R do have some hard coded paths th
 * [cran_testing_survey.Rmd](sourcecode/cran_testing_survey.Rmd) line line 43
 * [shared_fn.R](sourcecode/shared_fn.R) line 8
 
-Once all files are downloaded, analysis process runs in about 10 - 15 minutes on my test machine. YMMV as performance is highly disk dependent.
+Once all files are downloaded, analysis process runs in just a minute or two on my test machine. YMMV as performance is highly disk dependent.
 
 In order to improve performance on machines with high-latency internet connections, there is a parallel_processing flag (defaults to TRUE) that significantly improves performance. Parallel process does also improve performance on machines with low-latency connections, though not as much. Depending on other system configuration (disk speed, # of cpus) your mileage may vary.

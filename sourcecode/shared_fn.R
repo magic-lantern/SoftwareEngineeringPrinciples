@@ -207,6 +207,59 @@ grep_viz <- function(package_df, image_prefix, label) {
   return(grep_totals)
 }
 
+grep_table_freqs <- function(package_df) {
+  # histogram packages that are tested by most current year package released
+  grep_freqs <- aggregate(strftime(package_df$date, "%Y"),
+                          by=list(strftime(package_df$date, "%Y"), package_df$found),
+                          FUN=length)
+  names(grep_freqs) <- c('Year', 'Found', 'Count')
+  
+  return(grep_freqs)
+}
+
+
+grep_table_totals <- function(grep_freqs) {
+  # Table showing tested as pct of all packages
+  grep_totals <- aggregate(x=grep_freqs$Count, by = list(grep_freqs$Year), FUN = sum)
+  names(grep_totals) <- c('Year', 'Count')
+  grep_totals <- merge(grep_totals, grep_freqs[grep_freqs$Found == TRUE, ][c('Year', 'Count')], by="Year", all=TRUE)
+  names(grep_totals) <- c('Year', 'Total', 'Grep')
+  
+  grep_totals$Pct <- grep_totals$Grep / grep_totals$Total
+  grep_totals$Pct <- round(grep_totals$Pct * 100)
+  
+  print('Summary Table for Grep Results')
+  print(t(grep_totals))
+  
+  return(grep_totals)
+}
+
+grep_viz_freq <- function(grep_freqs, image_prefix, label) {
+  # histogram of packages that are tested by most current year package released
+  grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Found)) +
+    geom_bar(stat="identity") +
+    xlab("Year Package Last Updated") +
+    labs(fill = paste(label, "Code"))
+  grep_plot
+  ggsave(filename = paste0(image_base, image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
+         width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
+  
+  return(grep_plot)
+}
+
+grep_viz_pct <- function(grep_totals, image_prefix, label) {
+  grep_pct_plot <- ggplot(data=grep_totals[grep_totals$Year > 2007, ], aes(x=Year, y=Pct)) +
+    geom_bar(stat="identity") +
+    ylab(paste("Percent with", label, "Code")) +
+    xlab("Year Package Last Updated") +
+    scale_y_continuous(limits = c(0,100))
+  ggsave(filename = paste0(image_base, image_prefix, "_pct_w_matching_code.png"), grep_pct_plot,
+         width = 7.2, height = 4, dpi = 600, units = "in", device='png')
+  
+  return(grep_pct_plot)
+}
+
+
 dependency_table <- function(dep_freqs) {
   dep_totals <- aggregate(x=dep_freqs$Count, by = list(dep_freqs$Year), FUN = sum)
   names(dep_totals)[1] <- 'Year'

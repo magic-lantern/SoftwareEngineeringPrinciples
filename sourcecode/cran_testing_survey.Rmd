@@ -82,8 +82,18 @@ print(paste('As of', date(), 'there are', nrow(package_df), 'packages available 
 Histogram by year with testing packages shown
 
 ```{r grep_based_graphics}
-
+# original method
 grep_totals <- grep_viz(package_df = package_df, image_prefix = 'testing', label = 'Testing')
+
+# new method to have access to all results and plots.
+# need to verify this works the same as the above
+gtf <- grep_table_freqs(package_df)
+gtt <- grep_table_totals(gtf)
+freq_plot <- grep_viz_freq(gtf, image_prefix = 'testing', label = 'Testing')
+freq_plot
+pct_plot <- grep_viz_pct(gtt, image_prefix = 'testing', label = 'Testing')
+pct_plot
+
 
 ```
 
