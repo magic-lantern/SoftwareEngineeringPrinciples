@@ -13,3 +13,7 @@ R Markdown documents and sourcecode/shared_fn.R do have some hard coded paths th
 Once all files are downloaded, analysis process runs in just a minute or two on my test machine. YMMV as performance is highly disk dependent.
 
 In order to improve performance on machines with high-latency internet connections, there is a parallel_processing flag (defaults to TRUE) that significantly improves performance. Parallel process does also improve performance on machines with low-latency connections, though not as much. Depending on other system configuration (disk speed, # of cpus) your mileage may vary.
+
+## Info on results of running code
+
+As the process does require downloading over 13,000 files, I have saved the results of running in the form plain text output and images - for that, see the [output/](output/) directory. For the results of running the RMarkdown Notebooks, see the [sourcecode/](sourcecode/) directory.
