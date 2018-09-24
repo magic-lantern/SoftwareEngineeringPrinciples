@@ -1,0 +1,140 @@
+> # Chunk 1: setup
+> knitr::opts_chunk$set(echo = TRUE)
+> library(dplyr)
+> library(stringi)
+> library(ggplot2)
+> 
+> # Testing packages
+> look_for_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittest")
+> # testit is a minimal tool for testing packages, but it can be used for unit testing - e.g. tinytex
+> # Packages considered but excluded:
+> #   webmockr - Could be used for a testing library - or perhaps a roll your own test suite, but isn't as far as I could tell
+> #   vdiffr - Is a extension for testthat, so requires testthat to work
+> #
+> # Users could use core R functionality for unit tests such as stopifnot() instead of packages
+> # we don't attempt to quantify the scope of software that does unit testing without relying on
+> # a package
+> 
+> # Chunk 2: importsharedfn
+> # update this path based on where you have checked out the git repository
+> source("~/SoftwareEngineeringPrinciples/sourcecode/shared_fn.R")
+> 
+> # Chunk 3: grep_packages
+> # if value 100%, then read all packages, otherwise, randomly select number of packages provided
+> sample_size <- '100%'
+> # dont need to untar, but is useful for manual analysis
+> untar_files <- FALSE
+> 
+> # Although most unit testing packages use test/ or tests/ as the common base directory, some
+> # such as svUnit recommend the directory /inst/unitTests
+> #
+> # code at https://github.com/rorynolan/exampletestr/blob/master/analysis/CRAN_test_analysis.Rmd misses some
+> # test directories since it checks for "^tests/.+". As an example, R packages using svUnit (such as gsubfn)
+> # often call the test directory unitTests
+> #
+> 
+> # call code from shared_fn.R to download files and extract them if desired
+> package_df <- initialize(search_pattern="[Tt]est[^/]*/.+", sample_size=sample_size, untar_files=untar_files)
+> 
+> if (nrow(package_df[package_df$download_error == TRUE, ]) > 0) {
++   print('Unable to download or untar these packages - they will not be considered in analysis')
++   print(package_df[package_df$download_error == TRUE, ])
++ } else {
++   print('It appears that all files downloaded and untared successfully.')
++ }
+[1] "It appears that all files downloaded and untared successfully."
+> 
+> print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
+[1] "As of Mon Sep 24 16:23:58 2018 there are 13089 packages available on CRAN"
+> 
+> # Chunk 4: grep_based_graphics
+> # build data needed for plots
+> gtf <- grep_table_freqs(package_df)
+> gtt <- grep_table_totals(gtf)
+[1] "Summary Table for Grep Results"
+      [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
+Year  "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
+Total "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 469" " 573" " 770" "1166" "1788" "2731" "5454"
+Grep  NA     "   1" NA     "   2" "   5" "   4" "  10" "  33" "  66" "  97" " 229" " 485" " 964" "2395"
+Pct   NA     "25"   NA     "20"   "20"   "12"   "15"   " 7"   "12"   "13"   "20"   "27"   "35"   "44"  
+> 
+> # generate plots
+> freq_plot <- grep_viz_freq(gtf, image_prefix = 'testing', label = 'Testing')
+> freq_plot
+> pct_plot <- grep_viz_pct(gtt, image_prefix = 'testing', label = 'Testing')
+> pct_plot
+> 
+> # Chunk 5: dependencies
+> # function from shared_fn.R - sets package_df$package_deps
+> package_df <- calc_dependencies(package_df)
+testthat    RUnit   testit   svUnit unitizer unittest 
+    3275      128       25       10        3        1 
+> 
+> # are there any that have more than one dependency listed?
+> # these are all counted multiple times in histogram
+> show_multiple_dependencies(package_df, look_for_packages)
+Packages with 0 dependencies: 9663 
+Packages with 1 dependencies: 3410 
+Packages with 2 dependencies: 16 
+Multiple Dependency Table (dep=2):
+ RUnit,testthat testit,testthat 
+              9               7 
+Packages with 3 dependencies: 0 
+Packages with 4 dependencies: 0 
+Packages with 5 dependencies: 0 
+Packages with 6 dependencies: 0 
+Packages with 7 dependencies: 0 
+> 
+> # Chunk 6: dependency_based_visualizations
+> # need to merge transformed_df with package_df to keep those with no dependency and create better histogram
+> transformed_df <- transform_df(package_df)
+> transformed_df <- merge(transformed_df, package_df[package_df$package_deps == 'none', ][colnames(transformed_df)], all=TRUE)
+> 
+> dep_freqs <- aggregate(strftime(transformed_df$date, "%Y"),
++                        by=list(strftime(transformed_df$date, "%Y"), transformed_df$package_deps),
++                        FUN=length)
+> 
+> names(dep_freqs) <- c('Year', 'Dependency', 'Count')
+> fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Dependency)) +
++   geom_bar(stat="identity") +
++   scale_fill_brewer(type='div', palette = 'Set1') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
++   xlab("Year Package Last Updated") +
++   labs(fill = "Framework")
+> fplot
+> ggsave(filename = paste0(image_base, "testing_dependency_stacked_bar.png"), fplot,
++        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
+> 
+> dep_totals <- dependency_table(dep_freqs)
+> print('Dependency Table:')
+[1] "Dependency Table:"
+> dep_totals
+             [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
+Year         "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
+Count        "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 469" " 573" " 770" "1169" "1791" "2732" "5463"
+svUnit       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "1"    "1"    "0"    "2"    "1"    "4"   
+RUnit        " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 3"   " 1"   " 6"   "13"   " 9"   "33"   "62"  
+RUnit_Pct    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "1"    "0"    "1"    "1"    "1"    "1"    "1"   
+testthat     "   0" "   0" "   0" "   0" "   0" "   0" "   1" "   1" "  21" "  26" " 127" " 374" " 749" "1976"
+testthat_Pct " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 0"   " 4"   " 3"   "11"   "21"   "27"   "36"  
+testit       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 2"   " 3"   "18"  
+unitizer     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"   
+unittest     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"   
+> 
+> # Chunk 7: comparison
+> # About 859 more appear to have testing code...
+> print("Difference between packages that have testing code vs dependency on testing framework:")
+[1] "Difference between packages that have testing code vs dependency on testing framework:"
+> nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
+[1] 865
+> 
+> # About 1070 packages that don't list a dependency to a testing framework, but have a testing directory
+> # Randomly looked at several: some don't use a framework (e.g. xlsx)
+> # others use a framework but don't list it as a dependency (e.g. redcapAPI)
+> only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
+> print(paste("Number of packages that don't list a dependency to a testing framework, but have a testing directory:", nrow(only_grep)))
+[1] "Number of packages that don't list a dependency to a testing framework, but have a testing directory: 1079"
+> 
+> # About 211 packages that list a dependency to a testing framework, but don't use one
+> only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
+> print(paste("Number of packages that list a dependency to a testing framework, but don't use one:", nrow(only_dep)))
+[1] "Number of packages that list a dependency to a testing framework, but don't use one: 214"

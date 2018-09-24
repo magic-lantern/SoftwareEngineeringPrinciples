@@ -82,19 +82,15 @@ print(paste('As of', date(), 'there are', nrow(package_df), 'packages available 
 Histogram by year with testing packages shown
 
 ```{r grep_based_graphics}
-# original method
-grep_totals <- grep_viz(package_df = package_df, image_prefix = 'testing', label = 'Testing')
-
-# new method to have access to all results and plots.
-# need to verify this works the same as the above
+# build data needed for plots
 gtf <- grep_table_freqs(package_df)
 gtt <- grep_table_totals(gtf)
+
+# generate plots
 freq_plot <- grep_viz_freq(gtf, image_prefix = 'testing', label = 'Testing')
 freq_plot
 pct_plot <- grep_viz_pct(gtt, image_prefix = 'testing', label = 'Testing')
 pct_plot
-
-
 ```
 
 ## Method 2 of testing analysis
@@ -149,19 +145,19 @@ Some points discovered:
 As new packages are being released and updated all the time, these numbers will change.
 
 ```{r comparison}
-# 859 more appear to have testing code...
+# About 859 more appear to have testing code...
 print("Difference between packages that have testing code vs dependency on testing framework:")
 nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
 
-# 1070 packages that don't list a dependency to a testing framework, but have a testing directory
+# About 1070 packages that don't list a dependency to a testing framework, but have a testing directory
 # Randomly looked at several: some don't use a framework (e.g. xlsx)
 # others use a framework but don't list it as a dependency (e.g. redcapAPI)
 only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
-print(paste("Packages that don't list a dependency to a testing framework, but have a testing directory:", nrow(only_grep)))
+print(paste("Number of packages that don't list a dependency to a testing framework, but have a testing directory:", nrow(only_grep)))
 
-# 211 packages that list a dependency to a testing framework, but don't use one
+# About 211 packages that list a dependency to a testing framework, but don't use one
 only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
-print(paste("Packages that list a dependency to a testing framework, but don't use one:", nrow(only_dep)))
+print(paste("Number of packages that list a dependency to a testing framework, but don't use one:", nrow(only_dep)))
 
 ```
 

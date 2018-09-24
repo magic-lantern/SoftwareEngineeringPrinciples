@@ -2,8 +2,10 @@
 title: "R Optimization Survey"
 author: "Seth Russell"
 date: "8/7/2018"
-output: html_document
-editor_options: 
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
   chunk_output_type: console
 ---
 
@@ -110,9 +112,15 @@ print(paste('As of', date(), 'there are', nrow(package_df), 'packages available 
 ### Visualizations and Tables for Grep results
 
 ```{r grep_based_visualizations}
+# build data needed for plots
+gtf <- grep_table_freqs(package_df)
+gtt <- grep_table_totals(gtf)
 
-grep_totals <- grep_viz(package_df = package_df, image_prefix = 'optimization', label = 'Compiled')
-
+# generate plots
+freq_plot <- grep_viz_freq(gtf, image_prefix = 'optimization', label = 'Compiled')
+freq_plot
+pct_plot <- grep_viz_pct(gtt, image_prefix = 'optimization', label = 'Compiled')
+pct_plot
 ```
 
 ## Package Dependencies
@@ -125,25 +133,6 @@ package_df <- calc_dependencies(package_df)
 # these are all counted multiple times in histogram
 show_multiple_dependencies(package_df, look_for_packages)
 ```
-
-```{r}
-#c <- package_df
-c['num_deps'] <- rowSums(package_df[look_for_packages])
-d1 <- package_df[rowSums(package_df[look_for_packages]) > 1, ]
-d2 <- package_df[rowSums(package_df[look_for_packages]) > 2, ]
-d3 <- package_df[rowSums(package_df[look_for_packages]) > 3, ]
-d4 <- package_df[rowSums(package_df[look_for_packages]) > 4, ]
-d5 <- package_df[rowSums(package_df[look_for_packages]) > 5, ]
-d6 <- package_df[rowSums(package_df[look_for_packages]) > 6, ]
-d7 <- package_df[rowSums(package_df[look_for_packages]) > 7, ]
-d['filename']
-d['package']
-
-# histogram just showing unique number of dependencies to show how duplicate problem affects output?
-# batchtools has dependency upon 6 of the listed pacakges.
-# histogram showing number of dependencies?
-```
-
 
 ### Visualizations and Tables for Dependency results
 
@@ -158,11 +147,11 @@ dep_freqs <- aggregate(strftime(transformed_df$date, "%Y"),
 
 names(dep_freqs) <- c('Year', 'Dependency', 'Count')
 
-fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 10, ], aes(x=Year, y=Count, fill=Dependency)) +
+fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 14, ], aes(x=Year, y=Count, fill=Dependency)) +
   geom_bar(stat="identity") +
   scale_fill_brewer(type='div', palette = 'Set1', na.value='#e41a1c') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
   xlab("Year Package Last Updated") +
-  labs(fill = "Dependency n > 10")
+  labs(fill = "Dependency n > 14")
 fplot
 ggsave(filename = paste0(image_base, "optimization_dependency_stacked_bar.png"), fplot,
        width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
@@ -183,15 +172,15 @@ Some points discovered:
 As new packages are being released and updated all the time, these numbers will change.
 
 ```{r comparison}
-# 846 more appear to use compiled code
+# About 846 more appear to use compiled code
 print("Difference between packages that have src directory vs dependency on optimization framework:")
 nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
 
-# 1701 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
+# About 1701 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
 only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
 print(paste("Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code:", nrow(only_grep)))
 
-# 855 packages that list a dependency to one of the specified packages but don't have compiled code
+# About 855 packages that list a dependency to one of the specified packages but don't have compiled code
 only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
 print(paste("Number of packages that list a dependency to one of the specified packages but don't have compiled code:", nrow(only_dep)))
 

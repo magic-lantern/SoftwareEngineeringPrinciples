@@ -2,10 +2,17 @@ library(rvest)
 library(future.apply)
 library(stringi)
 
+# set to TRUE if more output desired
+debug <- FALSE
 # set offline to TRUE if offline processing desired - essentially re-evaluate already downloaded package list
 offline <- FALSE
 # set parallel_processing to TRUE if parallelization desired
 parallel_processing <- TRUE
+num_workers <- 2 # recommend keep this low when downloading to avoid creating a denial of service style attack on chosen R mirror
+#num_workers <- availableCores() # this option recommended when performing offline processing
+
+# global ggplot2 theme
+theme_set(theme_minimal())
 
 # Make sure to update this based on where you have checked out the git repository to
 path_base <- "~/SoftwareEngineeringPrinciples/"
@@ -34,7 +41,7 @@ html_source <- read_html(package_list_file)
 # default plan for future.apply/future is sequential (no parallelization)
 # plan(multiprocess) should pick recommended option based on OS
 if (parallel_processing) {
-  plan(multiprocess)
+  plan(multiprocess, workers = num_workers)
 } else {
   # set back to defalt in case flag changed
   plan(sequential)
@@ -85,8 +92,14 @@ initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE
   files_and_dirs <- future_lapply(sample(package_df$filename, s_size), function(s) {
     ret <- c(s) # initalize return value so every item has at least the name of the file
     pathed_s <- paste0(download_dir, s)
-    if(file.exists(pathed_s)) {
-      #print(paste0('File ', s, ' already downloaded'))
+    if(file.exists(pathed_s) || offline) {
+      if(debug) {
+        if(file.exists(pathed_s)) {
+          print(paste0('File ', s, ' already downloaded'))
+        } else if (offline) {
+          print(paste0('File ', s, ' NOT already downloaded, but offline mode enabled.'))
+        }
+      }
     } else {
       print(paste0('Attempting to download: ', s))
       tryCatch({
@@ -103,9 +116,14 @@ initialize <- function(search_pattern, sample_size = '100%', untar_files = FALSE
       if(untar_files) {
         untar(pathed_s)
       }
-      c(ret, untar(pathed_s, list=TRUE))
+      tar_list <- untar(pathed_s, list=TRUE)
+      if (length(tar_list) == 0) {
+        cat(paste0('File ', s, ' appears to be corrupted. Recommend deleting "', pathed_s, '" and re-running this process.\n'))
+      }
+      c(ret, tar_list)
     }
     else {
+      cat(paste0('File ', s, ' not found at "', pathed_s ,'", cannot untar. Recommend setting offline to FALSE and re-running this process.\n'))
       ret
     }
   })
@@ -235,11 +253,14 @@ grep_table_totals <- function(grep_freqs) {
 }
 
 grep_viz_freq <- function(grep_freqs, image_prefix, label) {
+  grep_freqs$found_y_n <- c('No', 'Yes')[grep_freqs$Found + 1]
+  
   # histogram of packages that are tested by most current year package released
-  grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Found)) +
+  grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=found_y_n)) +
     geom_bar(stat="identity") +
     xlab("Year Package Last Updated") +
-    labs(fill = paste(label, "Code"))
+    scale_fill_brewer(type='div', palette = 'Set1') +
+    labs(fill = paste(label, "Directory"))
   grep_plot
   ggsave(filename = paste0(image_base, image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
          width = 7.2, height = 5.5, dpi = 600, units = "in", device='png')
@@ -282,7 +303,7 @@ show_multiple_dependencies <- function(package_df, look_for_packages) {
     cat(paste('Packages with', n, 'dependencies:', nrow(package_df[rowSums(package_df[look_for_packages]) == n, ]), '\n'))
     if (n > 1) {
       if(length(package_df[rowSums(package_df[look_for_packages]) == n, 'package_deps']) > 0) {
-        cat(paste0('Multiple Dependency Table (', n, '):'))
+        cat(paste0('Multiple Dependency Table (dep=', n, '):'))
         # only way I can figure to not print variable name is to have full expression in-line
         print(table(package_df[rowSums(package_df[look_for_packages]) == n, 'package_deps']))
       }
