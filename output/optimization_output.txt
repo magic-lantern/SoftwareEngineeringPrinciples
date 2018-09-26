@@ -62,7 +62,7 @@
 [1] "It appears that all files downloaded and untared successfully."
 > 
 > print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
-[1] "As of Mon Sep 24 15:38:10 2018 there are 13089 packages available on CRAN"
+[1] "As of Wed Sep 26 16:49:06 2018 there are 13094 packages available on CRAN"
 > 
 > # Chunk 4: grep_based_visualizations
 > # build data needed for plots
@@ -71,9 +71,9 @@
 [1] "Summary Table for Grep Results"
       [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
 Year  "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
-Total "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 469" " 573" " 770" "1166" "1788" "2731" "5454"
-Grep  NA     "   3" NA     "   1" "   6" "  11" "  15" "  63" " 115" " 163" " 237" " 392" " 667" "1664"
-Pct   NA     "75"   NA     "10"   "24"   "34"   "23"   "13"   "20"   "21"   "20"   "22"   "24"   "31"  
+Total "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 467" " 573" " 768" "1165" "1783" "2725" "5475"
+Grep  NA     "   3" NA     "   1" "   6" "  11" "  15" "  61" " 115" " 162" " 237" " 391" " 666" "1669"
+Pct   NA     "75"   NA     "10"   "24"   "34"   "23"   "13"   "20"   "21"   "20"   "22"   "24"   "30"  
 > 
 > # generate plots
 > freq_plot <- grep_viz_freq(gtf, image_prefix = 'optimization', label = 'Compiled')
@@ -85,7 +85,7 @@ Pct   NA     "75"   NA     "10"   "24"   "34"   "23"   "13"   "20"   "21"   "20"
 > # function from shared_fn.R - sets package_df$package_deps
 > package_df <- calc_dependencies(package_df)
           Rcpp       parallel        foreach     doParallel microbenchmark         future   RcppParallel           doMC           Rmpi 
-          1454            913            482            366             77             35             33             25             23 
+          1454            913            483            367             77             35             33             25             23 
           snow     rbenchmark         doSNOW   future.apply    parallelMap       sparklyr   parallelDist          doMPI         tictoc 
             21             20             16             15             14              8              5              5              4 
     batchtools          profr        profvis         SparkR       partools            DSL   DistributedR            ddR     threadpool 
@@ -94,28 +94,28 @@ Pct   NA     "75"   NA     "10"   "24"   "34"   "23"   "13"   "20"   "21"   "20"
 > # are there any that have more than one dependency listed?
 > # these are all counted multiple times in histogram
 > show_multiple_dependencies(package_df, look_for_packages)
-Packages with 0 dependencies: 10591 
-Packages with 1 dependencies: 1841 
+Packages with 0 dependencies: 10596 
+Packages with 1 dependencies: 1840 
 Packages with 2 dependencies: 377 
 Multiple Dependency Table (dep=2):
-    batchtools,parallel  batchtools,parallelMap            doMC,foreach           doMC,parallel      doParallel,foreach 
-                      1                       1                      10                       2                     100 
-    doParallel,parallel         doParallel,Rcpp        foreach,parallel            foreach,Rcpp     future,future.apply 
-                     13                       4                      11                      24                       5 
-        future,parallel             future,Rcpp microbenchmark,parallel     microbenchmark,Rcpp       parallelDist,Rcpp 
-                      4                       3                       2                      31                       1 
-   parallel,parallelMap     parallel,rbenchmark           parallel,Rcpp           parallel,Rmpi           parallel,snow 
-                      3                       1                     117                       6                       1 
-        rbenchmark,Rcpp       Rcpp,RcppParallel               Rcpp,Rmpi             Rcpp,tictoc               Rmpi,snow 
-                      9                      23                       1                       1                       3 
-Packages with 3 dependencies: 213 
+    batchtools,parallel  batchtools,parallelMap            doMC,foreach           doMC,parallel      doParallel,foreach     doParallel,parallel 
+                      1                       1                      10                       2                     100                      13 
+        doParallel,Rcpp        foreach,parallel            foreach,Rcpp     future,future.apply         future,parallel             future,Rcpp 
+                      4                      11                      24                       5                       4                       3 
+microbenchmark,parallel     microbenchmark,Rcpp       parallelDist,Rcpp    parallel,parallelMap     parallel,rbenchmark           parallel,Rcpp 
+                      2                      31                       1                       3                       1                     117 
+          parallel,Rmpi           parallel,snow         rbenchmark,Rcpp       Rcpp,RcppParallel               Rcpp,Rmpi             Rcpp,tictoc 
+                      6                       1                       9                      23                       1                       1 
+              Rmpi,snow 
+                      3 
+Packages with 3 dependencies: 214 
 Multiple Dependency Table (dep=3):
     batchtools,future,future.apply            doMC,doParallel,foreach                doMC,doSNOW,foreach              doMC,foreach,parallel 
                                  1                                  4                                  1                                  1 
                  doMC,foreach,Rcpp           doMPI,doParallel,foreach             doMPI,foreach,parallel  doParallel,foreach,microbenchmark 
                                  1                                  1                                  1                                  1 
        doParallel,foreach,parallel    doParallel,foreach,parallelDist           doParallel,foreach,profr            doParallel,foreach,Rcpp 
-                               131                                  1                                  1                                 36 
+                               132                                  1                                  1                                 36 
     doParallel,microbenchmark,Rcpp           doParallel,parallel,Rcpp            doSNOW,foreach,parallel                doSNOW,foreach,Rcpp 
                                  1                                  4                                  5                                  3 
                doSNOW,foreach,snow            foreach,future,parallel              foreach,parallel,Rmpi              foreach,parallel,snow 
@@ -189,7 +189,7 @@ Packages with 28 dependencies: 0
 > 
 > fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 14, ], aes(x=Year, y=Count, fill=Dependency)) +
 +   geom_bar(stat="identity") +
-+   scale_fill_brewer(type='div', palette = 'Set1', na.value='#e41a1c') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
++   scale_fill_viridis_d(direction = -1, option="inferno", end=0.96) +
 +   xlab("Year Package Last Updated") +
 +   labs(fill = "Dependency n > 14")
 > fplot
@@ -202,8 +202,8 @@ Packages with 28 dependencies: 0
 > dep_totals
                    [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
 Year               "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
-Count              "   1" "   4" "   1" "  10" "  25" "  32" "  66" " 475" " 575" " 789" "1211" "1886" "2940" "6100"
-Rcpp               "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  0"  "  4"  "  6"  " 42"  " 64"  "158"  "312"  "867" 
+Count              "   1" "   4" "   1" "  10" "  25" "  32" "  66" " 473" " 575" " 787" "1210" "1881" "2934" "6123"
+Rcpp               "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  0"  "  4"  "  6"  " 42"  " 64"  "157"  "312"  "868" 
 Rcpp_Pct           " 0"   " 0"   " 0"   " 0"   " 0"   " 3"   " 0"   " 1"   " 1"   " 5"   " 5"   " 8"   "11"   "14"  
 tictoc             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "3"   
 rbenchmark         " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 1"   " 4"   "14"  
@@ -214,13 +214,13 @@ profvis            "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"  
 snow               " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 4"   " 1"   " 0"   " 1"   " 0"   " 5"   "10"  
 snow_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"    "0"    "0"    "0"   
 doSNOW             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "2"    "0"    "0"    "5"    "8"   
-parallel           "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  3"  " 14"  " 32"  " 55"  "109"  "187"  "513" 
+parallel           "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  3"  " 14"  " 32"  " 55"  "109"  "186"  "514" 
 parallel_Pct       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "4"    "5"    "6"    "6"    "8"   
-doParallel         "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  4"  " 21"  " 39"  " 77"  "224" 
+doParallel         "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  4"  " 21"  " 39"  " 77"  "225" 
 doParallel_Pct     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "2"    "3"    "4"   
 Rmpi               "0"    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "0"    "0"    "7"    "0"    "5"    "9"   
 Rmpi_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"   
-foreach            "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  3"  "  5"  " 19"  " 31"  " 62"  " 93"  "268" 
+foreach            "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  3"  "  5"  " 19"  " 31"  " 62"  " 93"  "269" 
 foreach_Pct        "0"    "0"    "0"    "0"    "0"    "0"    "2"    "1"    "1"    "2"    "3"    "3"    "3"    "4"   
 future             " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 5"   "30"  
 future.apply       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   "15"  
@@ -237,18 +237,18 @@ partools           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"  
 DSL                "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"   
 > 
 > # Chunk 7: comparison
-> # 846 more appear to use compiled code
+> # About 846 more appear to use compiled code
 > print("Difference between packages that have src directory vs dependency on optimization framework:")
 [1] "Difference between packages that have src directory vs dependency on optimization framework:"
 > nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
 [1] 839
 > 
-> # 1701 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
+> # About 1701 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
 > only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
 > print(paste("Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code:", nrow(only_grep)))
 [1] "Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code: 1706"
 > 
-> # 855 packages that list a dependency to one of the specified packages but don't have compiled code
+> # About 855 packages that list a dependency to one of the specified packages but don't have compiled code
 > only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
 > print(paste("Number of packages that list a dependency to one of the specified packages but don't have compiled code:", nrow(only_dep)))
 [1] "Number of packages that list a dependency to one of the specified packages but don't have compiled code: 867"

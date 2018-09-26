@@ -149,7 +149,7 @@ names(dep_freqs) <- c('Year', 'Dependency', 'Count')
 
 fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 14, ], aes(x=Year, y=Count, fill=Dependency)) +
   geom_bar(stat="identity") +
-  scale_fill_brewer(type='div', palette = 'Set1', na.value='#e41a1c') + # http://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9
+  scale_fill_viridis_d(direction = -1, option="inferno", end=0.96) +
   xlab("Year Package Last Updated") +
   labs(fill = "Dependency n > 14")
 fplot

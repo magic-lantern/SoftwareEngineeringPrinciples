@@ -259,7 +259,7 @@ grep_viz_freq <- function(grep_freqs, image_prefix, label) {
   grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=found_y_n)) +
     geom_bar(stat="identity") +
     xlab("Year Package Last Updated") +
-    scale_fill_brewer(type='div', palette = 'Set1') +
+    scale_fill_viridis_d(direction = -1, option="inferno", end = 0.96) +
     labs(fill = paste(label, "Directory"))
   grep_plot
   ggsave(filename = paste0(image_base, image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
