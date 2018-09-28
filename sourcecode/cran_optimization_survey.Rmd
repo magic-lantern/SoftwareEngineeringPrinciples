@@ -16,7 +16,7 @@ library(stringi)
 library(ggplot2)
 
 # these packages are used for a range of items related to optimization - compiled code, multi-processing, etc.
-look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'DistributedR', 'ddR', 'sparklyr', 'batchtools', 'RcppParallel', 'threadpool', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
+look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'DistributedR', 'sparklyr', 'batchtools', 'RcppParallel', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
 # Notes about package selection
 #Timing tools
 #  system.time() - time how long something takes
@@ -38,11 +38,11 @@ look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr'
 #  future - A minimal, efficient, cross-platform unified Future API for parallel and distributed processing in R; designed for beginners as well as advanced developers.
 #  SparkR - R frontend for Spark.
 #  DistributedR - A scalable high-performance platform from HP Vertica Analytics Team.
-#  ddR - Provides distributed data structures and simplifies distributed computing in R.
+#  ddR - Provides distributed data structures and simplifies distributed computing in R. Not considered as is now listed as status of abandoned on CRAN
 #  sparklyr - R interface for Apache Spark from RStudio.
 #  batchtools - High performance computing with LSF, TORQUE, Slurm, OpenLava, SGE and Docker Swarm.
 #  RcppParallel
-#  threadpool
+#  threadpool - Not considered as not available via CRAN, only available via github
 #  parallelDist
 #  parallelMap
 #  doMC
