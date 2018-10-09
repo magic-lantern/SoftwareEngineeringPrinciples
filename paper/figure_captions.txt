@@ -1,0 +1,7 @@
+Figure 1 Packages with non-empty testing directory
+Figure 2 Packages with testing framework dependency
+Figure 3 Packages with non-empty src directory
+Figure 4 Packages with optimization framework dependency
+Figure 5 Profvis Flame Graph
+Figure 6 Profvis Data Chart
+Figure 7 Profvis Flame Graph .Call()
