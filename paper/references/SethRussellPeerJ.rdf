@@ -1,0 +1,2248 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+ xmlns:vcard="http://nwalsh.com/rdf/vCard#">
+    <bib:Article rdf:about="http://doi.acm.org/10.1145/362929.362976">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0001-0782"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Atchison</foaf:surname>
+                        <foaf:givenname>William F.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Conte</foaf:surname>
+                        <foaf:givenname>Samuel D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hamblen</foaf:surname>
+                        <foaf:givenname>John W.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hull</foaf:surname>
+                        <foaf:givenname>Thomas E.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Keenan</foaf:surname>
+                        <foaf:givenname>Thomas A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kehl</foaf:surname>
+                        <foaf:givenname>William B.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>McCluskey</foaf:surname>
+                        <foaf:givenname>Edward J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Navarro</foaf:surname>
+                        <foaf:givenname>Silvio O.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rheinboldt</foaf:surname>
+                        <foaf:givenname>Werner C.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schweppe</foaf:surname>
+                        <foaf:givenname>Earl J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Viavant</foaf:surname>
+                        <foaf:givenname>William</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Young</foaf:surname>
+                        <foaf:givenname>David M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://doi.acm.org/10.1145/362929.362976</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>151–197</bib:pages>
+        <dc:date>March 1968</dc:date>
+        <z:libraryCatalog>ACM Digital Library</z:libraryCatalog>
+        <dc:title>Curriculum 68: Recommendations for Academic Programs in Computer Science: A Report of the ACM Curriculum Committee on Computer Science</dc:title>
+        <z:shortTitle>Curriculum 68</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0001-0782">
+        <prism:volume>11</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>Commun. ACM</dc:title>
+        <dc:identifier>ISSN 0001-0782</dc:identifier>
+        <dc:identifier>DOI 10.1145/362929.362976</dc:identifier>
+    </bib:Journal>
+    <bib:Report rdf:about="https://www.acm.org/binaries/content/assets/education/se2014.pdf">
+        <z:itemType>report</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>New York, NY, USA</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>ACM</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>The Joint Task Force on Computing Curricula</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.acm.org/binaries/content/assets/education/se2014.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2015</dc:date>
+        <z:libraryCatalog>ACM Digital Library</z:libraryCatalog>
+        <dcterms:abstract>The primary purpose of this volume is to provide guidance to academic institutions and accreditation agencies about what should constitute an undergraduate software engineering education. These recommendations have been developed by a broad, internationally based group of volunteer participants. This group has taken into account much of the work that has been done in software engineering education over the last quarter of a century. Software engineering curriculum recommendations are of particular relevance, since there is currently a surge in the creation of software engineering degree programs and accreditation processes for such programs have been established in a number of countries.</dcterms:abstract>
+        <dc:title>Curriculum Guidelines for Undergraduate Degree Programs in Software Engineering</dc:title>
+    </bib:Report>
+    <bib:Article rdf:about="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1545-7885"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wilson</foaf:surname>
+                        <foaf:givenname>Greg</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Aruliah</foaf:surname>
+                        <foaf:givenname>D. A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brown</foaf:surname>
+                        <foaf:givenname>C. Titus</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hong</foaf:surname>
+                        <foaf:givenname>Neil P. Chue</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Davis</foaf:surname>
+                        <foaf:givenname>Matt</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Guy</foaf:surname>
+                        <foaf:givenname>Richard T.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Haddock</foaf:surname>
+                        <foaf:givenname>Steven H. D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Huff</foaf:surname>
+                        <foaf:givenname>Kathryn D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mitchell</foaf:surname>
+                        <foaf:givenname>Ian M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Plumbley</foaf:surname>
+                        <foaf:givenname>Mark D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Waugh</foaf:surname>
+                        <foaf:givenname>Ben</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>White</foaf:surname>
+                        <foaf:givenname>Ethan P.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wilson</foaf:surname>
+                        <foaf:givenname>Paul</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>e1001745</bib:pages>
+        <dc:date>January 7, 2014</dc:date>
+        <z:libraryCatalog>PLoS Journals</z:libraryCatalog>
+        <dcterms:abstract>We describe a set of best practices for scientific software development, based on research and experience, that will improve scientists' productivity and the reliability of their software.</dcterms:abstract>
+        <dc:title>Best Practices for Scientific Computing</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1545-7885">
+        <prism:volume>12</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>PLOS Biology</dc:title>
+        <dc:identifier>ISSN 1545-7885</dc:identifier>
+        <dcterms:alternative>PLOS Biology</dcterms:alternative>
+        <dc:identifier>DOI 10.1371/journal.pbio.1001745</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="http://f1000research.com/articles/3-62/v2">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2046-1402"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wilson</foaf:surname>
+                        <foaf:givenname>Greg</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://f1000research.com/articles/3-62/v2</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>January 28, 2016</dc:date>
+        <dcterms:dateSubmitted>2017-12-29</dcterms:dateSubmitted>
+        <z:libraryCatalog>CrossRef</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dc:title>Software Carpentry: lessons learned</dc:title>
+        <z:shortTitle>Software Carpentry</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2046-1402">
+        <dc:title>F1000Research</dc:title>
+        <dc:identifier>ISSN 2046-1402</dc:identifier>
+        <dc:identifier>DOI 10.12688/f1000research.3-62.v2</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5500893/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2398-502X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nolan</foaf:surname>
+                        <foaf:givenname>Rory</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Padilla-Parra</foaf:surname>
+                        <foaf:givenname>Sergi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5500893/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>June 21, 2017</dc:date>
+        <dc:description>PMID: 28748220
+PMCID: PMC5500893</dc:description>
+        <dcterms:dateSubmitted>2018-06-20</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>In spite of the utility of unit tests, most R package developers do not write them.
+exampletestr makes it easier to
+start writing unit tests by creating shells/skeletons of unit tests based on the examples in the user's package documentation. When completed, these unit tests test whether said examples run 
+correctly. By combining the functionality of
+exampletestr with that of
+covr, having ensured that their examples adequately demonstrate the features of their package, the developer can have much of the work of constructing a comprehensive set of unit tests done for them.</dcterms:abstract>
+        <dc:title>exampletestr—An easy start to unit testing R packages</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2398-502X">
+        <prism:volume>2</prism:volume>
+        <dc:title>Wellcome Open Research</dc:title>
+        <dc:identifier>ISSN 2398-502X</dc:identifier>
+        <dcterms:alternative>Wellcome Open Res</dcterms:alternative>
+        <dc:identifier>DOI 10.12688/wellcomeopenres.11635.2</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="http://dx.doi.org/10.1109/MS.2001.922739">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0740-7459"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Glass</foaf:surname>
+                        <foaf:givenname>Robert L.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://dx.doi.org/10.1109/MS.2001.922739</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>112–111</bib:pages>
+        <dc:date>May 2001</dc:date>
+        <z:libraryCatalog>ACM Digital Library</z:libraryCatalog>
+        <dcterms:abstract>First Page of the Article</dcterms:abstract>
+        <dc:title>Frequently Forgotten Fundamental Facts About Software Engineering</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0740-7459">
+        <prism:volume>18</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>IEEE Softw.</dc:title>
+        <dc:identifier>ISSN 0740-7459</dc:identifier>
+        <dc:identifier>DOI 10.1109/MS.2001.922739</dc:identifier>
+    </bib:Journal>
+    <rdf:Description rdf:about="https://wiki.uef.fi/download/attachments/38669960/SMCOSTS.pdf">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Koskinen, Jussi</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://wiki.uef.fi/download/attachments/38669960/SMCOSTS.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>April 30, 2015</dc:date>
+        <dcterms:dateSubmitted>2018-01-01</dcterms:dateSubmitted>
+        <dc:title>Software Maintenance Costs</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3610582/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0353-8109"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dehaghani</foaf:surname>
+                        <foaf:givenname>Sayed Mehdi Hejazi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hajrahimi</foaf:surname>
+                        <foaf:givenname>Nafiseh</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3610582/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>63-66</bib:pages>
+        <dc:date>March 2013</dc:date>
+        <dc:description>PMID: 23572866
+PMCID: PMC3610582</dc:description>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Introduction
+The software industry has had significant progress in recent years. The entire life of software includes two phases: production and maintenance. Software maintenance cost is increasingly growing and estimates showed that about 90% of software life cost is related to its maintenance phase. Extraction and considering the factors affecting the software maintenance cost help to estimate the cost and reduce it by controlling the factors.
+
+Methods
+In this study, the factors affecting software maintenance cost were determined then were ranked based on their priority and after that effective ways to reduce the maintenance costs were presented. This paper is a research study. 15 software related to health care centers information systems in Isfahan University of Medical Sciences and hospitals function were studied in the years 2010 to 2011.
+
+Results and discussion
+Among Medical software maintenance team members, 40 were selected as sample. After interviews with experts in this field, factors affecting maintenance cost were determined. In order to prioritize the factors derived by AHP, at first, measurement criteria (factors found) were appointed by members of the maintenance team and eventually were prioritized with the help of EC software. Based on the results of this study, 32 factors were obtained which were classified in six groups. “Project” was ranked the most effective feature in maintenance cost with the highest priority. By taking into account some major elements like careful feasibility of IT projects, full documentation and accompany the designers in the maintenance phase good results can be achieved to reduce maintenance costs and increase longevity of the software.</dcterms:abstract>
+        <dc:title>Which Factors Affect Software Projects Maintenance Cost More?</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0353-8109">
+        <prism:volume>21</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>Acta Informatica Medica</dc:title>
+        <dc:identifier>ISSN 0353-8109</dc:identifier>
+        <dcterms:alternative>Acta Inform Med</dcterms:alternative>
+        <dc:identifier>DOI 10.5455/AIM.2012.21.63-66</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="http://www.pnas.org/content/112/6/1645">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0027-8424,%201091-6490"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Leek</foaf:surname>
+                        <foaf:givenname>Jeffrey T.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Peng</foaf:surname>
+                        <foaf:givenname>Roger D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.pnas.org/content/112/6/1645</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>1645-1646</bib:pages>
+        <dc:date>February 10, 2015</dc:date>
+        <dc:description>PMID: 25670866</dc:description>
+        <z:libraryCatalog>www.pnas.org</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>National Academy of Sciences</dcterms:abstract>
+        <dc:title>Opinion: Reproducible research can still be wrong: Adopting a prevention approach</dc:title>
+        <z:shortTitle>Opinion</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0027-8424,%201091-6490">
+        <prism:volume>112</prism:volume>
+        <prism:number>6</prism:number>
+        <dc:title>Proceedings of the National Academy of Sciences</dc:title>
+        <dc:identifier>ISSN 0027-8424, 1091-6490</dc:identifier>
+        <dcterms:alternative>PNAS</dcterms:alternative>
+        <dc:identifier>DOI 10.1073/pnas.1421412111</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="https://jamanetwork.com/journals/jamapediatrics/fullarticle/2677901">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:title>JAMA Pediatrics</dc:title>
+                <dcterms:alternative>JAMA Pediatr</dcterms:alternative>
+                <dc:identifier>DOI 10.1001/jamapediatrics.2018.0256</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feinstein</foaf:surname>
+                        <foaf:givenname>James A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Russell</foaf:surname>
+                        <foaf:givenname>Seth</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>DeWitt</foaf:surname>
+                        <foaf:givenname>Peter E.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feudtner</foaf:surname>
+                        <foaf:givenname>Chris</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dai</foaf:surname>
+                        <foaf:givenname>Dingwei</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bennett</foaf:surname>
+                        <foaf:givenname>Tellen D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://jamanetwork.com/journals/jamapediatrics/fullarticle/2677901</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>April 23, 2018</dc:date>
+        <dcterms:dateSubmitted>2018-04-24</dcterms:dateSubmitted>
+        <z:libraryCatalog>jamanetwork.com</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>This project develops computationally efficient software to generate classification of pediatric complex chronic conditions using a free, open-source statistical environment.</dcterms:abstract>
+        <dc:title>R Package for Pediatric Complex Chronic Condition Classification</dc:title>
+    </bib:Article>
+    <bib:Data rdf:about="https://cran.r-project.org/web/packages/pccc/index.html">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>DeWitt</foaf:surname>
+                        <foaf:givenname>Peter</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bennett</foaf:surname>
+                        <foaf:givenname>Tell</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feinstein</foaf:surname>
+                        <foaf:givenname>James</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Russell</foaf:surname>
+                        <foaf:givenname>Seth</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.0.0</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://cran.r-project.org/web/packages/pccc/index.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>December 13, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>An implementation of the pediatric complex chronic conditions (CCC)
+    classification system using R and C++.</dcterms:abstract>
+        <dc:title>pccc: Pediatric Complex Chronic Conditions</dc:title>
+        <z:shortTitle>pccc</z:shortTitle>
+    </bib:Data>
+    <bib:Article rdf:about="http://pediatrics.aappublications.org/content/106/Supplement_1/205">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0031-4005,%201098-4275"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feudtner</foaf:surname>
+                        <foaf:givenname>Chris</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Christakis</foaf:surname>
+                        <foaf:givenname>Dimitri A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Connell</foaf:surname>
+                        <foaf:givenname>Frederick A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://pediatrics.aappublications.org/content/106/Supplement_1/205</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>205-209</bib:pages>
+        <dc:date>July 1, 2000</dc:date>
+        <z:libraryCatalog>pediatrics.aappublications.org</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>Objectives. Advances in medical technology and public health are changing the causes and patterns of pediatric mortality. To better inform health care planning for dying children, we sought to determine if an increasing proportion of pediatric deaths were attributable to an underlying complex chronic condition (CCC), what the typical age of CCC-associated deaths was, and whether this age was increasing.
+Design. Population-based retrospective cohort from 1980 to 1997, compiled from Washington State annual censuses and death certificates of children 0 to 18 years old.
+Main Outcome Measures. For each of 9 categories of CCCs, the counts of death, mortality rates, and ages of death.
+Results. Nearly one-quarter of the 21 617 child deaths during this period were attributable to a CCC. Death rates for the sudden infant death syndrome (SIDS), CCCs, and all other causes each declined, but less so for CCCs. Among infants who died because of causes other than injury or SIDS, 31% of the remaining deaths were attributable to a CCC in 1980 and 41% by 1997; for deaths in children 1 year of age and older, CCCs were cited in 53% in 1980, versus 58% in 1997. The median age of death for all CCCs was 4 months 9 days, with substantial differences among CCCs. No overall change in the age of death between 1980 to 1997 was found (nonparametric trend test).
+Conclusions. CCCs account for an increasing proportion of child deaths. The majority of these deaths occur during infancy, but the typical age varies by cause. These findings should help shape the design of support care services offered to children dying with chronic conditions and their families.</dcterms:abstract>
+        <dc:title>Pediatric Deaths Attributable to Complex Chronic Conditions: A Population-Based Study of Washington State, 1980–1997</dc:title>
+        <z:shortTitle>Pediatric Deaths Attributable to Complex Chronic Conditions</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0031-4005,%201098-4275">
+        <prism:volume>106</prism:volume>
+        <prism:number>Supplement 1</prism:number>
+        <dc:title>Pediatrics</dc:title>
+        <dc:identifier>ISSN 0031-4005, 1098-4275</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="https://doi.org/10.1186/1471-2431-14-199">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1471-2431"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feudtner</foaf:surname>
+                        <foaf:givenname>Chris</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feinstein</foaf:surname>
+                        <foaf:givenname>James A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhong</foaf:surname>
+                        <foaf:givenname>Wenjun</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hall</foaf:surname>
+                        <foaf:givenname>Matt</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dai</foaf:surname>
+                        <foaf:givenname>Dingwei</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1186/1471-2431-14-199</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>199</bib:pages>
+        <dc:date>August 8, 2014</dc:date>
+        <z:libraryCatalog>BioMed Central</z:libraryCatalog>
+        <dcterms:abstract>The pediatric complex chronic conditions (CCC) classification system, developed in 2000, requires revision to accommodate the International Classification of Disease 10th Revision (ICD-10). To update the CCC classification system, we incorporated ICD-9 diagnostic codes that had been either omitted or incorrectly specified in the original system, and then translated between ICD-9 and ICD-10 using General Equivalence Mappings (GEMs). We further reviewed all codes in the ICD-9 and ICD-10 systems to include both diagnostic and procedural codes indicative of technology dependence or organ transplantation. We applied the provisional CCC version 2 (v2) system to death certificate information and 2 databases of health utilization, reviewed the resulting CCC classifications, and corrected any misclassifications. Finally, we evaluated performance of the CCC v2 system by assessing: 1) the stability of the system between ICD-9 and ICD-10 codes using data which included both ICD-9 codes and ICD-10 codes; 2) the year-to-year stability before and after ICD-10 implementation; and 3) the proportions of patients classified as having a CCC in both the v1 and v2 systems.</dcterms:abstract>
+        <dc:title>Pediatric complex chronic conditions classification system version 2: updated for ICD-10 and complex medical technology dependence and transplantation</dc:title>
+        <z:shortTitle>Pediatric complex chronic conditions classification system version 2</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1471-2431">
+        <prism:volume>14</prism:volume>
+        <dc:title>BMC Pediatrics</dc:title>
+        <dc:identifier>ISSN 1471-2431</dc:identifier>
+        <dcterms:alternative>BMC Pediatrics</dcterms:alternative>
+        <dc:identifier>DOI 10.1186/1471-2431-14-199</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="#item_1991">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <prism:volume>4</prism:volume><dc:title>Viitattu</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Agruss</foaf:surname>
+                        <foaf:givenname>Chris</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Johnson</foaf:surname>
+                        <foaf:givenname>Bob</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <bib:pages>2009</bib:pages>
+        <dc:date>2000</dc:date>
+        <dc:title>Ad Hoc Software Testing</dc:title>
+    </bib:Article>
+    <bib:Article rdf:about="#item_1992">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>3</prism:volume>
+                <prism:number>7</prism:number>
+                <dc:title>Java Report</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Kent Beck</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Erich Gamma</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:date>July 1998</dc:date>
+        <dc:title>Test Infected: Programmers Love Writing Tests</dc:title>
+    </bib:Article>
+    <bib:Document rdf:about="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>jpreese</foaf:surname></foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-08-28</dcterms:dateSubmitted>
+        <z:language>en-us</z:language>
+        <dcterms:abstract>Learn best practices for writing unit tests that drive code quality and resilience</dcterms:abstract>
+        <dc:title>Best practices for writing unit tests</dc:title>
+    </bib:Document>
+    <bib:Book rdf:about="https://CRAN.R-project.org/package=RUnit">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Burger</foaf:surname>
+                        <foaf:givenname>Matthias</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Juenemann</foaf:surname>
+                        <foaf:givenname>Klaus</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Koenig</foaf:surname>
+                        <foaf:givenname>Thomas</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=RUnit</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2015</dc:date>
+        <dc:title>RUnit: R Unit Test Framework</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="http://www.sciviews.org/SciViews-R">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>MONS, Belgium</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>UMONS</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Grosjean</foaf:surname>
+                        <foaf:givenname>Philippe</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.sciviews.org/SciViews-R</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2014</dc:date>
+        <dc:title>SciViews-R: A GUI API for R</dc:title>
+    </bib:Book>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=testit">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xie</foaf:surname>
+                        <foaf:givenname>Yihui</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.8</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=testit</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>June 14, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.</dcterms:abstract>
+        <dc:title>testit: A Simple Package for Testing R Packages</dc:title>
+        <z:shortTitle>testit</z:shortTitle>
+    </bib:Data>
+    <bib:Article rdf:about="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <prism:volume>3</prism:volume><dc:title>The R Journal</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wickham</foaf:surname>
+                        <foaf:givenname>Hadley</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>5–10</bib:pages>
+        <dc:date>2011</dc:date>
+        <dc:title>testthat: Get Started with Testing</dc:title>
+    </bib:Article>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=unitizer">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gaslam</foaf:surname>
+                        <foaf:givenname>Brodie</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.4.5</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=unitizer</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>November 24, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Simplifies regression tests by comparing objects produced by test code with earlier versions of those same objects. If objects are unchanged the tests pass, otherwise execution stops with error details. If in interactive mode, tests can be reviewed through the provided interactive environment.</dcterms:abstract>
+        <dc:title>unitizer: Interactive R Unit Tests</dc:title>
+        <z:shortTitle>unitizer</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=unittest">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lentin</foaf:surname>
+                        <foaf:givenname>Jamie</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hennessey</foaf:surname>
+                        <foaf:givenname>Anthony</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.3-0</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=unittest</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>November 1, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Concise TAP &lt;http://testanything.org/&gt; compliant unit testing package. Authored tests can be run using CMD check with minimal implementation overhead.</dcterms:abstract>
+        <dc:title>unittest: TAP-Compliant Unit Testing</dc:title>
+        <z:shortTitle>unittest</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=xlsx">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dragulescu</foaf:surname>
+                        <foaf:givenname>Adrian A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Arendt</foaf:surname>
+                        <foaf:givenname>Cole</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.6.1</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=xlsx</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>June 11, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Provide R functions to read/write/format Excel 2007 and Excel 97/2000/XP/2003 file formats.</dcterms:abstract>
+        <dc:title>xlsx: Read, Write, Format Excel 2007 and Excel 97/2000/XP/2003 Files</dc:title>
+        <z:shortTitle>xlsx</z:shortTitle>
+    </bib:Data>
+    <bib:Book rdf:about="https://github.com/nutterb/redcapAPI/wiki">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nutter</foaf:surname>
+                        <foaf:givenname>Benjamin</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lane</foaf:surname>
+                        <foaf:givenname>Stephen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://github.com/nutterb/redcapAPI/wiki</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2018</dc:date>
+        <dc:description>DOI: 10.5281/zenodo.11826</dc:description>
+        <dc:title>redcapAPI: Accessing data from REDCap projects using the API</dc:title>
+    </bib:Book>
+    <bib:Document rdf:about="http://iansommerville.com/systems-software-and-technology/giving-up-on-test-first-development/">
+        <z:itemType>blogPost</z:itemType>
+        <dcterms:isPartOf>
+           <z:Blog><dc:title>Systems, software and technology</dc:title></z:Blog>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sommerville</foaf:surname>
+                        <foaf:givenname>Ian</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://iansommerville.com/systems-software-and-technology/giving-up-on-test-first-development/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>March 17, 2016</dc:date>
+        <z:language>en-US</z:language>
+        <dcterms:abstract>Test-first or test-driven driven development (TDD) is an approach to software development where you write the tests before you write the program. You write a program to pass the test, extend the te…</dcterms:abstract>
+        <dc:title>Giving up on test-first development</dc:title>
+    </bib:Document>
+    <bib:Document rdf:about="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html">
+        <z:itemType>blogPost</z:itemType>
+        <dcterms:isPartOf>
+           <z:Blog></z:Blog>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>David Heinemeier Hansson</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>April 23, 2014</dc:date>
+        <dc:title>TDD is dead. Long live testing. (DHH)</dc:title>
+    </bib:Document>
+    <bib:Document rdf:about="http://www.crn.com/news/security/18821726/microsofts-ceo-80-20-rule-applies-to-bugs-not-just-features.htm">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>CRN</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rooney</foaf:surname>
+                        <foaf:givenname>Paula</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://www.crn.com/news/security/18821726/microsofts-ceo-80-20-rule-applies-to-bugs-not-just-features.htm</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>October 3, 2002</dc:date>
+        <z:language>en</z:language>
+        <dcterms:abstract>Looks like the 80-20 rule applies to Microsoft's bugs, not just product features.</dcterms:abstract>
+        <dc:title>Microsoft's CEO: 80-20 Rule Applies To Bugs, Not Just Features</dc:title>
+        <z:shortTitle>Microsoft's CEO</z:shortTitle>
+    </bib:Document>
+    <rdf:Description rdf:about="https://en.wikipedia.org/w/index.php?title=SUnit&amp;oldid=815835062">
+        <z:itemType>encyclopediaArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Book><dc:title>Wikipedia</dc:title></bib:Book>
+        </dcterms:isPartOf>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://en.wikipedia.org/w/index.php?title=SUnit&amp;oldid=815835062</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>December 17, 2017</dc:date>
+        <dc:description>Page Version ID: 815835062</dc:description>
+        <z:libraryCatalog>Wikipedia</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>SUnit is a unit testing framework for the programming language Smalltalk. It is the original source of the xUnit design, originally written by the creator of Extreme Programming, Kent Beck. SUnit allows writing tests and checking results in Smalltalk.</dcterms:abstract>
+        <dc:title>SUnit</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://en.wikipedia.org/w/index.php?title=XUnit&amp;oldid=807299841">
+        <z:itemType>encyclopediaArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Book><dc:title>Wikipedia</dc:title></bib:Book>
+        </dcterms:isPartOf>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://en.wikipedia.org/w/index.php?title=XUnit&amp;oldid=807299841</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>October 27, 2017</dc:date>
+        <dc:description>Page Version ID: 807299841</dc:description>
+        <z:libraryCatalog>Wikipedia</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>For the particular .NET testing framework, see xUnit.net.
+For the unit of measurement, see x unit.
+xUnit is the collective name for several unit testing frameworks that derive their structure and functionality from Smalltalk's SUnit. SUnit, designed by Kent Beck in 1998, was written in a highly structured object-oriented style, which lent easily to contemporary languages such as Java and C#. Following its introduction in Smalltalk the framework was ported to Java by Kent Beck and Erich Gamma and gained wide popularity, eventually gaining ground in the majority of programming languages in current use. The names of many of these frameworks are a variation on &quot;SUnit&quot;, usually replacing the &quot;S&quot; with the first letter (or letters) in the name of their intended language (&quot;JUnit&quot; for Java, &quot;RUnit&quot; for R etc.). These frameworks and their common architecture are collectively known as &quot;xUnit&quot;.</dcterms:abstract>
+        <dc:title>xUnit</dc:title>
+    </rdf:Description>
+    <bib:Book rdf:about="https://www.seleniumhq.org">
+        <z:itemType>book</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.seleniumhq.org</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Selenium</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="https://software.microfocus.com/en-us/products/unified-functional-automated-testing/overview">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Microfocus</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://software.microfocus.com/en-us/products/unified-functional-automated-testing/overview</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Unified Functional Testing</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="https://www.ranorex.com">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Ranorex GmbH</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ranorex.com</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Ranorex</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="urn:isbn:978-1-4987-1696-3">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Boca Raton</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Chapman and Hall/CRC</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xie</foaf:surname>
+                        <foaf:givenname>Yihui</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <prism:edition>2 edition</prism:edition>
+        <dc:identifier>ISBN 978-1-4987-1696-3</dc:identifier>
+        <dc:date>June 24, 2015</dc:date>
+        <z:libraryCatalog>Amazon</z:libraryCatalog>
+        <z:language>English</z:language>
+        <dcterms:abstract>Quickly and Easily Write Dynamic Documents Suitable for both beginners and advanced users, Dynamic Documents with R and knitr, Second Edition makes writing statistical reports easier by integrating computing directly with reporting. Reports range from homework, projects, exams, books, blogs, and web pages to virtually any documents related to statistical graphics, computing, and data analysis. The book covers basic applications for beginners while guiding power users in understanding the extensibility of the knitr package. New to the Second Edition  A new chapter that introduces R Markdown v2 Changes that reflect improvements in the knitr package New sections on generating tables, defining custom printing methods for objects in code chunks, the C/Fortran engines, the Stan engine, running engines in a persistent session, and starting a local server to serve dynamic documents Boost Your Productivity in Statistical Report Writing and Make Your Scientific Computing with R Reproducible Like its highly praised predecessor, this edition shows you how to improve your efficiency in writing reports. The book takes you from program output to publication-quality reports, helping you fine-tune every aspect of your report.</dcterms:abstract>
+        <dc:title>Dynamic Documents with R and knitr</dc:title>
+        <z:numPages>294</z:numPages>
+    </bib:Book>
+    <bib:Book rdf:about="https://stackoverflow.com/questions/333682/unit-testing-anti-patterns-catalogue">
+        <z:itemType>book</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://stackoverflow.com/questions/333682/unit-testing-anti-patterns-catalogue</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Unit testing Anti-patterns catalogue</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="https://github.com/educloudalliance/educloud-development/wiki/Test-Driven-Development-details">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Jarkko Moilanen</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://github.com/educloudalliance/educloud-development/wiki/Test-Driven-Development-details</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Test Driven Development details</dc:title>
+    </bib:Book>
+    <bib:Document rdf:about="https://web.archive.org/web/20150726134212/http://blog.james-carr.org:80/2006/11/03/tdd-anti-patterns/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>James Carr</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://web.archive.org/web/20150726134212/http://blog.james-carr.org:80/2006/11/03/tdd-anti-patterns/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>July 26, 2015</dc:date>
+        <dc:title>TDD Anti-Patterns</dc:title>
+    </bib:Document>
+    <bib:Book rdf:about="urn:isbn:978-0-13-394303-0">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Boston</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Pearson</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sommerville</foaf:surname>
+                        <foaf:givenname>Ian</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <prism:edition>10 edition</prism:edition>
+        <dc:identifier>ISBN 978-0-13-394303-0</dc:identifier>
+        <dc:date>April 3, 2015</dc:date>
+        <z:libraryCatalog>Amazon</z:libraryCatalog>
+        <z:language>English</z:language>
+        <dcterms:abstract>For courses in computer science and software engineering     The Fundamental Practice of Software Engineering    Software Engineering  introduces readers to the overwhelmingly important subject of software programming and development. In the past few years, computer systems have come to dominate not just our technological growth, but the foundations of our world’s major industries. This text seeks to lay out the fundamental concepts of this huge and continually growing subject area in a clear and comprehensive manner.   The Tenth Edition contains new information that highlights various technological updates of recent years, providing readers with highly relevant and current information. Sommerville’s experience in system dependability and systems engineering guides the text through a traditional plan-based approach that incorporates some novel agile methods. The text strives to teach the innovators of tomorrow how to create software that will make our world a better, safer, and more advanced place to live.</dcterms:abstract>
+        <dc:title>Software Engineering</dc:title>
+        <z:numPages>816</z:numPages>
+    </bib:Book>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=DSL">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feinerer</foaf:surname>
+                        <foaf:givenname>Ingo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Theussl</foaf:surname>
+                        <foaf:givenname>Stefan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Buchta</foaf:surname>
+                        <foaf:givenname>Christian</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.1-6</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=DSL</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>July 3, 2015</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>An abstract DList class helps storing large list-type objects in a distributed manner. Corresponding high-level functions and methods for handling distributed storage (DStorage) and lists allows for processing such DLists on distributed systems efficiently. In doing so it uses a well defined storage backend implemented based on the DStorage class.</dcterms:abstract>
+        <dc:title>DSL: Distributed Storage and List</dc:title>
+        <z:shortTitle>DSL</z:shortTitle>
+    </bib:Data>
+    <bib:Report rdf:about="https://peerj.com/preprints/3188">
+        <z:itemType>report</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>PeerJ Inc.</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Eddelbuettel</foaf:surname>
+                        <foaf:givenname>Dirk</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Balamuta</foaf:surname>
+                        <foaf:givenname>James Joseph</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://peerj.com/preprints/3188</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>August 25, 2017</dc:date>
+        <dc:description>DOI: 10.7287/peerj.preprints.3188v1</dc:description>
+        <z:libraryCatalog>peerj.com</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>R has always provided an application programming interface (API) for extensions. Based on the C language, it uses a number of macros and other low-level constructs to exchange data structures between the R process and any dynamically-loaded component modules authors added to it. With the introduction of the Rcpp package, and its later refinements, this process has become considerably easier yet also more robust. By now, Rcpp has become the most popular extension mechanism for R. This article introduces Rcpp, and illustrates with several examples how the Rcpp Attributes mechanism in particular eases the transition of objects between R and C++ code.</dcterms:abstract>
+        <prism:number>e3188v1</prism:number>
+        <dc:title>Extending R with C++: A Brief Introduction to Rcpp</dc:title>
+        <z:shortTitle>Extending R with C++</z:shortTitle>
+    </bib:Report>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=RcppParallel">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Allaire</foaf:surname>
+                        <foaf:givenname>J. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Francois</foaf:surname>
+                        <foaf:givenname>Romain</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ushey</foaf:surname>
+                        <foaf:givenname>Kevin</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vandenbrouck</foaf:surname>
+                        <foaf:givenname>Gregory</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>library</foaf:surname>
+                        <foaf:givenname>Marcus Geelnard (TinyThread</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>http://tinythreadpp.bitsnbites.eu/)</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>RStudio</foaf:surname></foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>library</foaf:surname>
+                        <foaf:givenname>Intel (Intel TBB</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>https://www.threadingbuildingblocks.org/)</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Microsoft</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>4.4.1</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=RcppParallel</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>July 19, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>High level functions for parallel programming with 'Rcpp'. For example, the 'parallelFor()' function can be used to convert the work of a standard serial &quot;for&quot; loop into a parallel one and the 'parallelReduce()' function can be used for accumulating aggregate or other values.</dcterms:abstract>
+        <dc:title>RcppParallel: Parallel Programming Tools for 'Rcpp'</dc:title>
+        <z:shortTitle>RcppParallel</z:shortTitle>
+    </bib:Data>
+    <bib:Article rdf:about="https://cran.r-project.org/doc/Rnews/Rnews_2002-2.pdf">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>2</prism:volume>
+                <prism:number>2</prism:number>
+                <dc:title>R News</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yu</foaf:surname>
+                        <foaf:givenname>Hao</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://cran.r-project.org/doc/Rnews/Rnews_2002-2.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>10–14</bib:pages>
+        <dc:date>2002</dc:date>
+        <dc:title>Rmpi: Parallel Statistical Computing in R</dc:title>
+    </bib:Article>
+    <bib:Document rdf:about="https://spark.apache.org/docs/latest/sparkr.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://spark.apache.org/docs/latest/sparkr.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>SparkR (R on Spark) - Spark 2.3.2 Documentation</dc:title>
+    </bib:Document>
+    <bib:Article rdf:about="http://www.jstatsoft.org/v64/i11/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>64</prism:volume>
+                <prism:number>11</prism:number>
+                <dc:title>Journal of Statistical Software</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bischl</foaf:surname>
+                        <foaf:givenname>Bernd</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lang</foaf:surname>
+                        <foaf:givenname>Michel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mersmann</foaf:surname>
+                        <foaf:givenname>Olaf</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rahnenführer</foaf:surname>
+                        <foaf:givenname>Jörg</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weihs</foaf:surname>
+                        <foaf:givenname>Claus</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.jstatsoft.org/v64/i11/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>1–25</bib:pages>
+        <dc:date>2015</dc:date>
+        <dc:title>BatchJobs and BatchExperiments: Abstraction Mechanisms for Using R in Batch Environments</dc:title>
+    </bib:Article>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=doMC">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Calaway</foaf:surname>
+                        <foaf:givenname>Rich</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Analytics</foaf:surname>
+                        <foaf:givenname>Revolution</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weston</foaf:surname>
+                        <foaf:givenname>Steve</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.3.5</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=doMC</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>December 12, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Provides a parallel backend for the %dopar% function using the multicore functionality of the parallel package.</dcterms:abstract>
+        <dc:title>doMC: Foreach Parallel Adaptor for 'parallel'</dc:title>
+        <z:shortTitle>doMC</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=doMPI">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weston</foaf:surname>
+                        <foaf:givenname>Steve</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.2.2</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=doMPI</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>May 1, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Provides a parallel backend for the %dopar% function using the Rmpi package.</dcterms:abstract>
+        <dc:title>doMPI: Foreach Parallel Adaptor for the Rmpi Package</dc:title>
+        <z:shortTitle>doMPI</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=doParallel">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Calaway</foaf:surname>
+                        <foaf:givenname>Rich</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Corporation</foaf:surname>
+                        <foaf:givenname>Microsoft</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weston</foaf:surname>
+                        <foaf:givenname>Steve</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tenenbaum</foaf:surname>
+                        <foaf:givenname>Dan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.0.14</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=doParallel</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>September 24, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Provides a parallel backend for the %dopar% function using the parallel package.</dcterms:abstract>
+        <dc:title>doParallel: Foreach Parallel Adaptor for the 'parallel' Package</dc:title>
+        <z:shortTitle>doParallel</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=doSNOW">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Calaway</foaf:surname>
+                        <foaf:givenname>Rich</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Corporation</foaf:surname>
+                        <foaf:givenname>Microsoft</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weston</foaf:surname>
+                        <foaf:givenname>Stephen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.0.16</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=doSNOW</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>December 13, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Provides a parallel backend for the %dopar% function using the snow package of Tierney, Rossini, Li, and Sevcikova.</dcterms:abstract>
+        <dc:title>doSNOW: Foreach Parallel Adaptor for the 'snow' Package</dc:title>
+        <z:shortTitle>doSNOW</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=foreach">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Calaway</foaf:surname>
+                        <foaf:givenname>Rich</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Microsoft</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weston</foaf:surname>
+                        <foaf:givenname>Steve</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.4.4</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=foreach</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>December 12, 2017</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Support for the foreach looping construct. Foreach is an idiom that allows for iterating over elements in a collection, without the use of an explicit loop counter. This package in particular is intended to be used for its return value, rather than for its side effects. In that sense, it is similar to the standard lapply function, but doesn't require the evaluation of a function. Using foreach without side effects also facilitates executing the loop in parallel.</dcterms:abstract>
+        <dc:title>foreach: Provides Foreach Looping Construct for R</dc:title>
+        <z:shortTitle>foreach</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=future">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bengtsson</foaf:surname>
+                        <foaf:givenname>Henrik</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.9.0</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=future</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>July 23, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>The purpose of this package is to provide a lightweight and unified Future API for sequential and parallel processing of R expression via futures. The simplest way to evaluate an expression in parallel is to use 'x %&lt;-% { expression }' with 'plan(multiprocess)'. This package implements sequential, multicore, multisession, and cluster futures. With these, R expressions can be evaluated on the local machine, in parallel a set of local machines, or distributed on a mix of local and remote machines. Extensions to this package implement additional backends for processing futures via compute cluster schedulers etc. Because of its unified API, there is no need to modify any code in order switch from sequential on the local machine to, say, distributed processing on a remote compute cluster. Another strength of this package is that global variables and functions are automatically identified and exported as needed, making it straightforward to tweak existing code to make use of futures.</dcterms:abstract>
+        <dc:title>future: Unified Parallel and Distributed Processing in R for Everyone</dc:title>
+        <z:shortTitle>future</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=future.apply">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bengtsson</foaf:surname>
+                        <foaf:givenname>Henrik</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>R Core Team</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.0.1</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=future.apply</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>August 26, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Implementations of apply(), eapply(), lapply(), Map(), mapply(), replicate(), sapply(), tapply(), and vapply() that can be resolved using any future-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. These future_*apply() functions come with the same pros and cons as the corresponding base-R *apply() functions but with the additional feature of being able to be processed via the future framework.</dcterms:abstract>
+        <dc:title>future.apply: Apply Function to Elements in Parallel using Futures</dc:title>
+        <z:shortTitle>future.apply</z:shortTitle>
+    </bib:Data>
+    <bib:Book rdf:about="https://CRAN.R-project.org/package=microbenchmark">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mersmann</foaf:surname>
+                        <foaf:givenname>Olaf</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=microbenchmark</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2018</dc:date>
+        <dc:title>microbenchmark: Accurate Timing Functions</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="https://www.R-project.org/">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Vienna, Austria</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>R Foundation for Statistical Computing</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>R Core Team</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.R-project.org/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2018</dc:date>
+        <dc:title>R: A Language and Environment for Statistical Computing</dc:title>
+    </bib:Book>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=parallelDist">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Eckert</foaf:surname>
+                        <foaf:givenname>Alexander</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.2.2</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=parallelDist</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>September 24, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>A fast parallelized alternative to R's native 'dist' function to calculate distance matrices for continuous, binary, and multi-dimensional input matrices, which supports a broad variety of 39 predefined distance functions from the 'stats', 'proxy' and 'dtw' R packages, as well as user- defined functions written in C++. For ease of use, the 'parDist' function extends the signature of the 'dist' function and uses the same parameter naming conventions as distance methods of existing R packages. The package is mainly implemented in C++ and leverages the 'RcppParallel' package to parallelize the distance computations with the help of the 'TinyThread' library. Furthermore, the 'Armadillo' linear algebra library is used for optimized matrix operations during distance calculations. The curiously recurring template pattern (CRTP) technique is applied to avoid virtual functions, which improves the Dynamic Time Warping calculations while the implementation stays flexible enough to support different DTW step patterns and normalization methods.</dcterms:abstract>
+        <dc:title>parallelDist: Parallel Distance Matrix Computation using Multiple Threads</dc:title>
+        <z:shortTitle>parallelDist</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=parallelMap">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bischl</foaf:surname>
+                        <foaf:givenname>Bernd</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lang</foaf:surname>
+                        <foaf:givenname>Michel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.3</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=parallelMap</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>June 10, 2015</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Unified parallelization framework for multiple back-end, designed for internal package and interactive usage. The main operation is a parallel &quot;map&quot; over lists. Supports local, multicore, mpi and BatchJobs mode. Allows &quot;tagging&quot; of the parallel operation with a level name that can be later selected by the user to switch on parallel execution for exactly this operation.</dcterms:abstract>
+        <dc:title>parallelMap: Unified Interface to Parallelization Back-Ends</dc:title>
+        <z:shortTitle>parallelMap</z:shortTitle>
+    </bib:Data>
+    <bib:Article rdf:about="#item_2032">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>71</prism:volume>
+                <prism:number>4</prism:number>
+                <dc:title>Journal of Statistical Software</dc:title>
+                <dc:identifier>DOI 10.18637/jss.v071.i04</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Matloff</foaf:surname>
+                        <foaf:givenname>Norman</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <bib:pages>1–15</bib:pages>
+        <dc:date>2016</dc:date>
+        <dc:title>Software Alchemy: Turning Complex Statistical Computations into Embarrassingly-Parallel Ones</dc:title>
+    </bib:Article>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=profr">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wickham</foaf:surname>
+                        <foaf:givenname>Hadley</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.3.1</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=profr</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>April 22, 2014</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>profr provides an alternative data structure and visual rendering for the profiling information generated by Rprof.</dcterms:abstract>
+        <dc:title>profr: An alternative display for profiling information</dc:title>
+        <z:shortTitle>profr</z:shortTitle>
+    </bib:Data>
+    <bib:Book rdf:about="https://CRAN.R-project.org/package=profvis">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chang</foaf:surname>
+                        <foaf:givenname>Winston</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Luraschi</foaf:surname>
+                        <foaf:givenname>Javier</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=profvis</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2018</dc:date>
+        <dc:title>profvis: Interactive Visualizations for Profiling R Code</dc:title>
+    </bib:Book>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=rbenchmark">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kusnierczyk</foaf:surname>
+                        <foaf:givenname>Wacek</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Eddelbuettel</foaf:surname>
+                        <foaf:givenname>Dirk</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hasselman</foaf:surname>
+                        <foaf:givenname>Berend</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>1.0.0</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://CRAN.R-project.org/package=rbenchmark</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>August 30, 2012</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>rbenchmark is inspired by the Perl module Benchmark, and is intended to facilitate benchmarking of arbitrary R code. The library consists of just one function, benchmark, which is a simple wrapper around system.time. Given a specification of the benchmarking process (counts of replications, evaluation environment) and an arbitrary number of expressions, benchmark evaluates each of the expressions in the specified environment, replicating the evaluation as many times as specified, and returning the results conveniently wrapped into a data frame.</dcterms:abstract>
+        <dc:title>rbenchmark: Benchmarking routine for R</dc:title>
+        <z:shortTitle>rbenchmark</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=snow">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tierney</foaf:surname>
+                        <foaf:givenname>Luke</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rossini</foaf:surname>
+                        <foaf:givenname>A. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Li</foaf:surname>
+                        <foaf:givenname>Na</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sevcikova</foaf:surname>
+                        <foaf:givenname>H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.4-3</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=snow</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>September 14, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>Support for simple parallel computing in R.</dcterms:abstract>
+        <dc:title>snow: Simple Network of Workstations</dc:title>
+        <z:shortTitle>snow</z:shortTitle>
+    </bib:Data>
+    <bib:Data rdf:about="https://CRAN.R-project.org/package=sparklyr">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Luraschi</foaf:surname>
+                        <foaf:givenname>Javier</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kuo</foaf:surname>
+                        <foaf:givenname>Kevin</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ushey</foaf:surname>
+                        <foaf:givenname>Kevin</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Allaire</foaf:surname>
+                        <foaf:givenname>J. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Macedo</foaf:surname>
+                        <foaf:givenname>Samuel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>RStudio</foaf:surname></foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Foundation</foaf:surname>
+                        <foaf:givenname>The Apache Software</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <prism:edition>0.9.1</prism:edition>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=sparklyr</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>September 27, 2018</dc:date>
+        <z:libraryCatalog>R-Packages</z:libraryCatalog>
+        <dcterms:abstract>R interface to Apache Spark, a fast and general engine for big data processing, see &lt;http://spark.apache.org&gt;. This package supports connecting to local and remote Apache Spark clusters, provides a 'dplyr' compatible back-end, and provides an interface to Spark's built-in machine learning algorithms.</dcterms:abstract>
+        <dc:title>sparklyr: R Interface to Apache Spark</dc:title>
+        <z:shortTitle>sparklyr</z:shortTitle>
+    </bib:Data>
+    <bib:Book rdf:about="https://CRAN.R-project.org/package=tictoc">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Izrailev</foaf:surname>
+                        <foaf:givenname>Sergei</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=tictoc</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2014</dc:date>
+        <dc:title>tictoc: Functions for timing R scripts, as well as implementations of Stack and List structures.</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="https://wiki.python.org/moin/PythonSpeed/PerformanceTips">
+        <z:itemType>book</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://wiki.python.org/moin/PythonSpeed/PerformanceTips</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Performance Tips</dc:title>
+    </bib:Book>
+    <rdf:Description rdf:about="https://en.wikipedia.org/w/index.php?title=Binary_search_algorithm&amp;oldid=835131405">
+        <z:itemType>encyclopediaArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Book><dc:title>Wikipedia</dc:title></bib:Book>
+        </dcterms:isPartOf>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://en.wikipedia.org/w/index.php?title=Binary_search_algorithm&amp;oldid=835131405</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>April 6, 2018</dc:date>
+        <dc:description>Page Version ID: 835131405</dc:description>
+        <z:libraryCatalog>Wikipedia</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>In computer science, binary search, also known as half-interval search, logarithmic search, or binary chop, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful. If the search ends with the remaining half being empty, the target is not in the array.
+Binary search runs in at worst logarithmic time, making O(log n) comparisons, where n is the number of elements in the array, the O is Big O notation, and log is the logarithm. Binary search takes constant (O(1)) space, meaning that the space taken by the algorithm is the same for any number of elements in the array. Although specialized data structures designed for fast searching—such as hash tables—can be searched more efficiently, binary search applies to a wider range of problems.
+Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
+There are numerous variations of binary search. In particular, fractional cascading speeds up binary searches for the same value in multiple arrays, efficiently solving a series of search problems in computational geometry and numerous other fields. Exponential search extends binary search to unbounded lists. The binary search tree and B-tree data structures are based on binary search.</dcterms:abstract>
+        <dc:title>Binary search algorithm</dc:title>
+    </rdf:Description>
+    <bib:Document rdf:about="https://justin.abrah.ms/computer-science/big-o-notation-explained.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Justin Abrahms</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://justin.abrah.ms/computer-science/big-o-notation-explained.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:title>Big-O notation explained by a self-taught programmer</dc:title>
+    </bib:Document>
+    <bib:Book rdf:about="https://CRAN.R-project.org/package=proftools">
+        <z:itemType>book</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tierney</foaf:surname>
+                        <foaf:givenname>Luke</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jarjour</foaf:surname>
+                        <foaf:givenname>Riad</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://CRAN.R-project.org/package=proftools</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2016</dc:date>
+        <dc:title>proftools: Profile Output Processing Tools for R</dc:title>
+    </bib:Book>
+    <bib:Book rdf:about="urn:isbn:978-1-4710-4652-0">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>lulu.com</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Burns</foaf:surname>
+                        <foaf:givenname>Patrick</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>ISBN 978-1-4710-4652-0</dc:identifier>
+        <dc:date>January 12, 2012</dc:date>
+        <z:libraryCatalog>Amazon</z:libraryCatalog>
+        <z:language>English</z:language>
+        <dcterms:abstract>An essential guide to the trouble spots and oddities of R. In spite of the quirks exposed here, R is the best computing environment for most data analysis tasks. R is free, open-source, and has thousands of contributed packages. It is used in such diverse fields as ecology, finance, genomics and music. If you are using spreadsheets to understand data, switch to R. You will have safer - and ultimately, more convenient - computations.</dcterms:abstract>
+        <dc:title>The R Inferno</dc:title>
+        <z:numPages>154</z:numPages>
+    </bib:Book>
+    <bib:Document rdf:about="https://www.codeproject.com/Articles/49023/The-impact-of-the-Pareto-principle-in-optimization">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Jim Xochellis</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.codeproject.com/Articles/49023/The-impact-of-the-Pareto-principle-in-optimization</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>January 31, 2010</dc:date>
+        <dc:title>The impact of the Pareto principle in optimization - CodeProject</dc:title>
+    </bib:Document>
+    <bib:Document rdf:about="https://dzone.com/articles/applying-8020-rule-software">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>dzone.com</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Jim Bird</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://dzone.com/articles/applying-8020-rule-software</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>November 15, 2013</dc:date>
+        <z:language>en</z:language>
+        <dcterms:abstract>Managers don’t want to think harder than they have to. They like simple rules of thumb, quick and straightforward ways of looking at problems and getting...</dcterms:abstract>
+        <dc:title>Applying the 80:20 Rule in Software Development - DZone Agile</dc:title>
+        <z:shortTitle>Applying the 80</z:shortTitle>
+    </bib:Document>
+    <bib:Article rdf:about="http://doi.acm.org/10.1145/356635.356640">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0360-0300"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Knuth</foaf:surname>
+                        <foaf:givenname>Donald E.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://doi.acm.org/10.1145/356635.356640</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>261–301</bib:pages>
+        <dc:date>December 1974</dc:date>
+        <z:libraryCatalog>ACM Digital Library</z:libraryCatalog>
+        <dc:title>Structured Programming with Go to Statements</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0360-0300">
+        <prism:volume>6</prism:volume>
+        <prism:number>4</prism:number>
+        <dc:title>ACM Comput. Surv.</dc:title>
+        <dc:identifier>ISSN 0360-0300</dc:identifier>
+        <dc:identifier>DOI 10.1145/356635.356640</dc:identifier>
+    </bib:Journal>
+    <bib:Document rdf:about="https://robinsones.github.io/Making-R-Code-Faster-A-Case-Study/">
+        <z:itemType>blogPost</z:itemType>
+        <dcterms:isPartOf>
+           <z:Blog><dc:title>Hooked on Data</dc:title></z:Blog>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Emily Robinson</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://robinsones.github.io/Making-R-Code-Faster-A-Case-Study/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>November 30, 2017</dc:date>
+        <z:language>en</z:language>
+        <dcterms:abstract>About two months ago I put a call out to Rstats twitter:</dcterms:abstract>
+        <dc:title>Making R Code Faster : A Case Study</dc:title>
+        <z:shortTitle>Making R Code Faster</z:shortTitle>
+    </bib:Document>
+    <bib:Book rdf:about="urn:isbn:978-1-4665-8696-3">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Boca Raton, FL</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Chapman and Hall/CRC</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wickham</foaf:surname>
+                        <foaf:givenname>Hadley</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <prism:edition>1 edition</prism:edition>
+        <dc:identifier>ISBN 978-1-4665-8696-3</dc:identifier>
+        <dc:date>September 27, 2014</dc:date>
+        <z:libraryCatalog>Amazon</z:libraryCatalog>
+        <z:language>English</z:language>
+        <dcterms:abstract>An Essential Reference for Intermediate and Advanced R Programmers Advanced R presents useful tools and techniques for attacking many types of R programming problems, helping you avoid mistakes and dead ends. With more than ten years of experience programming in R, the author illustrates the elegance, beauty, and flexibility at the heart of R.  The book develops the necessary skills to produce quality code that can be used in a variety of circumstances. You will learn:  The fundamentals of R, including standard data types and functions Functional programming as a useful framework for solving wide classes of problems The positives and negatives of metaprogramming  How to write fast, memory-efficient code   This book not only helps current R users become R programmers but also shows existing programmers what’s special about R. Intermediate R programmers can dive deeper into R and learn new strategies for solving diverse problems while programmers from other languages can learn the details of R and understand why R works the way it does.</dcterms:abstract>
+        <dc:title>Advanced R</dc:title>
+        <z:numPages>476</z:numPages>
+    </bib:Book>
+</rdf:RDF>

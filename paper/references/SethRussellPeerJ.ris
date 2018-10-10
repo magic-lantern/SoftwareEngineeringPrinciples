@@ -1,0 +1,924 @@
+TY  - JOUR
+TI  - Curriculum 68: Recommendations for Academic Programs in Computer Science: A Report of the ACM Curriculum Committee on Computer Science
+AU  - Atchison, William F.
+AU  - Conte, Samuel D.
+AU  - Hamblen, John W.
+AU  - Hull, Thomas E.
+AU  - Keenan, Thomas A.
+AU  - Kehl, William B.
+AU  - McCluskey, Edward J.
+AU  - Navarro, Silvio O.
+AU  - Rheinboldt, Werner C.
+AU  - Schweppe, Earl J.
+AU  - Viavant, William
+AU  - Young, David M.
+T2  - Commun. ACM
+DA  - 1968/03//
+PY  - 1968
+DO  - 10.1145/362929.362976
+DP  - ACM Digital Library
+VL  - 11
+IS  - 3
+SP  - 151
+EP  - 197
+SN  - 0001-0782
+ST  - Curriculum 68
+UR  - http://doi.acm.org/10.1145/362929.362976
+ER  - 
+
+TY  - RPRT
+TI  - Curriculum Guidelines for Undergraduate Degree Programs in Software Engineering
+AU  - The Joint Task Force on Computing Curricula
+AB  - The primary purpose of this volume is to provide guidance to academic institutions and accreditation agencies about what should constitute an undergraduate software engineering education. These recommendations have been developed by a broad, internationally based group of volunteer participants. This group has taken into account much of the work that has been done in software engineering education over the last quarter of a century. Software engineering curriculum recommendations are of particular relevance, since there is currently a surge in the creation of software engineering degree programs and accreditation processes for such programs have been established in a number of countries.
+CY  - New York, NY, USA
+DA  - 2015///
+PY  - 2015
+DP  - ACM Digital Library
+PB  - ACM
+UR  - https://www.acm.org/binaries/content/assets/education/se2014.pdf
+ER  - 
+
+TY  - JOUR
+TI  - Best Practices for Scientific Computing
+AU  - Wilson, Greg
+AU  - Aruliah, D. A.
+AU  - Brown, C. Titus
+AU  - Hong, Neil P. Chue
+AU  - Davis, Matt
+AU  - Guy, Richard T.
+AU  - Haddock, Steven H. D.
+AU  - Huff, Kathryn D.
+AU  - Mitchell, Ian M.
+AU  - Plumbley, Mark D.
+AU  - Waugh, Ben
+AU  - White, Ethan P.
+AU  - Wilson, Paul
+T2  - PLOS Biology
+AB  - We describe a set of best practices for scientific software development, based on research and experience, that will improve scientists' productivity and the reliability of their software.
+DA  - 2014/01/07/
+PY  - 2014
+DO  - 10.1371/journal.pbio.1001745
+DP  - PLoS Journals
+VL  - 12
+IS  - 1
+SP  - e1001745
+J2  - PLOS Biology
+SN  - 1545-7885
+UR  - http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
+ER  - 
+
+TY  - JOUR
+TI  - Software Carpentry: lessons learned
+AU  - Wilson, Greg
+T2  - F1000Research
+DA  - 2016/01/28/
+PY  - 2016
+DO  - 10.12688/f1000research.3-62.v2
+DP  - CrossRef
+LA  - en
+SN  - 2046-1402
+ST  - Software Carpentry
+UR  - http://f1000research.com/articles/3-62/v2
+Y2  - 2017/12/29/
+ER  - 
+
+TY  - JOUR
+TI  - exampletestr—An easy start to unit testing R packages
+AU  - Nolan, Rory
+AU  - Padilla-Parra, Sergi
+T2  - Wellcome Open Research
+AB  - In spite of the utility of unit tests, most R package developers do not write them.
+exampletestr makes it easier to
+start writing unit tests by creating shells/skeletons of unit tests based on the examples in the user's package documentation. When completed, these unit tests test whether said examples run 
+correctly. By combining the functionality of
+exampletestr with that of
+covr, having ensured that their examples adequately demonstrate the features of their package, the developer can have much of the work of constructing a comprehensive set of unit tests done for them.
+DA  - 2017/06/21/
+PY  - 2017
+DO  - 10.12688/wellcomeopenres.11635.2
+DP  - PubMed Central
+VL  - 2
+J2  - Wellcome Open Res
+SN  - 2398-502X
+UR  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5500893/
+Y2  - 2018/06/20/
+ER  - 
+
+TY  - JOUR
+TI  - Frequently Forgotten Fundamental Facts About Software Engineering
+AU  - Glass, Robert L.
+T2  - IEEE Softw.
+AB  - First Page of the Article
+DA  - 2001/05//
+PY  - 2001
+DO  - 10.1109/MS.2001.922739
+DP  - ACM Digital Library
+VL  - 18
+IS  - 3
+SP  - 112
+EP  - 111
+SN  - 0740-7459
+UR  - http://dx.doi.org/10.1109/MS.2001.922739
+ER  - 
+
+TY  - CONF
+TI  - Software Maintenance Costs
+AU  - Koskinen, Jussi
+DA  - 2015/04/30/
+PY  - 2015
+UR  - https://wiki.uef.fi/download/attachments/38669960/SMCOSTS.pdf
+Y2  - 2018/01/01/
+ER  - 
+
+TY  - JOUR
+TI  - Which Factors Affect Software Projects Maintenance Cost More?
+AU  - Dehaghani, Sayed Mehdi Hejazi
+AU  - Hajrahimi, Nafiseh
+T2  - Acta Informatica Medica
+AB  - Introduction
+The software industry has had significant progress in recent years. The entire life of software includes two phases: production and maintenance. Software maintenance cost is increasingly growing and estimates showed that about 90% of software life cost is related to its maintenance phase. Extraction and considering the factors affecting the software maintenance cost help to estimate the cost and reduce it by controlling the factors.
+
+Methods
+In this study, the factors affecting software maintenance cost were determined then were ranked based on their priority and after that effective ways to reduce the maintenance costs were presented. This paper is a research study. 15 software related to health care centers information systems in Isfahan University of Medical Sciences and hospitals function were studied in the years 2010 to 2011.
+
+Results and discussion
+Among Medical software maintenance team members, 40 were selected as sample. After interviews with experts in this field, factors affecting maintenance cost were determined. In order to prioritize the factors derived by AHP, at first, measurement criteria (factors found) were appointed by members of the maintenance team and eventually were prioritized with the help of EC software. Based on the results of this study, 32 factors were obtained which were classified in six groups. “Project” was ranked the most effective feature in maintenance cost with the highest priority. By taking into account some major elements like careful feasibility of IT projects, full documentation and accompany the designers in the maintenance phase good results can be achieved to reduce maintenance costs and increase longevity of the software.
+DA  - 2013/03//
+PY  - 2013
+DO  - 10.5455/AIM.2012.21.63-66
+DP  - PubMed Central
+VL  - 21
+IS  - 1
+SP  - 63
+EP  - 66
+J2  - Acta Inform Med
+SN  - 0353-8109
+UR  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3610582/
+ER  - 
+
+TY  - JOUR
+TI  - Opinion: Reproducible research can still be wrong: Adopting a prevention approach
+AU  - Leek, Jeffrey T.
+AU  - Peng, Roger D.
+T2  - Proceedings of the National Academy of Sciences
+AB  - National Academy of Sciences
+DA  - 2015/02/10/
+PY  - 2015
+DO  - 10.1073/pnas.1421412111
+DP  - www.pnas.org
+VL  - 112
+IS  - 6
+SP  - 1645
+EP  - 1646
+J2  - PNAS
+LA  - en
+SN  - 0027-8424, 1091-6490
+ST  - Opinion
+UR  - http://www.pnas.org/content/112/6/1645
+ER  - 
+
+TY  - JOUR
+TI  - R Package for Pediatric Complex Chronic Condition Classification
+AU  - Feinstein, James A.
+AU  - Russell, Seth
+AU  - DeWitt, Peter E.
+AU  - Feudtner, Chris
+AU  - Dai, Dingwei
+AU  - Bennett, Tellen D.
+T2  - JAMA Pediatrics
+AB  - This project develops computationally efficient software to generate classification of pediatric complex chronic conditions using a free, open-source statistical environment.
+DA  - 2018/04/23/
+PY  - 2018
+DO  - 10.1001/jamapediatrics.2018.0256
+DP  - jamanetwork.com
+J2  - JAMA Pediatr
+LA  - en
+UR  - https://jamanetwork.com/journals/jamapediatrics/fullarticle/2677901
+Y2  - 2018/04/24/
+ER  - 
+
+TY  - COMP
+TI  - pccc: Pediatric Complex Chronic Conditions
+AU  - DeWitt, Peter
+AU  - Bennett, Tell
+AU  - Feinstein, James
+AU  - Russell, Seth
+AB  - An implementation of the pediatric complex chronic conditions (CCC)
+    classification system using R and C++.
+DA  - 2017/12/13/
+PY  - 2017
+DP  - R-Packages
+ET  - 1.0.0
+ST  - pccc
+UR  - https://cran.r-project.org/web/packages/pccc/index.html
+ER  - 
+
+TY  - JOUR
+TI  - Pediatric Deaths Attributable to Complex Chronic Conditions: A Population-Based Study of Washington State, 1980–1997
+AU  - Feudtner, Chris
+AU  - Christakis, Dimitri A.
+AU  - Connell, Frederick A.
+T2  - Pediatrics
+AB  - Objectives. Advances in medical technology and public health are changing the causes and patterns of pediatric mortality. To better inform health care planning for dying children, we sought to determine if an increasing proportion of pediatric deaths were attributable to an underlying complex chronic condition (CCC), what the typical age of CCC-associated deaths was, and whether this age was increasing.
+Design. Population-based retrospective cohort from 1980 to 1997, compiled from Washington State annual censuses and death certificates of children 0 to 18 years old.
+Main Outcome Measures. For each of 9 categories of CCCs, the counts of death, mortality rates, and ages of death.
+Results. Nearly one-quarter of the 21 617 child deaths during this period were attributable to a CCC. Death rates for the sudden infant death syndrome (SIDS), CCCs, and all other causes each declined, but less so for CCCs. Among infants who died because of causes other than injury or SIDS, 31% of the remaining deaths were attributable to a CCC in 1980 and 41% by 1997; for deaths in children 1 year of age and older, CCCs were cited in 53% in 1980, versus 58% in 1997. The median age of death for all CCCs was 4 months 9 days, with substantial differences among CCCs. No overall change in the age of death between 1980 to 1997 was found (nonparametric trend test).
+Conclusions. CCCs account for an increasing proportion of child deaths. The majority of these deaths occur during infancy, but the typical age varies by cause. These findings should help shape the design of support care services offered to children dying with chronic conditions and their families.
+DA  - 2000/07/01/
+PY  - 2000
+DP  - pediatrics.aappublications.org
+VL  - 106
+IS  - Supplement 1
+SP  - 205
+EP  - 209
+LA  - en
+SN  - 0031-4005, 1098-4275
+ST  - Pediatric Deaths Attributable to Complex Chronic Conditions
+UR  - http://pediatrics.aappublications.org/content/106/Supplement_1/205
+ER  - 
+
+TY  - JOUR
+TI  - Pediatric complex chronic conditions classification system version 2: updated for ICD-10 and complex medical technology dependence and transplantation
+AU  - Feudtner, Chris
+AU  - Feinstein, James A.
+AU  - Zhong, Wenjun
+AU  - Hall, Matt
+AU  - Dai, Dingwei
+T2  - BMC Pediatrics
+AB  - The pediatric complex chronic conditions (CCC) classification system, developed in 2000, requires revision to accommodate the International Classification of Disease 10th Revision (ICD-10). To update the CCC classification system, we incorporated ICD-9 diagnostic codes that had been either omitted or incorrectly specified in the original system, and then translated between ICD-9 and ICD-10 using General Equivalence Mappings (GEMs). We further reviewed all codes in the ICD-9 and ICD-10 systems to include both diagnostic and procedural codes indicative of technology dependence or organ transplantation. We applied the provisional CCC version 2 (v2) system to death certificate information and 2 databases of health utilization, reviewed the resulting CCC classifications, and corrected any misclassifications. Finally, we evaluated performance of the CCC v2 system by assessing: 1) the stability of the system between ICD-9 and ICD-10 codes using data which included both ICD-9 codes and ICD-10 codes; 2) the year-to-year stability before and after ICD-10 implementation; and 3) the proportions of patients classified as having a CCC in both the v1 and v2 systems.
+DA  - 2014/08/08/
+PY  - 2014
+DO  - 10.1186/1471-2431-14-199
+DP  - BioMed Central
+VL  - 14
+SP  - 199
+J2  - BMC Pediatrics
+SN  - 1471-2431
+ST  - Pediatric complex chronic conditions classification system version 2
+UR  - https://doi.org/10.1186/1471-2431-14-199
+ER  - 
+
+TY  - JOUR
+TI  - Ad Hoc Software Testing
+AU  - Agruss, Chris
+AU  - Johnson, Bob
+T2  - Viitattu
+DA  - 2000///
+PY  - 2000
+VL  - 4
+SP  - 2009
+ER  - 
+
+TY  - JOUR
+TI  - Test Infected: Programmers Love Writing Tests
+AU  - Kent Beck
+AU  - Erich Gamma
+T2  - Java Report
+DA  - 1998/07//
+PY  - 1998
+VL  - 3
+IS  - 7
+ER  - 
+
+TY  - ELEC
+TI  - Best practices for writing unit tests
+AU  - jpreese
+AB  - Learn best practices for writing unit tests that drive code quality and resilience
+LA  - en-us
+UR  - https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices
+Y2  - 2018/08/28/
+ER  - 
+
+TY  - BOOK
+TI  - RUnit: R Unit Test Framework
+AU  - Burger, Matthias
+AU  - Juenemann, Klaus
+AU  - Koenig, Thomas
+DA  - 2015///
+PY  - 2015
+UR  - https://CRAN.R-project.org/package=RUnit
+ER  - 
+
+TY  - BOOK
+TI  - SciViews-R: A GUI API for R
+AU  - Grosjean, Philippe
+CY  - MONS, Belgium
+DA  - 2014///
+PY  - 2014
+PB  - UMONS
+UR  - http://www.sciviews.org/SciViews-R
+ER  - 
+
+TY  - COMP
+TI  - testit: A Simple Package for Testing R Packages
+AU  - Xie, Yihui
+AB  - Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.
+DA  - 2018/06/14/
+PY  - 2018
+DP  - R-Packages
+ET  - 0.8
+ST  - testit
+UR  - https://CRAN.R-project.org/package=testit
+ER  - 
+
+TY  - JOUR
+TI  - testthat: Get Started with Testing
+AU  - Wickham, Hadley
+T2  - The R Journal
+DA  - 2011///
+PY  - 2011
+VL  - 3
+SP  - 5
+EP  - 10
+UR  - https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+ER  - 
+
+TY  - COMP
+TI  - unitizer: Interactive R Unit Tests
+AU  - Gaslam, Brodie
+AB  - Simplifies regression tests by comparing objects produced by test code with earlier versions of those same objects. If objects are unchanged the tests pass, otherwise execution stops with error details. If in interactive mode, tests can be reviewed through the provided interactive environment.
+DA  - 2017/11/24/
+PY  - 2017
+DP  - R-Packages
+ET  - 1.4.5
+ST  - unitizer
+UR  - https://CRAN.R-project.org/package=unitizer
+ER  - 
+
+TY  - COMP
+TI  - unittest: TAP-Compliant Unit Testing
+AU  - Lentin, Jamie
+AU  - Hennessey, Anthony
+AB  - Concise TAP <http://testanything.org/> compliant unit testing package. Authored tests can be run using CMD check with minimal implementation overhead.
+DA  - 2017/11/01/
+PY  - 2017
+DP  - R-Packages
+ET  - 1.3-0
+ST  - unittest
+UR  - https://CRAN.R-project.org/package=unittest
+ER  - 
+
+TY  - COMP
+TI  - xlsx: Read, Write, Format Excel 2007 and Excel 97/2000/XP/2003 Files
+AU  - Dragulescu, Adrian A.
+AU  - Arendt, Cole
+AB  - Provide R functions to read/write/format Excel 2007 and Excel 97/2000/XP/2003 file formats.
+DA  - 2018/06/11/
+PY  - 2018
+DP  - R-Packages
+ET  - 0.6.1
+ST  - xlsx
+UR  - https://CRAN.R-project.org/package=xlsx
+ER  - 
+
+TY  - BOOK
+TI  - redcapAPI: Accessing data from REDCap projects using the API
+AU  - Nutter, Benjamin
+AU  - Lane, Stephen
+DA  - 2018///
+PY  - 2018
+UR  - https://github.com/nutterb/redcapAPI/wiki
+ER  - 
+
+TY  - BLOG
+TI  - Giving up on test-first development
+AU  - Sommerville, Ian
+T2  - Systems, software and technology
+AB  - Test-first or test-driven driven development (TDD) is an approach to software development where you write the tests before you write the program. You write a program to pass the test, extend the te…
+DA  - 2016/03/17/
+PY  - 2016
+LA  - en-US
+UR  - http://iansommerville.com/systems-software-and-technology/giving-up-on-test-first-development/
+ER  - 
+
+TY  - BLOG
+TI  - TDD is dead. Long live testing. (DHH)
+AU  - David Heinemeier Hansson
+DA  - 2014/04/23/
+PY  - 2014
+UR  - http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html
+ER  - 
+
+TY  - ELEC
+TI  - Microsoft's CEO: 80-20 Rule Applies To Bugs, Not Just Features
+AU  - Rooney, Paula
+T2  - CRN
+AB  - Looks like the 80-20 rule applies to Microsoft's bugs, not just product features.
+DA  - 2002/10/03/
+PY  - 2002
+LA  - en
+ST  - Microsoft's CEO
+UR  - http://www.crn.com/news/security/18821726/microsofts-ceo-80-20-rule-applies-to-bugs-not-just-features.htm
+ER  - 
+
+TY  - ENCYC
+TI  - SUnit
+T2  - Wikipedia
+AB  - SUnit is a unit testing framework for the programming language Smalltalk. It is the original source of the xUnit design, originally written by the creator of Extreme Programming, Kent Beck. SUnit allows writing tests and checking results in Smalltalk.
+DA  - 2017/12/17/
+PY  - 2017
+DP  - Wikipedia
+LA  - en
+UR  - https://en.wikipedia.org/w/index.php?title=SUnit&oldid=815835062
+ER  - 
+
+TY  - ENCYC
+TI  - xUnit
+T2  - Wikipedia
+AB  - For the particular .NET testing framework, see xUnit.net.
+For the unit of measurement, see x unit.
+xUnit is the collective name for several unit testing frameworks that derive their structure and functionality from Smalltalk's SUnit. SUnit, designed by Kent Beck in 1998, was written in a highly structured object-oriented style, which lent easily to contemporary languages such as Java and C#. Following its introduction in Smalltalk the framework was ported to Java by Kent Beck and Erich Gamma and gained wide popularity, eventually gaining ground in the majority of programming languages in current use. The names of many of these frameworks are a variation on "SUnit", usually replacing the "S" with the first letter (or letters) in the name of their intended language ("JUnit" for Java, "RUnit" for R etc.). These frameworks and their common architecture are collectively known as "xUnit".
+DA  - 2017/10/27/
+PY  - 2017
+DP  - Wikipedia
+LA  - en
+UR  - https://en.wikipedia.org/w/index.php?title=XUnit&oldid=807299841
+ER  - 
+
+TY  - BOOK
+TI  - Selenium
+UR  - https://www.seleniumhq.org
+ER  - 
+
+TY  - BOOK
+TI  - Unified Functional Testing
+PB  - Microfocus
+UR  - https://software.microfocus.com/en-us/products/unified-functional-automated-testing/overview
+ER  - 
+
+TY  - BOOK
+TI  - Ranorex
+PB  - Ranorex GmbH
+UR  - https://www.ranorex.com
+ER  - 
+
+TY  - BOOK
+TI  - Dynamic Documents with R and knitr
+AU  - Xie, Yihui
+AB  - Quickly and Easily Write Dynamic Documents Suitable for both beginners and advanced users, Dynamic Documents with R and knitr, Second Edition makes writing statistical reports easier by integrating computing directly with reporting. Reports range from homework, projects, exams, books, blogs, and web pages to virtually any documents related to statistical graphics, computing, and data analysis. The book covers basic applications for beginners while guiding power users in understanding the extensibility of the knitr package. New to the Second Edition  A new chapter that introduces R Markdown v2 Changes that reflect improvements in the knitr package New sections on generating tables, defining custom printing methods for objects in code chunks, the C/Fortran engines, the Stan engine, running engines in a persistent session, and starting a local server to serve dynamic documents Boost Your Productivity in Statistical Report Writing and Make Your Scientific Computing with R Reproducible Like its highly praised predecessor, this edition shows you how to improve your efficiency in writing reports. The book takes you from program output to publication-quality reports, helping you fine-tune every aspect of your report.
+CY  - Boca Raton
+DA  - 2015/06/24/
+PY  - 2015
+DP  - Amazon
+ET  - 2 edition
+SP  - 294
+LA  - English
+PB  - Chapman and Hall/CRC
+SN  - 978-1-4987-1696-3
+ER  - 
+
+TY  - BOOK
+TI  - Unit testing Anti-patterns catalogue
+UR  - https://stackoverflow.com/questions/333682/unit-testing-anti-patterns-catalogue
+ER  - 
+
+TY  - BOOK
+TI  - Test Driven Development details
+AU  - Jarkko Moilanen
+UR  - https://github.com/educloudalliance/educloud-development/wiki/Test-Driven-Development-details
+ER  - 
+
+TY  - ELEC
+TI  - TDD Anti-Patterns
+AU  - James Carr
+DA  - 2015/07/26/
+PY  - 2015
+UR  - https://web.archive.org/web/20150726134212/http://blog.james-carr.org:80/2006/11/03/tdd-anti-patterns/
+ER  - 
+
+TY  - BOOK
+TI  - Software Engineering
+AU  - Sommerville, Ian
+AB  - For courses in computer science and software engineering     The Fundamental Practice of Software Engineering    Software Engineering  introduces readers to the overwhelmingly important subject of software programming and development. In the past few years, computer systems have come to dominate not just our technological growth, but the foundations of our world’s major industries. This text seeks to lay out the fundamental concepts of this huge and continually growing subject area in a clear and comprehensive manner.   The Tenth Edition contains new information that highlights various technological updates of recent years, providing readers with highly relevant and current information. Sommerville’s experience in system dependability and systems engineering guides the text through a traditional plan-based approach that incorporates some novel agile methods. The text strives to teach the innovators of tomorrow how to create software that will make our world a better, safer, and more advanced place to live.
+CY  - Boston
+DA  - 2015/04/03/
+PY  - 2015
+DP  - Amazon
+ET  - 10 edition
+SP  - 816
+LA  - English
+PB  - Pearson
+SN  - 978-0-13-394303-0
+ER  - 
+
+TY  - COMP
+TI  - DSL: Distributed Storage and List
+AU  - Feinerer, Ingo
+AU  - Theussl, Stefan
+AU  - Buchta, Christian
+AB  - An abstract DList class helps storing large list-type objects in a distributed manner. Corresponding high-level functions and methods for handling distributed storage (DStorage) and lists allows for processing such DLists on distributed systems efficiently. In doing so it uses a well defined storage backend implemented based on the DStorage class.
+DA  - 2015/07/03/
+PY  - 2015
+DP  - R-Packages
+ET  - 0.1-6
+ST  - DSL
+UR  - https://CRAN.R-project.org/package=DSL
+ER  - 
+
+TY  - RPRT
+TI  - Extending R with C++: A Brief Introduction to Rcpp
+AU  - Eddelbuettel, Dirk
+AU  - Balamuta, James Joseph
+AB  - R has always provided an application programming interface (API) for extensions. Based on the C language, it uses a number of macros and other low-level constructs to exchange data structures between the R process and any dynamically-loaded component modules authors added to it. With the introduction of the Rcpp package, and its later refinements, this process has become considerably easier yet also more robust. By now, Rcpp has become the most popular extension mechanism for R. This article introduces Rcpp, and illustrates with several examples how the Rcpp Attributes mechanism in particular eases the transition of objects between R and C++ code.
+DA  - 2017/08/25/
+PY  - 2017
+DP  - peerj.com
+LA  - en
+PB  - PeerJ Inc.
+SN  - e3188v1
+ST  - Extending R with C++
+UR  - https://peerj.com/preprints/3188
+ER  - 
+
+TY  - COMP
+TI  - RcppParallel: Parallel Programming Tools for 'Rcpp'
+AU  - Allaire, J. J.
+AU  - Francois, Romain
+AU  - Ushey, Kevin
+AU  - Vandenbrouck, Gregory
+AU  - library, Marcus Geelnard (TinyThread
+AU  - http://tinythreadpp.bitsnbites.eu/)
+AU  - RStudio
+AU  - library, Intel (Intel TBB
+AU  - https://www.threadingbuildingblocks.org/)
+AU  - Microsoft
+AB  - High level functions for parallel programming with 'Rcpp'. For example, the 'parallelFor()' function can be used to convert the work of a standard serial "for" loop into a parallel one and the 'parallelReduce()' function can be used for accumulating aggregate or other values.
+DA  - 2018/07/19/
+PY  - 2018
+DP  - R-Packages
+ET  - 4.4.1
+ST  - RcppParallel
+UR  - https://CRAN.R-project.org/package=RcppParallel
+ER  - 
+
+TY  - JOUR
+TI  - Rmpi: Parallel Statistical Computing in R
+AU  - Yu, Hao
+T2  - R News
+DA  - 2002///
+PY  - 2002
+VL  - 2
+IS  - 2
+SP  - 10
+EP  - 14
+UR  - https://cran.r-project.org/doc/Rnews/Rnews_2002-2.pdf
+ER  - 
+
+TY  - ELEC
+TI  - SparkR (R on Spark) - Spark 2.3.2 Documentation
+UR  - https://spark.apache.org/docs/latest/sparkr.html
+ER  - 
+
+TY  - JOUR
+TI  - BatchJobs and BatchExperiments: Abstraction Mechanisms for Using R in Batch Environments
+AU  - Bischl, Bernd
+AU  - Lang, Michel
+AU  - Mersmann, Olaf
+AU  - Rahnenführer, Jörg
+AU  - Weihs, Claus
+T2  - Journal of Statistical Software
+DA  - 2015///
+PY  - 2015
+VL  - 64
+IS  - 11
+SP  - 1
+EP  - 25
+UR  - http://www.jstatsoft.org/v64/i11/
+ER  - 
+
+TY  - COMP
+TI  - doMC: Foreach Parallel Adaptor for 'parallel'
+AU  - Calaway, Rich
+AU  - Analytics, Revolution
+AU  - Weston, Steve
+AB  - Provides a parallel backend for the %dopar% function using the multicore functionality of the parallel package.
+DA  - 2017/12/12/
+PY  - 2017
+DP  - R-Packages
+ET  - 1.3.5
+ST  - doMC
+UR  - https://CRAN.R-project.org/package=doMC
+ER  - 
+
+TY  - COMP
+TI  - doMPI: Foreach Parallel Adaptor for the Rmpi Package
+AU  - Weston, Steve
+AB  - Provides a parallel backend for the %dopar% function using the Rmpi package.
+DA  - 2017/05/01/
+PY  - 2017
+DP  - R-Packages
+ET  - 0.2.2
+ST  - doMPI
+UR  - https://CRAN.R-project.org/package=doMPI
+ER  - 
+
+TY  - COMP
+TI  - doParallel: Foreach Parallel Adaptor for the 'parallel' Package
+AU  - Calaway, Rich
+AU  - Corporation, Microsoft
+AU  - Weston, Steve
+AU  - Tenenbaum, Dan
+AB  - Provides a parallel backend for the %dopar% function using the parallel package.
+DA  - 2018/09/24/
+PY  - 2018
+DP  - R-Packages
+ET  - 1.0.14
+ST  - doParallel
+UR  - https://CRAN.R-project.org/package=doParallel
+ER  - 
+
+TY  - COMP
+TI  - doSNOW: Foreach Parallel Adaptor for the 'snow' Package
+AU  - Calaway, Rich
+AU  - Corporation, Microsoft
+AU  - Weston, Stephen
+AB  - Provides a parallel backend for the %dopar% function using the snow package of Tierney, Rossini, Li, and Sevcikova.
+DA  - 2017/12/13/
+PY  - 2017
+DP  - R-Packages
+ET  - 1.0.16
+ST  - doSNOW
+UR  - https://CRAN.R-project.org/package=doSNOW
+ER  - 
+
+TY  - COMP
+TI  - foreach: Provides Foreach Looping Construct for R
+AU  - Calaway, Rich
+AU  - Microsoft
+AU  - Weston, Steve
+AB  - Support for the foreach looping construct. Foreach is an idiom that allows for iterating over elements in a collection, without the use of an explicit loop counter. This package in particular is intended to be used for its return value, rather than for its side effects. In that sense, it is similar to the standard lapply function, but doesn't require the evaluation of a function. Using foreach without side effects also facilitates executing the loop in parallel.
+DA  - 2017/12/12/
+PY  - 2017
+DP  - R-Packages
+ET  - 1.4.4
+ST  - foreach
+UR  - https://CRAN.R-project.org/package=foreach
+ER  - 
+
+TY  - COMP
+TI  - future: Unified Parallel and Distributed Processing in R for Everyone
+AU  - Bengtsson, Henrik
+AB  - The purpose of this package is to provide a lightweight and unified Future API for sequential and parallel processing of R expression via futures. The simplest way to evaluate an expression in parallel is to use 'x %<-% { expression }' with 'plan(multiprocess)'. This package implements sequential, multicore, multisession, and cluster futures. With these, R expressions can be evaluated on the local machine, in parallel a set of local machines, or distributed on a mix of local and remote machines. Extensions to this package implement additional backends for processing futures via compute cluster schedulers etc. Because of its unified API, there is no need to modify any code in order switch from sequential on the local machine to, say, distributed processing on a remote compute cluster. Another strength of this package is that global variables and functions are automatically identified and exported as needed, making it straightforward to tweak existing code to make use of futures.
+DA  - 2018/07/23/
+PY  - 2018
+DP  - R-Packages
+ET  - 1.9.0
+ST  - future
+UR  - https://CRAN.R-project.org/package=future
+ER  - 
+
+TY  - COMP
+TI  - future.apply: Apply Function to Elements in Parallel using Futures
+AU  - Bengtsson, Henrik
+AU  - R Core Team
+AB  - Implementations of apply(), eapply(), lapply(), Map(), mapply(), replicate(), sapply(), tapply(), and vapply() that can be resolved using any future-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. These future_*apply() functions come with the same pros and cons as the corresponding base-R *apply() functions but with the additional feature of being able to be processed via the future framework.
+DA  - 2018/08/26/
+PY  - 2018
+DP  - R-Packages
+ET  - 1.0.1
+ST  - future.apply
+UR  - https://CRAN.R-project.org/package=future.apply
+ER  - 
+
+TY  - BOOK
+TI  - microbenchmark: Accurate Timing Functions
+AU  - Mersmann, Olaf
+DA  - 2018///
+PY  - 2018
+UR  - https://CRAN.R-project.org/package=microbenchmark
+ER  - 
+
+TY  - BOOK
+TI  - R: A Language and Environment for Statistical Computing
+AU  - R Core Team
+CY  - Vienna, Austria
+DA  - 2018///
+PY  - 2018
+PB  - R Foundation for Statistical Computing
+UR  - https://www.R-project.org/
+ER  - 
+
+TY  - COMP
+TI  - parallelDist: Parallel Distance Matrix Computation using Multiple Threads
+AU  - Eckert, Alexander
+AB  - A fast parallelized alternative to R's native 'dist' function to calculate distance matrices for continuous, binary, and multi-dimensional input matrices, which supports a broad variety of 39 predefined distance functions from the 'stats', 'proxy' and 'dtw' R packages, as well as user- defined functions written in C++. For ease of use, the 'parDist' function extends the signature of the 'dist' function and uses the same parameter naming conventions as distance methods of existing R packages. The package is mainly implemented in C++ and leverages the 'RcppParallel' package to parallelize the distance computations with the help of the 'TinyThread' library. Furthermore, the 'Armadillo' linear algebra library is used for optimized matrix operations during distance calculations. The curiously recurring template pattern (CRTP) technique is applied to avoid virtual functions, which improves the Dynamic Time Warping calculations while the implementation stays flexible enough to support different DTW step patterns and normalization methods.
+DA  - 2018/09/24/
+PY  - 2018
+DP  - R-Packages
+ET  - 0.2.2
+ST  - parallelDist
+UR  - https://CRAN.R-project.org/package=parallelDist
+ER  - 
+
+TY  - COMP
+TI  - parallelMap: Unified Interface to Parallelization Back-Ends
+AU  - Bischl, Bernd
+AU  - Lang, Michel
+AB  - Unified parallelization framework for multiple back-end, designed for internal package and interactive usage. The main operation is a parallel "map" over lists. Supports local, multicore, mpi and BatchJobs mode. Allows "tagging" of the parallel operation with a level name that can be later selected by the user to switch on parallel execution for exactly this operation.
+DA  - 2015/06/10/
+PY  - 2015
+DP  - R-Packages
+ET  - 1.3
+ST  - parallelMap
+UR  - https://CRAN.R-project.org/package=parallelMap
+ER  - 
+
+TY  - JOUR
+TI  - Software Alchemy: Turning Complex Statistical Computations into Embarrassingly-Parallel Ones
+AU  - Matloff, Norman
+T2  - Journal of Statistical Software
+DA  - 2016///
+PY  - 2016
+DO  - 10.18637/jss.v071.i04
+VL  - 71
+IS  - 4
+SP  - 1
+EP  - 15
+ER  - 
+
+TY  - COMP
+TI  - profr: An alternative display for profiling information
+AU  - Wickham, Hadley
+AB  - profr provides an alternative data structure and visual rendering for the profiling information generated by Rprof.
+DA  - 2014/04/22/
+PY  - 2014
+DP  - R-Packages
+ET  - 0.3.1
+ST  - profr
+UR  - https://CRAN.R-project.org/package=profr
+ER  - 
+
+TY  - BOOK
+TI  - profvis: Interactive Visualizations for Profiling R Code
+AU  - Chang, Winston
+AU  - Luraschi, Javier
+DA  - 2018///
+PY  - 2018
+UR  - https://CRAN.R-project.org/package=profvis
+ER  - 
+
+TY  - COMP
+TI  - rbenchmark: Benchmarking routine for R
+AU  - Kusnierczyk, Wacek
+AU  - Eddelbuettel, Dirk
+AU  - Hasselman, Berend
+AB  - rbenchmark is inspired by the Perl module Benchmark, and is intended to facilitate benchmarking of arbitrary R code. The library consists of just one function, benchmark, which is a simple wrapper around system.time. Given a specification of the benchmarking process (counts of replications, evaluation environment) and an arbitrary number of expressions, benchmark evaluates each of the expressions in the specified environment, replicating the evaluation as many times as specified, and returning the results conveniently wrapped into a data frame.
+DA  - 2012/08/30/
+PY  - 2012
+DP  - R-Packages
+ET  - 1.0.0
+ST  - rbenchmark
+UR  - https://CRAN.R-project.org/package=rbenchmark
+ER  - 
+
+TY  - COMP
+TI  - snow: Simple Network of Workstations
+AU  - Tierney, Luke
+AU  - Rossini, A. J.
+AU  - Li, Na
+AU  - Sevcikova, H.
+AB  - Support for simple parallel computing in R.
+DA  - 2018/09/14/
+PY  - 2018
+DP  - R-Packages
+ET  - 0.4-3
+ST  - snow
+UR  - https://CRAN.R-project.org/package=snow
+ER  - 
+
+TY  - COMP
+TI  - sparklyr: R Interface to Apache Spark
+AU  - Luraschi, Javier
+AU  - Kuo, Kevin
+AU  - Ushey, Kevin
+AU  - Allaire, J. J.
+AU  - Macedo, Samuel
+AU  - RStudio
+AU  - Foundation, The Apache Software
+AB  - R interface to Apache Spark, a fast and general engine for big data processing, see <http://spark.apache.org>. This package supports connecting to local and remote Apache Spark clusters, provides a 'dplyr' compatible back-end, and provides an interface to Spark's built-in machine learning algorithms.
+DA  - 2018/09/27/
+PY  - 2018
+DP  - R-Packages
+ET  - 0.9.1
+ST  - sparklyr
+UR  - https://CRAN.R-project.org/package=sparklyr
+ER  - 
+
+TY  - BOOK
+TI  - tictoc: Functions for timing R scripts, as well as implementations of Stack and List structures.
+AU  - Izrailev, Sergei
+DA  - 2014///
+PY  - 2014
+UR  - https://CRAN.R-project.org/package=tictoc
+ER  - 
+
+TY  - BOOK
+TI  - Performance Tips
+UR  - https://wiki.python.org/moin/PythonSpeed/PerformanceTips
+ER  - 
+
+TY  - ENCYC
+TI  - Binary search algorithm
+T2  - Wikipedia
+AB  - In computer science, binary search, also known as half-interval search, logarithmic search, or binary chop, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array; if they are unequal, the half in which the target cannot lie is eliminated and the search continues on the remaining half until it is successful. If the search ends with the remaining half being empty, the target is not in the array.
+Binary search runs in at worst logarithmic time, making O(log n) comparisons, where n is the number of elements in the array, the O is Big O notation, and log is the logarithm. Binary search takes constant (O(1)) space, meaning that the space taken by the algorithm is the same for any number of elements in the array. Although specialized data structures designed for fast searching—such as hash tables—can be searched more efficiently, binary search applies to a wider range of problems.
+Although the idea is simple, implementing binary search correctly requires attention to some subtleties about its exit conditions and midpoint calculation.
+There are numerous variations of binary search. In particular, fractional cascading speeds up binary searches for the same value in multiple arrays, efficiently solving a series of search problems in computational geometry and numerous other fields. Exponential search extends binary search to unbounded lists. The binary search tree and B-tree data structures are based on binary search.
+DA  - 2018/04/06/
+PY  - 2018
+DP  - Wikipedia
+LA  - en
+UR  - https://en.wikipedia.org/w/index.php?title=Binary_search_algorithm&oldid=835131405
+ER  - 
+
+TY  - ELEC
+TI  - Big-O notation explained by a self-taught programmer
+AU  - Justin Abrahms
+UR  - https://justin.abrah.ms/computer-science/big-o-notation-explained.html
+ER  - 
+
+TY  - BOOK
+TI  - proftools: Profile Output Processing Tools for R
+AU  - Tierney, Luke
+AU  - Jarjour, Riad
+DA  - 2016///
+PY  - 2016
+UR  - https://CRAN.R-project.org/package=proftools
+ER  - 
+
+TY  - BOOK
+TI  - The R Inferno
+AU  - Burns, Patrick
+AB  - An essential guide to the trouble spots and oddities of R. In spite of the quirks exposed here, R is the best computing environment for most data analysis tasks. R is free, open-source, and has thousands of contributed packages. It is used in such diverse fields as ecology, finance, genomics and music. If you are using spreadsheets to understand data, switch to R. You will have safer - and ultimately, more convenient - computations.
+DA  - 2012/01/12/
+PY  - 2012
+DP  - Amazon
+SP  - 154
+LA  - English
+PB  - lulu.com
+SN  - 978-1-4710-4652-0
+ER  - 
+
+TY  - ELEC
+TI  - The impact of the Pareto principle in optimization - CodeProject
+AU  - Jim Xochellis
+DA  - 2010/01/31/
+PY  - 2010
+UR  - https://www.codeproject.com/Articles/49023/The-impact-of-the-Pareto-principle-in-optimization
+ER  - 
+
+TY  - ELEC
+TI  - Applying the 80:20 Rule in Software Development - DZone Agile
+AU  - Jim Bird
+T2  - dzone.com
+AB  - Managers don’t want to think harder than they have to. They like simple rules of thumb, quick and straightforward ways of looking at problems and getting...
+DA  - 2013/11/15/
+PY  - 2013
+LA  - en
+ST  - Applying the 80
+UR  - https://dzone.com/articles/applying-8020-rule-software
+ER  - 
+
+TY  - JOUR
+TI  - Structured Programming with Go to Statements
+AU  - Knuth, Donald E.
+T2  - ACM Comput. Surv.
+DA  - 1974/12//
+PY  - 1974
+DO  - 10.1145/356635.356640
+DP  - ACM Digital Library
+VL  - 6
+IS  - 4
+SP  - 261
+EP  - 301
+SN  - 0360-0300
+UR  - http://doi.acm.org/10.1145/356635.356640
+ER  - 
+
+TY  - BLOG
+TI  - Making R Code Faster : A Case Study
+AU  - Emily Robinson
+T2  - Hooked on Data
+AB  - About two months ago I put a call out to Rstats twitter:
+DA  - 2017/11/30/
+PY  - 2017
+LA  - en
+ST  - Making R Code Faster
+UR  - https://robinsones.github.io/Making-R-Code-Faster-A-Case-Study/
+ER  - 
+
+TY  - BOOK
+TI  - Advanced R
+AU  - Wickham, Hadley
+AB  - An Essential Reference for Intermediate and Advanced R Programmers Advanced R presents useful tools and techniques for attacking many types of R programming problems, helping you avoid mistakes and dead ends. With more than ten years of experience programming in R, the author illustrates the elegance, beauty, and flexibility at the heart of R.  The book develops the necessary skills to produce quality code that can be used in a variety of circumstances. You will learn:  The fundamentals of R, including standard data types and functions Functional programming as a useful framework for solving wide classes of problems The positives and negatives of metaprogramming  How to write fast, memory-efficient code   This book not only helps current R users become R programmers but also shows existing programmers what’s special about R. Intermediate R programmers can dive deeper into R and learn new strategies for solving diverse problems while programmers from other languages can learn the details of R and understand why R works the way it does.
+CY  - Boca Raton, FL
+DA  - 2014/09/27/
+PY  - 2014
+DP  - Amazon
+ET  - 1 edition
+SP  - 476
+LA  - English
+PB  - Chapman and Hall/CRC
+SN  - 978-1-4665-8696-3
+ER  - 
+
