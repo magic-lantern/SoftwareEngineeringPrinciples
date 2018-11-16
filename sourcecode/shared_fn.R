@@ -153,7 +153,23 @@ calc_dependencies <- function(package_df) {
   r["CRAN"] <- "https://cran.rstudio.com/"
   options(repos=r)
   })
+  ap_filename <- paste0(download_dir, 'available_packages.rds')
+  
+  if (offline) {
+    if (file.exists(ap_filename)) {
+      available_packages <- readRDS(ap_filename)
+    }
+    else {
+      print(paste0('File ', ap_filename, ' NOT already downloaded, but offline mode enabled.'))
+    }
+  }
+  else {
+    available_packages <- available.packages()
+    saveRDS(available_packages, ap_filename)
+  }
+  
   package_deps <- tools:::package_dependencies(packages = look_for_packages,
+                                               db = available_packages,
                                                recursive=FALSE,
                                                reverse=TRUE,
                                                which = c("Depends","Imports","LinkingTo", "Suggests"))
@@ -164,7 +180,13 @@ calc_dependencies <- function(package_df) {
   result <- Map(function(pd) {
     package_df[pd] <<- FALSE
     Map(function(p) {
-      package_df[package_df$package == p, ][pd] <<- TRUE
+      if (nrow(package_df[package_df$package == p, ]) > 0) {
+        package_df[package_df$package == p, ][pd] <<- TRUE
+      }
+      else {
+        print(paste0('Package ', p, 'in dependencies list, but not found in list of current packages.'))
+        
+      }
     }, package_deps[[pd]])
   }, names(package_deps))
   
