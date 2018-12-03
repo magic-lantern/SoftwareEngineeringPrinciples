@@ -237,13 +237,13 @@ grep_table_totals <- function(grep_freqs) {
 }
 
 grep_viz_freq <- function(grep_freqs, image_prefix, label) {
-  grep_freqs$found_y_n <- c('No', 'Yes')[grep_freqs$Found + 1]
+  grep_freqs$found_y_n <- factor(c('No', 'Yes')[grep_freqs$Found + 1], levels = c("Yes", "No"))
   
   # histogram of packages that are tested by most current year package released
   grep_plot <- ggplot(data=grep_freqs[grep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=found_y_n)) +
     geom_bar(stat="identity") +
     xlab("Year Package Last Updated") +
-    scale_fill_viridis_d(direction = -1, option="inferno", end = 0.96) +
+    scale_fill_viridis_d(option="inferno", end = 0.96) +
     labs(fill = paste(label, "Directory"))
   grep_plot
   ggsave(filename = paste0(image_base, image_prefix, '_file_analysis_stacked_bar.png'), grep_plot,
@@ -293,4 +293,19 @@ show_multiple_dependencies <- function(package_df, look_for_packages) {
       }
     }
   }
+}
+
+reorder_none <- function(col) {
+  f <- as.factor(col)
+  # reverse order of factors so none is last
+  for (l in levels(f)) {
+    if (l != 'none')
+      f <- relevel(f, l)
+  }
+  # put back in original alphabetical order
+  for (l in levels(f)) {
+    if (l != 'none')
+      f <- relevel(f, l)
+  }
+  return(f)
 }
