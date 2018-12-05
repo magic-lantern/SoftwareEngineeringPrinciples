@@ -4,7 +4,7 @@
 > library(ggplot2)
 > 
 > # these packages are used for a range of items related to optimization - compiled code, multi-processing, etc.
-> look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'DistributedR', 'ddR', 'sparklyr', 'batchtools', 'RcppParallel', 'threadpool', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
+> look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'sparklyr', 'batchtools', 'RcppParallel', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
 > # Notes about package selection
 > #Timing tools
 > #  system.time() - time how long something takes
@@ -25,12 +25,12 @@
 > #  foreach - Executing the loop in parallel.
 > #  future - A minimal, efficient, cross-platform unified Future API for parallel and distributed processing in R; designed for beginners as well as advanced developers.
 > #  SparkR - R frontend for Spark.
-> #  DistributedR - A scalable high-performance platform from HP Vertica Analytics Team.
-> #  ddR - Provides distributed data structures and simplifies distributed computing in R.
+> #  DistributedR - A scalable high-performance platform from HP Vertica Analytics Team. Not available via CRAN, so not part of analysis.
+> #  ddR - Provides distributed data structures and simplifies distributed computing in R. Not considered as is now listed as status of abandoned on CRAN
 > #  sparklyr - R interface for Apache Spark from RStudio.
 > #  batchtools - High performance computing with LSF, TORQUE, Slurm, OpenLava, SGE and Docker Swarm.
 > #  RcppParallel
-> #  threadpool
+> #  threadpool - Not considered as not available via CRAN, only available via github
 > #  parallelDist
 > #  parallelMap
 > #  doMC
@@ -62,7 +62,7 @@
 [1] "It appears that all files downloaded and untared successfully."
 > 
 > print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
-[1] "As of Wed Sep 26 16:49:06 2018 there are 13094 packages available on CRAN"
+[1] "As of Wed Dec  5 13:50:38 2018 there are 13509 packages available on CRAN"
 > 
 > # Chunk 4: grep_based_visualizations
 > # build data needed for plots
@@ -71,9 +71,9 @@
 [1] "Summary Table for Grep Results"
       [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
 Year  "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
-Total "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 467" " 573" " 768" "1165" "1783" "2725" "5475"
-Grep  NA     "   3" NA     "   1" "   6" "  11" "  15" "  61" " 115" " 162" " 237" " 391" " 666" "1669"
-Pct   NA     "75"   NA     "10"   "24"   "34"   "23"   "13"   "20"   "21"   "20"   "22"   "24"   "30"  
+Total "   1" "   4" "   1" "  10" "  24" "  32" "  65" " 457" " 564" " 755" "1127" "1726" "2517" "6226"
+Grep  NA     "   3" NA     "   1" "   6" "  11" "  15" "  59" " 114" " 154" " 224" " 376" " 606" "1859"
+Pct   NA     "75"   NA     "10"   "25"   "34"   "23"   "13"   "20"   "20"   "20"   "22"   "24"   "30"  
 > 
 > # generate plots
 > freq_plot <- grep_viz_freq(gtf, image_prefix = 'optimization', label = 'Compiled')
@@ -84,72 +84,92 @@ Pct   NA     "75"   NA     "10"   "24"   "34"   "23"   "13"   "20"   "21"   "20"
 > # Chunk 5: dependencies
 > # function from shared_fn.R - sets package_df$package_deps
 > package_df <- calc_dependencies(package_df)
-          Rcpp       parallel        foreach     doParallel microbenchmark         future   RcppParallel           doMC           Rmpi 
-          1454            913            483            367             77             35             33             25             23 
-          snow     rbenchmark         doSNOW   future.apply    parallelMap       sparklyr   parallelDist          doMPI         tictoc 
-            21             20             16             15             14              8              5              5              4 
-    batchtools          profr        profvis         SparkR       partools            DSL   DistributedR            ddR     threadpool 
-             3              1              1              1              1              1              0              0              0 
+          Rcpp       parallel        foreach     doParallel microbenchmark         future   RcppParallel 
+          1528            941            507            390             83             39             35 
+          doMC           Rmpi     rbenchmark           snow         doSNOW   future.apply    parallelMap 
+            26             23             21             21             16             16             14 
+      sparklyr         tictoc   parallelDist          doMPI     batchtools          profr        profvis 
+            11              5              5              5              3              2              1 
+        SparkR       partools            DSL 
+             1              1              1 
 > 
 > # are there any that have more than one dependency listed?
 > # these are all counted multiple times in histogram
 > show_multiple_dependencies(package_df, look_for_packages)
-Packages with 0 dependencies: 10596 
-Packages with 1 dependencies: 1840 
-Packages with 2 dependencies: 377 
+Packages with 0 dependencies: 10899 
+Packages with 1 dependencies: 1912 
+Packages with 2 dependencies: 406 
 Multiple Dependency Table (dep=2):
-    batchtools,parallel  batchtools,parallelMap            doMC,foreach           doMC,parallel      doParallel,foreach     doParallel,parallel 
-                      1                       1                      10                       2                     100                      13 
-        doParallel,Rcpp        foreach,parallel            foreach,Rcpp     future,future.apply         future,parallel             future,Rcpp 
-                      4                      11                      24                       5                       4                       3 
-microbenchmark,parallel     microbenchmark,Rcpp       parallelDist,Rcpp    parallel,parallelMap     parallel,rbenchmark           parallel,Rcpp 
-                      2                      31                       1                       3                       1                     117 
-          parallel,Rmpi           parallel,snow         rbenchmark,Rcpp       Rcpp,RcppParallel               Rcpp,Rmpi             Rcpp,tictoc 
-                      6                       1                       9                      23                       1                       1 
-              Rmpi,snow 
-                      3 
-Packages with 3 dependencies: 214 
+    batchtools,parallel  batchtools,parallelMap            doMC,foreach           doMC,parallel 
+                      1                       1                      10                       2 
+              doMC,Rcpp      doParallel,foreach     doParallel,parallel         doParallel,Rcpp 
+                      1                     110                      14                       4 
+    doParallel,sparklyr          foreach,future        foreach,parallel            foreach,Rcpp 
+                      1                       1                      12                      25 
+    future,future.apply         future,parallel             future,Rcpp microbenchmark,parallel 
+                      6                       5                       2                       3 
+    microbenchmark,Rcpp       parallelDist,Rcpp    parallel,parallelMap     parallel,rbenchmark 
+                     34                       1                       3                       3 
+          parallel,Rcpp           parallel,Rmpi           parallel,snow         rbenchmark,Rcpp 
+                    124                       6                       1                       8 
+      Rcpp,RcppParallel               Rcpp,Rmpi             Rcpp,tictoc               Rmpi,snow 
+                     23                       1                       1                       3 
+Packages with 3 dependencies: 220 
 Multiple Dependency Table (dep=3):
-    batchtools,future,future.apply            doMC,doParallel,foreach                doMC,doSNOW,foreach              doMC,foreach,parallel 
-                                 1                                  4                                  1                                  1 
-                 doMC,foreach,Rcpp           doMPI,doParallel,foreach             doMPI,foreach,parallel  doParallel,foreach,microbenchmark 
-                                 1                                  1                                  1                                  1 
-       doParallel,foreach,parallel    doParallel,foreach,parallelDist           doParallel,foreach,profr            doParallel,foreach,Rcpp 
-                               132                                  1                                  1                                 36 
-    doParallel,microbenchmark,Rcpp           doParallel,parallel,Rcpp            doSNOW,foreach,parallel                doSNOW,foreach,Rcpp 
-                                 1                                  4                                  5                                  3 
-               doSNOW,foreach,snow            foreach,future,parallel              foreach,parallel,Rmpi              foreach,parallel,snow 
-                                 2                                  1                                  1                                  1 
-future,future.apply,microbenchmark       future,future.apply,parallel           future,future.apply,Rcpp               future,parallel,Rcpp 
-                                 1                                  1                                  2                                  1 
-      microbenchmark,parallel,Rcpp   microbenchmark,Rcpp,RcppParallel         parallel,parallelDist,Rcpp        parallel,parallelMap,tictoc 
-                                 1                                  2                                  1                                  1 
-        parallel,Rcpp,RcppParallel                 parallel,Rcpp,Rmpi                 parallel,Rmpi,snow 
-                                 2                                  1                                  2 
-Packages with 4 dependencies: 49 
+    batchtools,future,future.apply            doMC,doParallel,foreach                doMC,doSNOW,foreach 
+                                 1                                  4                                  1 
+             doMC,foreach,parallel                  doMC,foreach,Rcpp           doMPI,doParallel,foreach 
+                                 1                                  1                                  1 
+            doMPI,foreach,parallel  doParallel,foreach,microbenchmark        doParallel,foreach,parallel 
+                                 1                                  1                                133 
+   doParallel,foreach,parallelDist           doParallel,foreach,profr            doParallel,foreach,Rcpp 
+                                 1                                  1                                 39 
+    doParallel,microbenchmark,Rcpp           doParallel,parallel,Rcpp            doSNOW,foreach,parallel 
+                                 1                                  4                                  5 
+               doSNOW,foreach,Rcpp                doSNOW,foreach,snow            foreach,future,parallel 
+                                 3                                  2                                  1 
+             foreach,parallel,Rmpi              foreach,parallel,snow future,future.apply,microbenchmark 
+                                 1                                  1                                  1 
+      future,future.apply,parallel           future,future.apply,Rcpp               future,parallel,Rcpp 
+                                 1                                  2                                  2 
+      microbenchmark,parallel,Rcpp   microbenchmark,Rcpp,RcppParallel         parallel,parallelDist,Rcpp 
+                                 1                                  2                                  1 
+       parallel,parallelMap,tictoc         parallel,Rcpp,RcppParallel                 parallel,Rcpp,Rmpi 
+                                 1                                  2                                  1 
+                parallel,Rmpi,snow       rbenchmark,Rcpp,RcppParallel 
+                                 2                                  1 
+Packages with 4 dependencies: 53 
 Multiple Dependency Table (dep=4):
-           doMC,doParallel,foreach,Rcpp     doMPI,doParallel,foreach,rbenchmark      doParallel,doSNOW,foreach,parallel 
-                                      1                                       1                                       1 
-         doParallel,doSNOW,foreach,Rcpp          doParallel,foreach,future,Rcpp        doParallel,foreach,parallel,Rcpp 
-                                      1                                       1                                      36 
-       doParallel,foreach,parallel,Rmpi            doSNOW,foreach,parallel,Rcpp    foreach,future,future.apply,parallel 
-                                      3                                       1                                       1 
-      future,future.apply,parallel,Rcpp    microbenchmark,parallel,profvis,Rcpp microbenchmark,parallel,rbenchmark,Rcpp 
-                                      1                                       1                                       1 
-Packages with 5 dependencies: 15 
+           doMC,doParallel,foreach,Rcpp     doMPI,doParallel,foreach,rbenchmark 
+                                      1                                       1 
+     doParallel,doSNOW,foreach,parallel          doParallel,doSNOW,foreach,Rcpp 
+                                      1                                       1 
+         doParallel,foreach,future,Rcpp       doParallel,foreach,parallel,profr 
+                                      1                                       1 
+       doParallel,foreach,parallel,Rcpp        doParallel,foreach,parallel,Rmpi 
+                                     39                                       3 
+           doSNOW,foreach,parallel,Rcpp    foreach,future,future.apply,parallel 
+                                      1                                       1 
+      future,future.apply,parallel,Rcpp    microbenchmark,parallel,profvis,Rcpp 
+                                      1                                       1 
+microbenchmark,parallel,rbenchmark,Rcpp 
+                                      1 
+Packages with 5 dependencies: 16 
 Multiple Dependency Table (dep=5):
                 doMPI,doParallel,foreach,parallel,Rcpp        doParallel,foreach,microbenchmark,parallel,Rcpp 
                                                      1                                                      5 
            doParallel,foreach,parallel,rbenchmark,Rcpp          doParallel,foreach,parallel,Rcpp,RcppParallel 
-                                                     1                                                      4 
+                                                     1                                                      5 
                  doParallel,foreach,parallel,Rcpp,Rmpi                      doSNOW,foreach,parallel,Rcpp,snow 
                                                      1                                                      1 
              foreach,future,future.apply,parallel,snow microbenchmark,parallel,parallelDist,Rcpp,RcppParallel 
                                                      1                                                      1 
 Packages with 6 dependencies: 2 
 Multiple Dependency Table (dep=6):
-              doMC,doParallel,doSNOW,foreach,parallel,snow doParallel,foreach,parallel,parallelDist,Rcpp,RcppParallel 
-                                                         1                                                          1 
+              doMC,doParallel,doSNOW,foreach,parallel,snow 
+                                                         1 
+doParallel,foreach,parallel,parallelDist,Rcpp,RcppParallel 
+                                                         1 
 Packages with 7 dependencies: 1 
 Multiple Dependency Table (dep=7):
 doMPI,doParallel,foreach,future,parallel,parallelMap,snow 
@@ -172,9 +192,6 @@ Packages with 22 dependencies: 0
 Packages with 23 dependencies: 0 
 Packages with 24 dependencies: 0 
 Packages with 25 dependencies: 0 
-Packages with 26 dependencies: 0 
-Packages with 27 dependencies: 0 
-Packages with 28 dependencies: 0 
 > 
 > # Chunk 6: dependency_based_visualizations
 > # need to merge transformed_df with package_df to keep those with no dependency and create better histogram
@@ -186,10 +203,11 @@ Packages with 28 dependencies: 0
 +                        FUN=length)
 > 
 > names(dep_freqs) <- c('Year', 'Dependency', 'Count')
+> dep_freqs$Dependency <- reorder_none(dep_freqs$Dependency)
 > 
 > fplot <- ggplot(data=dep_freqs[dep_freqs$Count > 14, ], aes(x=Year, y=Count, fill=Dependency)) +
 +   geom_bar(stat="identity") +
-+   scale_fill_viridis_d(direction = -1, option="inferno", end=0.96) +
++   scale_fill_viridis_d(option="inferno", end=0.96) +
 +   xlab("Year Package Last Updated") +
 +   labs(fill = "Dependency n > 14")
 > fplot
@@ -200,55 +218,92 @@ Packages with 28 dependencies: 0
 > print('Dependency Table:')
 [1] "Dependency Table:"
 > dep_totals
-                   [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
-Year               "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
-Count              "   1" "   4" "   1" "  10" "  25" "  32" "  66" " 473" " 575" " 787" "1210" "1881" "2934" "6123"
-Rcpp               "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  0"  "  4"  "  6"  " 42"  " 64"  "157"  "312"  "868" 
-Rcpp_Pct           " 0"   " 0"   " 0"   " 0"   " 0"   " 3"   " 0"   " 1"   " 1"   " 5"   " 5"   " 8"   "11"   "14"  
-tictoc             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "3"   
-rbenchmark         " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 1"   " 4"   "14"  
-microbenchmark     " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 5"   "12"   "60"  
-microbenchmark_Pct "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"   
-profr              "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"   
-profvis            "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"   
-snow               " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 4"   " 1"   " 0"   " 1"   " 0"   " 5"   "10"  
-snow_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"    "0"    "0"    "0"   
-doSNOW             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "2"    "0"    "0"    "5"    "8"   
-parallel           "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  3"  " 14"  " 32"  " 55"  "109"  "186"  "514" 
-parallel_Pct       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "4"    "5"    "6"    "6"    "8"   
-doParallel         "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  4"  " 21"  " 39"  " 77"  "225" 
-doParallel_Pct     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "2"    "3"    "4"   
-Rmpi               "0"    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "0"    "0"    "7"    "0"    "5"    "9"   
-Rmpi_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"   
-foreach            "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  3"  "  5"  " 19"  " 31"  " 62"  " 93"  "269" 
-foreach_Pct        "0"    "0"    "0"    "0"    "0"    "0"    "2"    "1"    "1"    "2"    "3"    "3"    "3"    "4"   
-future             " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 5"   "30"  
-future.apply       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   "15"  
-SparkR             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"   
-sparklyr           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "5"   
-batchtools         "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "3"   
-RcppParallel       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 0"   " 2"   " 7"   "23"  
-parallelDist       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "5"   
-parallelMap        "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "4"    "8"   
-doMC               "0"    "0"    "0"    "0"    "0"    "0"    "1"    "1"    "1"    "1"    "3"    "5"    "4"    "9"   
-doMC_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "2"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
-doMPI              "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "5"   
-partools           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"   
-DSL                "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"   
+                   [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13] 
+Year               "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017"
+Count              "   1" "   4" "   1" "  10" "  24" "  32" "  66" " 463" " 566" " 773" "1170" "1822" "2699"
+Rcpp               "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  0"  "  4"  "  6"  " 37"  " 60"  "149"  "273" 
+Rcpp_Pct           " 0"   " 0"   " 0"   " 0"   " 0"   " 3"   " 0"   " 1"   " 1"   " 5"   " 5"   " 8"   "10"  
+tictoc             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"   
+rbenchmark         " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 1"   " 3"  
+microbenchmark     " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 5"   "11"  
+microbenchmark_Pct "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+profr              "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"   
+profvis            "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+snow               " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 4"   " 1"   " 0"   " 1"   " 0"   " 5"  
+snow_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"    "0"    "0"   
+doSNOW             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "2"    "0"    "0"    "4"   
+parallel           "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  3"  " 14"  " 32"  " 53"  "102"  "169" 
+parallel_Pct       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "4"    "5"    "6"    "6"   
+doParallel         "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  4"  " 20"  " 38"  " 68" 
+doParallel_Pct     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"    "2"    "3"   
+Rmpi               " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 0"   " 0"   " 7"   " 0"   " 4"  
+Rmpi_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"   
+foreach            "  0"  "  0"  "  0"  "  0"  "  0"  "  0"  "  1"  "  3"  "  5"  " 19"  " 30"  " 61"  " 83" 
+foreach_Pct        "0"    "0"    "0"    "0"    "0"    "0"    "2"    "1"    "1"    "2"    "3"    "3"    "3"   
+future             " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 4"  
+future_Pct         "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+future.apply       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"  
+SparkR             "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+sparklyr           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "1"   
+batchtools         "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+RcppParallel       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 6"  
+parallelDist       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+parallelMap        "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "4"   
+doMC               " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 1"   " 1"   " 1"   " 3"   " 5"   " 4"  
+doMC_Pct           "0"    "0"    "0"    "0"    "0"    "0"    "2"    "0"    "0"    "0"    "0"    "0"    "0"   
+doMPI              "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"   
+partools           "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"   
+DSL                "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"   
+                   [,14] 
+Year               "2018"
+Count              "6963"
+Rcpp               "998" 
+Rcpp_Pct           "14"  
+tictoc             "4"   
+rbenchmark         "16"  
+microbenchmark     "67"  
+microbenchmark_Pct "1"   
+profr              "1"   
+profvis            "1"   
+snow               "10"  
+snow_Pct           "0"   
+doSNOW             "9"   
+parallel           "568" 
+parallel_Pct       "8"   
+doParallel         "259" 
+doParallel_Pct     "4"   
+Rmpi               "10"  
+Rmpi_Pct           "0"   
+foreach            "305" 
+foreach_Pct        "4"   
+future             "35"  
+future_Pct         "1"   
+future.apply       "16"  
+SparkR             "1"   
+sparklyr           "9"   
+batchtools         "3"   
+RcppParallel       "27"  
+parallelDist       "5"   
+parallelMap        "8"   
+doMC               "10"  
+doMC_Pct           "0"   
+doMPI              "5"   
+partools           "0"   
+DSL                "0"   
 > 
 > # Chunk 7: comparison
 > # About 846 more appear to use compiled code
 > print("Difference between packages that have src directory vs dependency on optimization framework:")
 [1] "Difference between packages that have src directory vs dependency on optimization framework:"
 > nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
-[1] 839
+[1] 818
 > 
 > # About 1701 packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code
 > only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
 > print(paste("Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code:", nrow(only_grep)))
-[1] "Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code: 1706"
+[1] "Number of packages that don't list a dependency to one of the specified packages, but have a src directory for compiled code: 1726"
 > 
 > # About 855 packages that list a dependency to one of the specified packages but don't have compiled code
 > only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
 > print(paste("Number of packages that list a dependency to one of the specified packages but don't have compiled code:", nrow(only_dep)))
-[1] "Number of packages that list a dependency to one of the specified packages but don't have compiled code: 867"
+[1] "Number of packages that list a dependency to one of the specified packages but don't have compiled code: 908"

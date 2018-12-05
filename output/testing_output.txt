@@ -45,7 +45,7 @@
 [1] "It appears that all files downloaded and untared successfully."
 > 
 > print(paste('As of', date(), 'there are', nrow(package_df), 'packages available on CRAN'))
-[1] "As of Wed Sep 26 16:40:30 2018 there are 13094 packages available on CRAN"
+[1] "As of Tue Dec  4 17:31:50 2018 there are 13509 packages available on CRAN"
 > 
 > # Chunk 4: grep_based_graphics
 > # build data needed for plots
@@ -54,9 +54,9 @@
 [1] "Summary Table for Grep Results"
       [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
 Year  "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
-Total "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 467" " 573" " 768" "1165" "1783" "2725" "5475"
-Grep  NA     "   1" NA     "   2" "   5" "   4" "  10" "  33" "  66" "  96" " 228" " 483" " 960" "2407"
-Pct   NA     "25"   NA     "20"   "20"   "12"   "15"   " 7"   "12"   "12"   "20"   "27"   "35"   "44"  
+Total "   1" "   4" "   1" "  10" "  24" "  32" "  65" " 457" " 564" " 755" "1127" "1726" "2517" "6226"
+Grep  NA     "   1" NA     "   2" "   5" "   4" "  10" "  33" "  64" "  91" " 212" " 467" " 863" "2722"
+Pct   NA     "25"   NA     "20"   "21"   "12"   "15"   " 7"   "11"   "12"   "19"   "27"   "34"   "44"  
 > 
 > # generate plots
 > freq_plot <- grep_viz_freq(gtf, image_prefix = 'testing', label = 'Testing')
@@ -68,13 +68,13 @@ Pct   NA     "25"   NA     "20"   "20"   "12"   "15"   " 7"   "12"   "12"   "20"
 > # function from shared_fn.R - sets package_df$package_deps
 > package_df <- calc_dependencies(package_df)
 testthat    RUnit   testit   svUnit unitizer unittest 
-    3277      129       25       10        3        1 
+    3437      131       25        9        3        1 
 > 
 > # are there any that have more than one dependency listed?
 > # these are all counted multiple times in histogram
 > show_multiple_dependencies(package_df, look_for_packages)
-Packages with 0 dependencies: 9665 
-Packages with 1 dependencies: 3413 
+Packages with 0 dependencies: 9919 
+Packages with 1 dependencies: 3574 
 Packages with 2 dependencies: 16 
 Multiple Dependency Table (dep=2):
  RUnit,testthat testit,testthat 
@@ -95,9 +95,11 @@ Packages with 7 dependencies: 0
 +                        FUN=length)
 > 
 > names(dep_freqs) <- c('Year', 'Dependency', 'Count')
+> dep_freqs$Dependency <- reorder_none(dep_freqs$Dependency)
+> 
 > fplot <- ggplot(data=dep_freqs[dep_freqs$Year > 2007, ], aes(x=Year, y=Count, fill=Dependency)) +
 +   geom_bar(stat="identity") +
-+   scale_fill_viridis_d(direction = -1, option="inferno", end = 0.96) +
++   scale_fill_viridis_d(option="inferno", end = 0.96) +
 +   xlab("Year Package Last Updated") +
 +   labs(fill = "Framework")
 > fplot
@@ -110,12 +112,12 @@ Packages with 7 dependencies: 0
 > dep_totals
              [,1]   [,2]   [,3]   [,4]   [,5]   [,6]   [,7]   [,8]   [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
 Year         "2005" "2006" "2007" "2008" "2009" "2010" "2011" "2012" "2013" "2014" "2015" "2016" "2017" "2018"
-Count        "   1" "   4" "   1" "  10" "  25" "  32" "  65" " 467" " 573" " 768" "1168" "1786" "2726" "5484"
-svUnit       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "1"    "1"    "0"    "2"    "1"    "4"   
-RUnit        " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 3"   " 1"   " 6"   "13"   " 9"   "33"   "63"  
-RUnit_Pct    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "1"    "0"    "1"    "1"    "1"    "1"    "1"   
-testthat     "   0" "   0" "   0" "   0" "   0" "   0" "   1" "   1" "  21" "  25" " 127" " 372" " 745" "1985"
-testthat_Pct " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 0"   " 4"   " 3"   "11"   "21"   "27"   "36"  
+Count        "   1" "   4" "   1" "  10" "  24" "  32" "  65" " 457" " 564" " 755" "1130" "1729" "2518" "6235"
+svUnit       "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"    "0"    "0"    "2"    "1"    "5"   
+RUnit        " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 1"   " 3"   " 1"   " 6"   " 9"   " 8"   "31"   "72"  
+RUnit_Pct    "0"    "0"    "0"    "0"    "0"    "0"    "2"    "1"    "0"    "1"    "1"    "0"    "1"    "1"   
+testthat     "   0" "   0" "   0" "   0" "   0" "   0" "   1" "   1" "  21" "  24" " 118" " 361" " 668" "2243"
+testthat_Pct " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 0"   " 4"   " 3"   "10"   "21"   "27"   "36"  
 testit       " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 0"   " 2"   " 2"   " 3"   "18"  
 unitizer     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "2"   
 unittest     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "1"    "0"   
@@ -125,16 +127,16 @@ unittest     "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0"    "0" 
 > print("Difference between packages that have testing code vs dependency on testing framework:")
 [1] "Difference between packages that have testing code vs dependency on testing framework:"
 > nrow(package_df[package_df$found == TRUE, ])  - nrow(package_df[package_df$package_deps != 'none', ])
-[1] 866
+[1] 884
 > 
 > # About 1070 packages that don't list a dependency to a testing framework, but have a testing directory
 > # Randomly looked at several: some don't use a framework (e.g. xlsx)
 > # others use a framework but don't list it as a dependency (e.g. redcapAPI)
 > only_grep <- package_df[package_df$found == TRUE & package_df$package_deps == 'none', ]
 > print(paste("Number of packages that don't list a dependency to a testing framework, but have a testing directory:", nrow(only_grep)))
-[1] "Number of packages that don't list a dependency to a testing framework, but have a testing directory: 1080"
+[1] "Number of packages that don't list a dependency to a testing framework, but have a testing directory: 1115"
 > 
 > # About 211 packages that list a dependency to a testing framework, but don't use one
 > only_dep <- package_df[package_df$found == FALSE & package_df$package_deps != 'none', ]
 > print(paste("Number of packages that list a dependency to a testing framework, but don't use one:", nrow(only_dep)))
-[1] "Number of packages that list a dependency to a testing framework, but don't use one: 214"
+[1] "Number of packages that list a dependency to a testing framework, but don't use one: 231"
