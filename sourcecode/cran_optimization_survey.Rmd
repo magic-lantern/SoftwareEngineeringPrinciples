@@ -16,7 +16,7 @@ library(stringi)
 library(ggplot2)
 
 # these packages are used for a range of items related to optimization - compiled code, multi-processing, etc.
-look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'sparklyr', 'batchtools', 'RcppParallel', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
+look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'bench', 'benchr', 'profr', 'profvis', 'snow', 'doSNOW', 'parallel', 'doParallel', 'Rmpi', 'foreach', 'future', 'future.apply', 'SparkR', 'sparklyr', 'batchtools', 'RcppParallel', 'parallelDist', 'parallelMap', 'doMC', 'doMPI', 'partools', 'DSL')
 # Notes about package selection
 #Timing tools
 #  system.time() - time how long something takes
@@ -24,6 +24,8 @@ look_for_packages <- c('Rcpp', 'tictoc', 'rbenchmark', 'microbenchmark', 'profr'
 #  tictoc - package
 #  rbenchmark - package
 #  microbenchmark - Package
+#  benchr - package
+#  bench - new package from tidyverse
 #  Rprof - function
 #  profr - Package
 #  profvis - Package

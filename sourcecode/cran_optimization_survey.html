@@ -202,35 +202,37 @@ package_df &lt;- calc_dependencies(package_df)</code></pre>
 ##             21             16             16             14             11 
 ##         tictoc   parallelDist          doMPI     batchtools          profr 
 ##              5              5              5              3              2 
-##        profvis         SparkR       partools            DSL 
-##              1              1              1              1</code></pre>
+##         benchr        profvis         SparkR       partools            DSL 
+##              1              1              1              1              1 
+##          bench 
+##              0</code></pre>
 <pre class="r"><code># are there any that have more than one dependency listed?
 # these are all counted multiple times in histogram
 show_multiple_dependencies(package_df, look_for_packages)</code></pre>
 <pre><code>## Packages with 0 dependencies: 10899 
-## Packages with 1 dependencies: 1912 
-## Packages with 2 dependencies: 406 
+## Packages with 1 dependencies: 1911 
+## Packages with 2 dependencies: 407 
 ## Multiple Dependency Table (dep=2):
-##     batchtools,parallel  batchtools,parallelMap            doMC,foreach 
-##                       1                       1                      10 
-##           doMC,parallel               doMC,Rcpp      doParallel,foreach 
-##                       2                       1                     110 
-##     doParallel,parallel         doParallel,Rcpp     doParallel,sparklyr 
-##                      14                       4                       1 
-##          foreach,future        foreach,parallel            foreach,Rcpp 
-##                       1                      12                      25 
-##     future,future.apply         future,parallel             future,Rcpp 
-##                       6                       5                       2 
-## microbenchmark,parallel     microbenchmark,Rcpp       parallelDist,Rcpp 
-##                       3                      34                       1 
-##    parallel,parallelMap     parallel,rbenchmark           parallel,Rcpp 
-##                       3                       3                     124 
-##           parallel,Rmpi           parallel,snow         rbenchmark,Rcpp 
-##                       6                       1                       8 
-##       Rcpp,RcppParallel               Rcpp,Rmpi             Rcpp,tictoc 
-##                      23                       1                       1 
-##               Rmpi,snow 
-##                       3 
+##     batchtools,parallel  batchtools,parallelMap             benchr,Rcpp 
+##                       1                       1                       1 
+##            doMC,foreach           doMC,parallel               doMC,Rcpp 
+##                      10                       2                       1 
+##      doParallel,foreach     doParallel,parallel         doParallel,Rcpp 
+##                     110                      14                       4 
+##     doParallel,sparklyr          foreach,future        foreach,parallel 
+##                       1                       1                      12 
+##            foreach,Rcpp     future,future.apply         future,parallel 
+##                      25                       6                       5 
+##             future,Rcpp microbenchmark,parallel     microbenchmark,Rcpp 
+##                       2                       3                      34 
+##       parallelDist,Rcpp    parallel,parallelMap     parallel,rbenchmark 
+##                       1                       3                       3 
+##           parallel,Rcpp           parallel,Rmpi           parallel,snow 
+##                     124                       6                       1 
+##         rbenchmark,Rcpp       Rcpp,RcppParallel               Rcpp,Rmpi 
+##                       8                      23                       1 
+##             Rcpp,tictoc               Rmpi,snow 
+##                       1                       3 
 ## Packages with 3 dependencies: 220 
 ## Multiple Dependency Table (dep=3):
 ##     batchtools,future,future.apply            doMC,doParallel,foreach 
@@ -338,7 +340,9 @@ show_multiple_dependencies(package_df, look_for_packages)</code></pre>
 ## Packages with 22 dependencies: 0 
 ## Packages with 23 dependencies: 0 
 ## Packages with 24 dependencies: 0 
-## Packages with 25 dependencies: 0</code></pre>
+## Packages with 25 dependencies: 0 
+## Packages with 26 dependencies: 0 
+## Packages with 27 dependencies: 0</code></pre>
 <div id="visualizations-and-tables-for-dependency-results" class="section level3">
 <h3>Visualizations and Tables for Dependency results</h3>
 <pre class="r"><code># need to merge transformed_df with package_df to keep those with no dependency and create better histogram
@@ -375,6 +379,7 @@ print('Dependency Table:')</code></pre>
 ## rbenchmark         &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;  
 ## microbenchmark     &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;  
 ## microbenchmark_Pct &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;   
+## benchr             &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;   
 ## profr              &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;   
 ## profvis            &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;   
 ## snow               &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 4&quot;  
@@ -404,13 +409,14 @@ print('Dependency Table:')</code></pre>
 ## DSL                &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;   
 ##                    [,9]   [,10]  [,11]  [,12]  [,13]  [,14] 
 ## Year               &quot;2013&quot; &quot;2014&quot; &quot;2015&quot; &quot;2016&quot; &quot;2017&quot; &quot;2018&quot;
-## Count              &quot; 566&quot; &quot; 773&quot; &quot;1170&quot; &quot;1822&quot; &quot;2699&quot; &quot;6963&quot;
+## Count              &quot; 566&quot; &quot; 773&quot; &quot;1170&quot; &quot;1822&quot; &quot;2699&quot; &quot;6964&quot;
 ## Rcpp               &quot;  6&quot;  &quot; 37&quot;  &quot; 60&quot;  &quot;149&quot;  &quot;273&quot;  &quot;998&quot; 
 ## Rcpp_Pct           &quot; 1&quot;   &quot; 5&quot;   &quot; 5&quot;   &quot; 8&quot;   &quot;10&quot;   &quot;14&quot;  
 ## tictoc             &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;1&quot;    &quot;4&quot;   
 ## rbenchmark         &quot; 0&quot;   &quot; 0&quot;   &quot; 1&quot;   &quot; 1&quot;   &quot; 3&quot;   &quot;16&quot;  
 ## microbenchmark     &quot; 0&quot;   &quot; 0&quot;   &quot; 0&quot;   &quot; 5&quot;   &quot;11&quot;   &quot;67&quot;  
 ## microbenchmark_Pct &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;1&quot;   
+## benchr             &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;1&quot;   
 ## profr              &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;1&quot;    &quot;0&quot;    &quot;1&quot;   
 ## profvis            &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;0&quot;    &quot;1&quot;   
 ## snow               &quot; 1&quot;   &quot; 0&quot;   &quot; 1&quot;   &quot; 0&quot;   &quot; 5&quot;   &quot;10&quot;  
