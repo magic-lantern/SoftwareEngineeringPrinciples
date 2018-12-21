@@ -11,7 +11,7 @@ Figure 3 Count of packages with files in standard source directories that has co
 
 
 Figure 4 Packages with optimization framework dependency
-Figure 4 Count of dependencies on an optimization related package, see "ANALYSIS OF OPTIMIZATION OF R PACKAGES ON CRAN" for complete list, by year a package was last updated. Packages with no stated dependency from their DESCRIPTION file for one of the specified packages are listed as 'none.' In order to aid visual understanding of top dependencies, we limited display to  those packages that had 14 or more dependent packages.
+Figure 4 Count of dependencies on an optimization related package, see "OPTIMIZATION OF R PACKAGES" section for complete list, by year a package was last updated. Packages with no stated dependency from their DESCRIPTION file for one of the specified packages are listed as 'none.' In order to aid visual understanding of top dependencies, we limited display to  those packages that had 14 or more dependent packages.
 
 Figure 5 Profvis Flame Graph
 Figure 5 Visual depiction of memory allocation/deallocation, execution time, and call stack.
