@@ -31,7 +31,8 @@ library(ggplot2)
 look_for_packages <- c("svUnit", "RUnit", "testthat", "testit", "unitizer", "unittest")
 # testit is a minimal tool for testing packages, but it can be used for unit testing - e.g. tinytex
 # Packages considered but excluded:
-#   webmockr - Could be used for a testing library - or perhaps a roll your own test suite, but isn't as far as I could tell
+#   webmockr - Library for mocking (or "stubbing out") HTTP requests. Although it wasn't listed as a dependency when I checked, some packages now do use it to aid in unit testing. 
+#   vcr - Package that is for "caching HTTP requests and responses, primarily in unit tests".
 #   vdiffr - Is a extension for testthat, so requires testthat to work
 #
 # Users could use core R functionality for unit tests such as stopifnot() instead of packages
